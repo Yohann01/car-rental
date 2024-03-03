@@ -34,14 +34,14 @@
             </div>    
     </header>
     <section class="home" id="home">
-        <div class="row-home">
+        <div class="home-container">
             <div class="column" id="text-col">
                 <h4>Plan your trip now</h4>
                 <h1>Unlock Your Journey,<br> One Rental at a Time.</h1>
                 <p>Experience the freedom of the open road with our hassle-free car rental services.<br> Book now and let us pave the way for your unforgettable travel experience.</p>
                 
                 <div id="home-btn">
-                    <a href="#" class="rent-btn">Rent Now <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="24"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg></a></li>
+                    <a href="#car-select" class="rent-btn">Rent Now <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="24"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg></a></li>
                     <a href="#" class="learn-more-btn">Learn More <svg xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="24"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg></a></li>
                 </div>
             </div>
@@ -52,19 +52,19 @@
         </div>
         <br>
     </section>
-
-    <section>
-        <div class="row-booking">
-            <div class="column-booking" id="book-col-1">
+    <!-- Booking section -->
+    <section class="booking" id="bookingdown">
+        <div class="booking-container" >
+            <div class="column" id="book-col-1">
                 <h1 class="title">Book a car</h1>
 
                 <!-- Column 1 -->
-                <h4 class="title-col">
+                <h4 >
                     <span class="svg-container">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                             <path d="M240-200v40q0 17-11.5 28.5T200-120h-40q-17 0-28.5-11.5T120-160v-320l84-240q6-18 21.5-29t34.5-11h440q19 0 34.5 11t21.5 29l84 240v320q0 17-11.5 28.5T800-120h-40q-17 0-28.5-11.5T720-160v-40H240Zm-8-360h496l-42-120H274l-42 120Zm68 240q25 0 42.5-17.5T360-380q0-25-17.5-42.5T300-440q-25 0-42.5 17.5T240-380q0 25 17.5 42.5T300-320Zm360 0q25 0 42.5-17.5T720-380q0-25-17.5-42.5T660-440q-25 0-42.5 17.5T600-380q0 25 17.5 42.5T660-320Z"/></svg>
                     </span>Select your car type 
-                    <span id="booking">*</span>
+                    <span >*</span>
                 </h4>
                 <select type="text" class="car-type">
                     <option value="default">Select Car type</option>
@@ -75,26 +75,26 @@
                 <!-- Pick Up date -->
                 <br>
                 <br>
-                <h4 class="title-col">
+                <h4 >
                     <span class="svg-container">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                         <path d="M480-400q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Z"/></svg>
                     </span>Pick Up
-                    <span id="booking">*</span>
+                    <span >*</span>
                 </h4>
                 <input type="date" class="pickup-date">
             </div>
 
             <!-- Column 2 -->
 
-            <div class="column-booking" id="book-col-2">
+            <div class="column" id="book-col-2">
                 <!-- Pick up location -->
-                <h4 class="title-col">
+                <h4 >
                     <span class="svg-container">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                         <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 400Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>
                     </span>Pick up
-                    <span id="booking">*</span>
+                    <span >*</span>
                 </h4>
                 <select type="text" class="car-type">
                     <option value="default">Select pick up location</option>
@@ -108,25 +108,25 @@
                 <br>
                 <br>
                 <!-- Drop off -->
-                <h4 class="title-col">
+                <h4 >
                     <span class="svg-container">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                         <path d="M480-400q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Z"/></svg>
                     </span>Drop off
-                    <span id="booking">*</span>
+                    <span >*</span>
                 </h4>
                 <input type="date" class="pickup-date">
             </div>
 
             
             <!-- Column 3 -->
-            <div class="column-booking" id="book-col-3">
-                <h4 class="title-col">
+            <div class="column" id="book-col-3">
+                <h4 >
                     <span class="svg-container">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                         <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 400Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>
                     </span>Drop off
-                    <span id="booking">*</span>
+                    <span >*</span>
                 </h4>
                 <select type="text" class="car-type">
                     <option value="default">Select drop off location</option>
@@ -146,27 +146,66 @@
             </div>
         </div>
     </section>
+    
     <!-- Steps section -->
     <section class="steps">
         <!-- Row -->
-        <div class="row-steps">
-            <h4>Plan your trip now</h4>
+        <div class="steps-container">
+            <h3 class="text">Plan your trip now</h3>
             <h1>Quick & easy car rental</h1>
             <!-- Column 1 steps -->
-            <div class="column-steps" id="col-steps-1">
-                <h1 class="title">Select Car</h1>
+            <div class="column">
+                <i class='bx bxs-map' ></i>
+                <h3 class="title">Choose a location</h3>
+                <p>Select the preferred pickup and drop off locations from a list of available options.</p>
             </div>
             <!-- Column 2 steps -->
-            <div class="column-steps" id="col-steps-2">
-                <h1 class="title">Contact Operator</h1>
+            <div class="column">
+                <i class='bx bxs-calendar' ></i>
+                <h3 class="title">Pick-up date</h3>
+                <p>Specify the date and time you wish to pick up the rental car.</p>
             </div>
             <!-- Column 3 steps -->
-            <div class="column-steps" id="col-steps-3">
-                <h1 class="title">Let's Drive</h1>
+            <div class="column">
+                <i class='bx bxs-book-add' ></i>
+                <h3 class="title">Book a car</h3>  
+                <p>Browse through the available cars and complete the booking process by selecting your desired vehicle.</p> 
             </div>
         </div>
     </section>
 
+    <!-- Car selection  -->
+    <section class="car-select" >
+        <div class="car-select-container" id="car-select">
+            <h3 class="text">Vehicle Models</h3>
+            <h1>Our rental fleet</h1>  
+            <p>Choose from a variety of our amazing vehicles to rent for your next <br>adventure or business trip
+            </p> 
+            <!-- Column 1 -->
+            <div class="column left">
+                <button>2014 Honda Civic</button>
+                <button>2024 Hyundai Tucson</button>
+                <button>2017 Toyota Vios 1.5</button>
+                <button>Car</button>
+                <button>Car</button>
+                <button>Car</button>
+
+            </div>
+            <!-- Column 2 -->
+            <div class="column middle">
+                <img src="assets/rental-cars/toyota-vios.png" alt="">
+            </div>
+            <!-- Column 3 -->
+            <div class="column right">
+                <button>2014 Honda Civic</button>
+                <button>2024 Hyundai Tucson</button>
+                <button>2017 Toyota Vios 1.5</button>
+                <button>Car</button>
+                <button>Car</button>
+                <button>Car</button>
+            </div>
+        </div>
+    </section>
     <!-- Link to JS -->
     <script src="app.js">S</script>
 </body>
