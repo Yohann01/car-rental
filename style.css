@@ -370,7 +370,7 @@ option {
     text-align: center;
     margin: 350px 0 0 0;
 
-    height: 400px;
+    height: 500px;
 
 }
 .left, .right{
@@ -385,6 +385,8 @@ option {
 
 .left{
     padding: 0 0 0 30px;
+    display: flex;
+    flex-direction: column;
     
 
 }
@@ -411,7 +413,7 @@ option {
     color: var(--option-bg)
 }
 
-.car-select-container .left button{
+.car-select-btn{
     text-align: left;
     width: 65%;
     background:none;
@@ -421,10 +423,22 @@ option {
     padding: 10px;
     border: none;
     margin: 3.5px 0 3.5px 0;
-    }.car-select-container .left button:hover{
+    }.car-select-btn:hover{
         background: var(--main-color);
         color: var(--option-bg);
     }
+.seeAll-btn{
+    border-radius: 5px;
+    width: 35%;
+    background:none;
+    font-size: 14px;
+    font-weight: 1000;
+    padding: 10px;
+    margin: 10px 10px 0 7px;
+}.seeAll-btn:hover{
+    background-color: black;
+    color: white;
+}
 
 .car-select-container img{
     height: 100%;
@@ -433,6 +447,7 @@ option {
     /* object-fit: cover;   */
     padding: 0 30px 60px 30px;
 }
+
 
 /* Right div car select */
 .car-select-container table{
@@ -445,7 +460,8 @@ option {
         border: 2px solid black;
         border-collapse: collapse;
         height: 35px; /*whatever you need */
-
+        border-top: none !important;
+        table-layout: fixed;
         
 
         }
@@ -456,12 +472,11 @@ option {
             background:var(--main-color);
             padding: 0.5rem 4rem 0.5rem 4rem;
             font-size: 16px;
-            margin: 10px 0 0 0;
+            margin: 15px 0 0 0;
             text-transform: uppercase;
             border: none;
             font-weight: 800;
             box-shadow: 0 4px 8px rgba(255, 55, 20, 0.4); 
-
         }
 
 /* -----------Media---------- */

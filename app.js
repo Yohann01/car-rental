@@ -16,6 +16,7 @@ const cars = [
         mark: "Honda",
         year: 2014,
         ac:	"Yes",
+        doors: 4,
         transmission:"Automatic",
         fuelType: "Gasoline",
         color:[
@@ -36,6 +37,7 @@ const cars = [
         mark: "Hyundai",
         year: "2022",
         ac:	"Yes",
+        doors: 4,
         transmission:"Automatic",
         fuelType: "Gasoline",
         color:[
@@ -60,6 +62,7 @@ const cars = [
         mark: "Toyota",
         year: "2017",
         ac:	"Yes",
+        doors: 4,
         transmission:"Automatic",
         fuelType: "Gasoline",
         color:[
@@ -80,7 +83,8 @@ const cars = [
         mark: "Nissan",
         year: "2014",
         ac:	"Yes",
-        transmission:"Automatic",
+        doors: 4,
+        transmission:"Manual",
         fuelType: "Gasoline",
         color:[
             {
@@ -100,6 +104,7 @@ const cars = [
         mark: "Mitsubishi",
         year: "2020",
         ac:	"Yes",
+        doors: 4,
         transmission:"Automatic",
         fuelType: "Gasoline",
         color:[
@@ -120,6 +125,7 @@ const cars = [
         mark: "Ford",
         year: "2019",
         ac:	"Yes",
+        doors: 4,
         transmission:"Automatic",
         fuelType: "Gasoline",
         color:[
@@ -137,14 +143,17 @@ const cars = [
 
 
 const carSelected = document.querySelectorAll('.car-select-btn');
-
+carSelected[0].style.background = "#FF3714"
+carSelected[0].style.color = "white"
 
 let chosenCar = cars[0]
+
 
 const currentCarImage = document.querySelector(".carImage")
 const currentCarModel = document.querySelector(".carModel")
 const currentCarMark = document.querySelector(".carMark")
 const currentCarYear = document.querySelector(".carYear")
+const currentCarDoor = document.querySelector(".doors")
 const currentCarStatusAC = document.querySelector(".acStatus")
 const currentCarTransmission = document.querySelector(".transmission")
 const currentCarFuel = document.querySelector(".fuelType")
@@ -155,14 +164,12 @@ const currentCarFuel = document.querySelector(".fuelType")
 carSelected.forEach((carBtn, index) =>{
     carBtn.addEventListener('click',() =>{
         chosenCar = cars[index]
-        console.log(chosenCar)
-
         
         currentCarModel.textContent = chosenCar.model
-        console.log(chosenCar.model)
         currentCarMark.textContent = chosenCar.mark
         currentCarYear.textContent = chosenCar.year
         currentCarStatusAC.textContent = chosenCar.ac
+        currentCarDoor.textContent = chosenCar.doors
         currentCarTransmission.textContent = chosenCar.transmission
         currentCarFuel.textContent = chosenCar.fuelType
 
