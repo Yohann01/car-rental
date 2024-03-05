@@ -10,6 +10,7 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- Nav section -->
     <header>
         <a href="#"><img src="assets/logo.png" class="logo"></a>
             <ul class="navbar">
@@ -33,6 +34,7 @@
                 <a class="menu-btn" onclick=showSidebar() href="#"><svg  xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
             </div>    
     </header>
+    <!-- Home section -->
     <section class="home" id="home">
         <div class="home-container">
             <div class="column" id="text-col">
@@ -42,7 +44,7 @@
                 
                 <div id="home-btn">
                     <a href="#car-select" class="rent-btn">Rent Now <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="24"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg></a></li>
-                    <a href="#" class="learn-more-btn">Learn More <svg xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="24"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg></a></li>
+                    <a href="#" class="learn-more-btn">Learn More <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="24"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg></a></li>
                 </div>
             </div>
 
@@ -179,32 +181,62 @@
         <div class="car-select-container" id="car-select">
             <h3 class="text">Vehicle Models</h3>
             <h1>Our rental fleet</h1>  
-            <p>Choose from a variety of our amazing vehicles to rent for your next <br>adventure or business trip
+            <p class="text-p">Choose from a variety of our amazing vehicles to rent for your next <br>adventure or business trip
             </p> 
             <!-- Column 1 -->
             <div class="column left">
-                <button>2014 Honda Civic</button>
-                <button>2024 Hyundai Tucson</button>
-                <button>2017 Toyota Vios 1.5</button>
-                <button>Car</button>
-                <button>Car</button>
-                <button>Car</button>
+                <button class="car-select-btn">Honda Civic</button>
+                <button class="car-select-btn">Hyundai Tucson</button>
+                <button class="car-select-btn">Toyota Vios 1.5</button>
+                <button class="car-select-btn">Nissan Almera</button>
+                <button class="car-select-btn">Mitsubishi Lancer</button>
+                <button class="car-select-btn">Ford Fusion</button>
 
             </div>
             <!-- Column 2 -->
             <div class="column middle">
-                <img src="assets/rental-cars/toyota-vios.png" alt="">
+                <img class="carImage" src="honda-civic.png" alt="">
             </div>
             <!-- Column 3 -->
             <div class="column right">
-                <button>2014 Honda Civic</button>
-                <button>2024 Hyundai Tucson</button>
-                <button>2017 Toyota Vios 1.5</button>
-                <button>Car</button>
-                <button>Car</button>
-                <button>Car</button>
+                <div class="heading-container">
+                    <h2 class="heading">
+                        <span>30$</span>/ rent per day
+                    </h2>
+                </div>
+                <div class="content">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Model</td>
+                                <td class="carModel">Vios</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td class="carMark">Toyota</td>
+                            </tr>
+                            <tr>
+                                <td>Year</td>
+                                <td class="carYear">2017</td>
+                            </tr>
+                            <tr>
+                                <td>AC</td>
+                                <td class="acStatus">Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Transmission</td>
+                                <td class="transmission">Automatic</td>
+                            </tr>
+                            <tr>
+                                <td>Fuel Type</td>
+                                <td class="fuelType">Gasoline</td>
+                            </tr>
+                        </tbody>
+                            
+                    </table>
+                    <button class="reserve-btn">Reserve&nbsp; Now</button>
+                </div>
             </div>
-        </div>
     </section>
     <!-- Link to JS -->
     <script src="app.js">S</script>

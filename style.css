@@ -74,12 +74,13 @@ header{
     font-size: 16px;
     padding: 10px 10px;
     color: var(--text-color);
+    border: 1px solid transparent;
 
 }
 
 .navbar a:hover{
     border-radius: 100px;
-    border: 0.1px solid black;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
 }
 
 
@@ -176,6 +177,7 @@ font-size: 3rem;
     display: flex;
     padding-top: 30px;
     font-weight: 500;
+    
 }
 .home-container svg {
     fill: white;
@@ -190,21 +192,27 @@ font-size: 3rem;
     color: white;
     border-radius: 25px;
 }
+.rent-btn{
+
+    box-shadow: 0 4px 8px rgba(255, 55, 20, 0.4); 
+}
 
 .learn-more-btn {
     background: black;
     margin-left: 15px;
+    border: 1px solid transparent;
 
 }
-.learn-more-btn:hover{
+.learn-more-btn:hover {
     background: white;
     color: black;
-    border: 1px solid black;
-    
-    .home-container svg {
-        fill: white;
-        margin-left: 3px;
-    }
+    border-color:black;
+}
+
+
+.learn-more-btn:hover .svg-icon {
+    fill: black;
+    margin-left: 3px;
 }
 
 
@@ -249,7 +257,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     outline: 0;
     font: inherit;
     /* Personalize */
-    padding: 0.5rem 1rem 0.5rem 1rem;
+    padding: 0.5rem 0.81rem 0.5rem 1rem;
     background: no-repeat right 0.8em center / 1.4em,
     linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
     color: white;
@@ -346,6 +354,7 @@ option {
     /* background: rgb(48, 48, 48,0.09); */
     background: rgb(255, 55, 20, 0.12);
     border-radius: 0.5rem;
+    /* box-shadow: 0 4px 8px rgba(255, 55, 20, 0.4);  */
     padding: 5px;
     margin-bottom: 30px;
   }
@@ -361,55 +370,99 @@ option {
     text-align: center;
     margin: 350px 0 0 0;
 
+    height: 400px;
+
 }
 .left, .right{
     width: 25%;
-}
-.column-middle{
-    width: 50%;
-}
-
-/* .left{
-    background: red;
+ 
 }
 .middle{
-    background: yellow;
+    width: 50%;
+    height: 400px;
+
 }
-.right{
-    background: green;
+
+.left{
+    padding: 0 0 0 30px;
+    
+
+}
+
+ /* .middle{
+    background: yellow;
 } */
+.right{
+    align-items: center;
+} 
 .car-select-container h1{
     padding-bottom: 5px;
     font-size: 40px;
     font-weight: 800;
+
 }
 
-
-
-.car-select-container button{
-    width: 100%;
+.heading-container {
     background: var(--main-color);
+    border-radius: 10px 10px 0 0;
+    padding: 5px 0 5px 0;
+    width: 80%;
+    margin: 0 auto 0 auto;
+    color: var(--option-bg)
+}
+
+.car-select-container .left button{
+    text-align: left;
+    width: 65%;
+    background:none;
     padding: 0.5rem 4rem 0.5rem 4rem;
-    text-align: center;
-    color: white;
     font-size: 16px;
     font-weight: 1000;
-    align-items: center;
     padding: 10px;
     border: none;
-    margin: 2px 0 2px 0;
-}
+    margin: 3.5px 0 3.5px 0;
+    }.car-select-container .left button:hover{
+        background: var(--main-color);
+        color: var(--option-bg);
+    }
 
-.car-select-container img {
-    object-fit: contain;
-  /* or
-    object-fit: cover; */
-  } 
-  .car-select-container img {
+.car-select-container img{
     height: 100%;
     width: 100%;
-  }
-  
+    object-fit: contain;
+    /* object-fit: cover;   */
+    padding: 0 30px 60px 30px;
+}
+
+/* Right div car select */
+.car-select-container table{
+    align-items: center;
+    width: 80%;    
+    margin: 0 auto 0 auto;
+    font-size: 12px;
+    }
+        table, th, td{
+        border: 2px solid black;
+        border-collapse: collapse;
+        height: 35px; /*whatever you need */
+
+        
+
+        }
+        .content button{
+            text-align: center;
+            width: 80%;
+            color: white;
+            background:var(--main-color);
+            padding: 0.5rem 4rem 0.5rem 4rem;
+            font-size: 16px;
+            margin: 10px 0 0 0;
+            text-transform: uppercase;
+            border: none;
+            font-weight: 800;
+            box-shadow: 0 4px 8px rgba(255, 55, 20, 0.4); 
+
+        }
 
 /* -----------Media---------- */
 @media(max-width: 1010px){
