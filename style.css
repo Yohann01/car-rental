@@ -21,9 +21,6 @@
     --option-bg: white;
     --select-bg: rgba(255, 255, 255, 0.2);
 }
-html{
-    scroll-behavior: smooth;
-}
 html::-webkit-scrollbar{
     width: 0.5rem;
 }
@@ -36,11 +33,8 @@ html::-webkit-scrollbar-thumb{
     background: var(--main-color);
     border-radius: 5rem;
 }
-
-section{
-    padding: 50px 150px;
-}
-
+html{scroll-behavior: smooth;}
+section{padding: 50px 150px;}
 header{
     position: fixed;
     width: 100%;
@@ -53,60 +47,48 @@ header{
     background: #ffffff;
     padding: 0px 150px;
     box-shadow: -10px 0 10px rgba(0,0,0,0.1);
-
 }
+
+/* -----------Nav bar section----------- */
+
+/* Nav bar logo */
 .logo{
     width: 125px;
     height: 60px;
 }
-
+/* Nav bar ul style */
 .navbar{
     display: flex;
 
-}
-
-.navbar li{
+}.navbar li{
     position: relative;
     padding: 0px 5px;
-}
-
-.navbar a{
+}.navbar a{
     font-size: 16px;
     padding: 10px 10px;
     color: var(--text-color);
     border: 1px solid transparent;
-
-}
-
-.navbar a:hover{
-    border-radius: 100px;
-    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
-}
-
-
-.header-btn a{
+    }.navbar a:hover{
+        border-radius: 100px;
+        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    }
+/* Button container */
+.header-btn-container a{
     padding: 0px 10px;
 
-}
-
-#sign-in{
+}#sign-in{
     color: var(--text-color);
     padding: 10px 10px;
-}
-#sign-up{
+}#sign-up{
     background: var(--main-color);
     color: #fff;
     border-radius: 100px;
     padding: 10px 20px;
-}
-
-.menu-btn{
+}.menu-btn{
     display: none;
 }
 
-
-
-
+/* Sidebar style */
 .sidebar{
     padding-top: 30px;
     position: fixed;
@@ -123,16 +105,7 @@ header{
     align-items: flex-start;
     justify-content: flex-start;
     padding: 20px 10px;
-}
-nav ul{
-    box-shadow: -10px 0 10px rgba(0,0,0,0.2);
-    width: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-.sidebar li{
+}.sidebar li{
     width: 100%;
     padding: 2px 10px;
 
@@ -141,6 +114,15 @@ nav ul{
     width: 100%;
     color: var(--text-color);
 }
+/* ul style */
+nav ul{
+    box-shadow: -10px 0 10px rgba(0,0,0,0.2);
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
 
 /* -----------Home Section----------- */
 
@@ -148,78 +130,81 @@ nav ul{
 .home-container{
     margin-bottom: 535px;
 }
+    /* Column styles */
+    .column{
+        float:left;
+        width: 50%;
+    }
 
-.column{
-    float:left;
-    width: 50%;
-}
-#img-col{
-    padding-right: 100px ;
-    padding-top: 120px;
-}
-#text-col{
+    /* -----Left div-----  */
+    .home-container .left{
+        padding-top: 150px;
+        width: 50%;
+    }   /* Title */
+        .home-container .left h1{
+            padding-bottom: 20px;
+            font-size: 3rem;
+        }
+         /* Text destcription */
+         .home-container .left p{
+            font-size: 14.2px;
+        }
+        /* Button container */
+        .home-btn-container{
+            display: flex;
+            padding-top: 30px;
+            font-weight: 500;
+        }
+        /* Icon style */
+        .home-container svg {
+            fill: white;
+            margin-left: 3px;
+        }
+        /* Ren now & learn more button styles */
+        .rent-now-btn, .learn-more-btn {
+            display: flex;
+            align-items: center;
+            background: var(--main-color);
+            padding: 15px 20px;
+            color: white;
+            border-radius: 25px;
+        }
+        /* Rent now button style */
+        .rent-now-btn{
+            box-shadow: 0 4px 8px rgba(255, 55, 20, 0.4);
+        }
+        /* Learm more button style */
+        .learn-more-btn {
+            background: black;
+            margin-left: 15px;
+            border: 1px solid transparent;
 
-    padding-top: 150px;
-}
+        }.learn-more-btn:hover {
+            background: white;
+            color: black;
+            border-color:black;
+        }.learn-more-btn:hover .svg-icon {
+            fill: black;
+            margin-left: 3px;
+        }
+
+    /* -----Right div-----  */
+    .home-container .right{
+        width: 50%;
+        padding-right: 100px ;
+        padding-top: 120px;
+
+    }
 
 
-#text-col h1{
-padding-bottom: 20px;
-font-size: 3rem;
-
-}
-
-#text-col p{
-    font-size: 15px;
-}
-
-#home-btn {
-    display: flex;
-    padding-top: 30px;
-    font-weight: 500;
-    
-}
-.home-container svg {
-    fill: white;
-    margin-left: 3px;
-}
-
-.rent-btn, .learn-more-btn {
-    display: flex;
-    align-items: center;
-    background: var(--main-color);
-    padding: 15px 20px;
-    color: white;
-    border-radius: 25px;
-}
-.rent-btn{
-
-    box-shadow: 0 4px 8px rgba(255, 55, 20, 0.4); 
-}
-
-.learn-more-btn {
-    background: black;
-    margin-left: 15px;
-    border: 1px solid transparent;
-
-}
-.learn-more-btn:hover {
-    background: white;
-    color: black;
-    border-color:black;
-}
-
-
-.learn-more-btn:hover .svg-icon {
-    fill: black;
-    margin-left: 3px;
-}
 
 
 
 
 
 /* -----------Booking Section----------- */
+
+
 section .booking-container  {
     background: #303030;
     color: white;
@@ -227,245 +212,231 @@ section .booking-container  {
     display: flex;
     margin-top: 10px;
 }
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(100%);
-}
-
-.booking-container h1{
-    padding: 0 0 6px 0;
-}
-
-.booking-container h4 {
-    display: flex;
-    align-items: center; /* Vertical center alignment */
-}
-
-.booking-container svg{
-    fill: var(--main-color);
-}
-
-.booking-container span {
-    color: var(--main-color);
-    padding-left: 5px;
-}
-
-.booking-container input[type="date"]{
-    width: calc(100% - 20px);
-    appearance: none;
-    border: 0;
-    outline: 0;
-    font: inherit;
-    /* Personalize */
-    padding: 0.5rem 0.81rem 0.5rem 1rem;
-    background: no-repeat right 0.8em center / 1.4em,
-    linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
-    color: white;
-    border-radius: 0.25em;
-    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-
-.booking-container select{
-    width: calc(100% - 20px);
-    appearance: none;
-    border: 0;
-    outline: 0;
-    font: inherit;
-    /* Personalize */
-    padding: 0.7rem 1rem 0.7rem 1rem;
-    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
-    linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
-    color: white;
-    border-radius: 0.25em;
-    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    /* Remove IE arrow */
-    &::-ms-expand {
-      display: none;
+    /* Title */
+    .booking-container .title{
+        padding: 0 0 6px 0;
     }
-    /* Remove focus outline */
-    &:focus {
-      outline: none;
+    /* Sub titles */
+    .booking-container h4 {
+        display: flex;
+        align-items: center;
     }
-}
-option {
-    color: inherit;
-    background: #696A73;
-  }
+    /* Icon containers */
+    .svg-container {
+        margin-right: 5px;
+        margin-top: 5px;
+    }/* Icons style */
+    .booking-container svg{
+        fill: var(--main-color);
+    }
+    /* Asterisk color */
+    .booking-container span {
+        color: var(--main-color);
+        padding-left: 5px;
+    }
+    /* Date input style */
+    .booking-container input[type="date"]{
+        width: calc(100% - 20px);
+        appearance: none;
+        border: 0;
+        outline: 0;
+        font: inherit;
+        /* Personalize */
+        padding: 0.5rem 0.81rem 0.5rem 1rem;
+        background: no-repeat right 0.8em center / 1.4em,
+        linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+        color: white;
+        border-radius: 0.25em;
+        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }/* Date input icon style */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(100%);
+    }
+    /* Select input style */
+    .booking-container select{
+        width: calc(100% - 20px);
+        appearance: none;
+        border: 0;
+        outline: 0;
+        font: inherit;
+        padding: 0.7rem 1rem 0.7rem 1rem;
+        background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+        linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+        color: white;
+        border-radius: 0.25em;
+        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        /* Remove IE arrow */
+        &::-ms-expand {
+        display: none;
+        }
+        /* Remove focus outline */
+        &:focus {
+        outline: none;
+        }
+    }
+    /* option style */
+    option {
+        color: inherit;
+        background: #696A73;
+    }
+    /* Columns 1 & 2 styles */
+    #book-col-2, #book-col-3{
+        padding-top: 37px;
+    }
+    /* Search button */
+    .search-btn{
+        width: calc(100% - 20px);
+        background: var(--main-color);
+        padding: 0.5rem 4rem 0.5rem 4rem;
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        font-weight: 1000;
+        align-items: center;
+        margin-top: 35px;
+    }
 
-#book-col-2, #book-col-3{
-    padding-top: 37px;
-}
 
 
-.svg-container {
-    margin-right: 5px;
-    margin-top: 5px;  /* Adjust margin as needed */
-}
+  /* ----------------------Steps section----------------------  */
 
-.search-btn{
-    width: calc(100% - 20px);
-    background: var(--main-color);
-    padding: 0.5rem 4rem 0.5rem 4rem;
-    text-align: center;
-    color: white;
-    font-size: 16px;
-    font-weight: 1000;
-    align-items: center;
-    margin-top: 35px;
-}
-
-
-
-  /* -----------Steps section-----------  */
 
 .steps-container{
     text-align: center;
     align-items: center;
     margin: 170px 0 0 0;
   }
-
-.steps-container .column{
-    float: left;
-    width: 33.33%;
-    padding: 0 70px 0 70px;
-  }
-
-.steps-container h1{
-    padding-bottom: 120px;
-    font-size: 40px;
-    font-weight: 800;
-  }
-
-.text{
-    padding-bottom: 5px;
-    font-size: 20px;
-  }
-
-.title{
-    font-weight: 1000;
-    font-size: 20px;
-  }
-
-.steps-container .bx{
-    color: var(--main-color);
-    font-size: 50px;
-    /* background: rgb(48, 48, 48,0.09); */
-    background: rgb(255, 55, 20, 0.12);
-    border-radius: 0.5rem;
-    /* box-shadow: 0 4px 8px rgba(255, 55, 20, 0.4);  */
-    padding: 5px;
-    margin-bottom: 30px;
-  }
-
-  .steps-container p{
-    padding-top: 10px;
-}
+    /* Column styles */
+    .steps-container .column{
+        float: left;
+        width: 33.33%;
+        padding: 0 70px 0 70px;
+    }
+    /* Title */
+    .steps-container h1{
+        padding-bottom: 120px;
+        font-size: 40px;
+        font-weight: 800;
+    }
+    /* Heading */
+    .heading{
+        padding-bottom: 5px;
+        font-size: 20px;
+    }
+    /* Title */
+    .title{
+        font-weight: 1000;
+        font-size: 20px;
+    }
+    /* Icons */
+    .steps-container .bx{
+        color: var(--main-color);
+        font-size: 50px;
+        background: rgb(255, 55, 20, 0.12);
+        border-radius: 0.5rem;
+        padding: 5px;
+        margin-bottom: 30px;
+    }
+    /* Descriptions */
+    .steps-container p{
+        padding-top: 10px;
+    }
 
 
 
-/* -----------Car select----------- */
+/* ----------------------Car select---------------------- */
+
 .car-select-container{
     text-align: center;
     margin: 350px 0 0 0;
-
     height: 500px;
-
-}
-.left, .right{
-    width: 25%;
- 
-}
-.middle{
-    width: 50%;
-    height: 400px;
-
-}
-
-.left{
-    padding: 0 0 0 30px;
-    display: flex;
-    flex-direction: column;
-    
-
-}
-
- /* .middle{
-    background: yellow;
-} */
-.right{
-    align-items: center;
-} 
-.car-select-container h1{
-    padding-bottom: 5px;
-    font-size: 40px;
-    font-weight: 800;
-
-}
-
-.heading-container {
-    background: var(--main-color);
-    border-radius: 10px 10px 0 0;
-    padding: 5px 0 5px 0;
-    width: 80%;
-    margin: 0 auto 0 auto;
-    color: var(--option-bg)
-}
-
-.car-select-btn{
-    text-align: left;
-    width: 65%;
-    background:none;
-    padding: 0.5rem 4rem 0.5rem 4rem;
-    font-size: 16px;
-    font-weight: 1000;
-    padding: 10px;
-    border: none;
-    margin: 3.5px 0 3.5px 0;
-    }.car-select-btn:hover{
-        background: var(--main-color);
-        color: var(--option-bg);
     }
-.seeAll-btn{
-    border-radius: 5px;
-    width: 35%;
-    background:none;
-    font-size: 14px;
-    font-weight: 1000;
-    padding: 10px;
-    margin: 10px 10px 0 7px;
-}.seeAll-btn:hover{
-    background-color: black;
-    color: white;
-}
-
-.car-select-container img{
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    /* object-fit: cover;   */
-    padding: 0 30px 60px 30px;
-}
-
-
-/* Right div car select */
-.car-select-container table{
-    align-items: center;
-    width: 80%;    
-    margin: 0 auto 0 auto;
-    font-size: 12px;
+    /* Car select title */
+    .car-select-container h1{
+        padding-bottom: 5px;
+        font-size: 40px;
+        font-weight: 800;
     }
-        table, th, td{
-        border: 2px solid black;
-        border-collapse: collapse;
-        height: 35px; /*whatever you need */
-        border-top: none !important;
-        table-layout: fixed;
-        
+    .left, .right{
+        width: 25%;
+    }
 
+     /* -----Left div----- */
+    .left{
+        padding: 0 0 0 30px;
+        display: flex;
+        flex-direction: column;
+    }
+        /* Buttons for car options */
+        .car-select-btn{
+            text-align: left;
+            width: 65%;
+            background:none;
+            padding: 0.5rem 4rem 0.5rem 4rem;
+            font-size: 16px;
+            font-weight: 1000;
+            padding: 10px;
+            border: none;
+            margin: 3.5px 0 3.5px 0;
+        }.car-select-btn:hover{
+            background: var(--main-color);
+            color: var(--option-bg);
         }
-        .content button{
+        /* See All button */
+        .seeAll-btn{
+            border-radius: 5px;
+            width: 35%;
+            background:none;
+            font-size: 14px;
+            border: 1px solid black;
+            font-weight: 1000;
+            padding: 10px;
+            color: black;
+            margin: 10px 10px 0 7px;
+        }.seeAll-btn:hover{
+            background-color: black;
+            color: white;
+        }
+
+    /* -----Middle Div----- */
+    .middle{
+        width: 50%;
+        height: 400px;
+        }.car-select-container img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            padding: 0 30px 60px 30px;
+        }
+
+    /* -----Right div----- */
+    .right{align-items: center;}
+        /* Heading container  */
+        .heading-container{
+            background: var(--main-color);
+            border-radius: 10px 10px 0 0;
+            padding: 10px 0 5px 0;
+            width: 80%;
+            margin: 0 auto 0 auto;
+            color: var(--option-bg)
+            }
+        /* Table */
+        .car-select-container table{
+            align-items: center;
+            width: 80%;
+            margin: 0 auto 0 auto;
+            font-size: 12px;
+        }table, th, td{
+            border: 2px solid black;
+            border-collapse: collapse;
+            height: 35px;
+            border-top: none !important;
+            table-layout: fixed;
+        }
+        /* Reserve Button */
+        .reserve-btn{
             text-align: center;
             width: 80%;
             color: white;
@@ -476,7 +447,7 @@ option {
             text-transform: uppercase;
             border: none;
             font-weight: 800;
-            box-shadow: 0 4px 8px rgba(255, 55, 20, 0.4); 
+            box-shadow: 0 4px 8px rgba(255, 55, 20, 0.4);
         }
 
 /* -----------Media---------- */
