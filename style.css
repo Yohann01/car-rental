@@ -35,6 +35,11 @@ html::-webkit-scrollbar-thumb{
 }
 html{scroll-behavior: smooth;}
 section{padding: 50px 150px;}
+
+
+
+/* -----------Nav bar section----------- */
+
 header{
     position: fixed;
     width: 100%;
@@ -48,80 +53,78 @@ header{
     padding: 0px 150px;
     box-shadow: -10px 0 10px rgba(0,0,0,0.1);
 }
-
-/* -----------Nav bar section----------- */
-
-/* Nav bar logo */
-.logo{
-    width: 125px;
-    height: 60px;
-}
-/* Nav bar ul style */
-.navbar{
-    display: flex;
-
-}.navbar li{
-    position: relative;
-    padding: 0px 5px;
-}.navbar a{
-    font-size: 16px;
-    padding: 10px 10px;
-    color: var(--text-color);
-    border: 1px solid transparent;
-    }.navbar a:hover{
-        border-radius: 100px;
-        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    /* Nav bar logo */
+    .logo{
+        width: 130%;
+        height: 60px;
     }
-/* Button container */
-.header-btn-container a{
-    padding: 0px 10px;
+    /* Nav bar ul style */
+    .navbar{
+        display: flex;
 
-}#sign-in{
-    color: var(--text-color);
-    padding: 10px 10px;
-}#sign-up{
-    background: var(--main-color);
-    color: #fff;
-    border-radius: 100px;
-    padding: 10px 20px;
-}.menu-btn{
-    display: none;
-}
+    }.navbar li{
+        position: relative;
+        padding: 0px 5px;
+    }.navbar a{
+        font-size: 16px;
+        padding: 10px 10px;
+        color: var(--text-color);
+        border: 1px solid transparent;
+        }.navbar a:hover{
+            border-radius: 100px;
+            box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+        }
+    /* Button container */
+    .header-btn-container a{
+        padding: 0px 10px;
+        align-items: center;
+    }#sign-in{
+        color: var(--text-color);
+        padding: 10px 10px;
+    }#sign-up{
+        background: var(--main-color);
+        color: #fff;
+        border-radius: 100px;
+        padding: 10px 20px;
+    }.menu-btn{
+        display: none;
+    }
+    /* Sidebar style */
+    .sidebar{
+        padding-top: 30px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        z-index: 999;
+        background-color: rgb(214, 202, 202, 0.2);
+        backdrop-filter: blur(10px);
+        box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 20px 10px;
+    }.sidebar li{
+        width: 100%;
+        padding: 2px 10px;
+    }
+    .sidebar a{
+        width: 100%;
+        color: var(--text-color);
+    }
+    /* ul style */
+    nav ul{
+        box-shadow: -10px 0 10px rgba(0,0,0,0.2);
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
 
-/* Sidebar style */
-.sidebar{
-    padding-top: 30px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 250px;
-    z-index: 999;
-    background-color: rgb(214, 202, 202, 0.2);
-    backdrop-filter: blur(10px);
-    box-shadow: -10px 0 10px rgba(0,0,0,0.1);
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 20px 10px;
-}.sidebar li{
-    width: 100%;
-    padding: 2px 10px;
 
-}
-.sidebar a{
-    width: 100%;
-    color: var(--text-color);
-}
-/* ul style */
-nav ul{
-    box-shadow: -10px 0 10px rgba(0,0,0,0.2);
-    width: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
+
 
 
 /* -----------Home Section----------- */
@@ -129,6 +132,7 @@ nav ul{
 
 .home-container{
     margin-bottom: 535px;
+    width: 100%;
 }
     /* Column styles */
     .column{
@@ -138,8 +142,9 @@ nav ul{
 
     /* -----Left div-----  */
     .home-container .left{
-        padding-top: 150px;
+        padding: 150px 0 15px 0;
         width: 50%;
+        /* background: blue; */
     }   /* Title */
         .home-container .left h1{
             padding-bottom: 20px;
@@ -193,7 +198,18 @@ nav ul{
         width: 50%;
         padding-right: 100px ;
         padding-top: 120px;
-
+        /* background: green;
+        background-image: url(assets/civic-2014.png);
+        background-size: contain;
+        background-repeat: no-repeat; */
+        padding: 120px 0 0 0;
+        
+    }
+    .home-container img{
+        height: auto;
+        min-width: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 
 
@@ -212,6 +228,20 @@ section .booking-container  {
     display: flex;
     margin-top: 10px;
 }
+
+    .booking-container{
+        width: 100%;
+        display: block;
+    }.booking-container:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+    .booking-container .column{
+        width: 33.33%;
+        float: left;
+    }
+
     /* Title */
     .booking-container .title{
         padding: 0 0 6px 0;
@@ -236,7 +266,7 @@ section .booking-container  {
     }
     /* Date input style */
     .booking-container input[type="date"]{
-        width: calc(100% - 20px);
+        width: 95%;
         appearance: none;
         border: 0;
         outline: 0;
@@ -255,7 +285,7 @@ section .booking-container  {
     }
     /* Select input style */
     .booking-container select{
-        width: calc(100% - 20px);
+        width: 95%;
         appearance: none;
         border: 0;
         outline: 0;
@@ -287,7 +317,7 @@ section .booking-container  {
     }
     /* Search button */
     .search-btn{
-        width: calc(100% - 20px);
+        width: 95%;
         background: var(--main-color);
         padding: 0.5rem 4rem 0.5rem 4rem;
         text-align: center;
@@ -296,11 +326,16 @@ section .booking-container  {
         font-weight: 1000;
         align-items: center;
         margin-top: 35px;
+        border-radius: 20px;
     }
+      
 
 
 
-  /* ----------------------Steps section----------------------  */
+
+
+
+/* ----------------------Steps section----------------------  */
 
 
 .steps-container{
@@ -343,6 +378,10 @@ section .booking-container  {
     .steps-container p{
         padding-top: 10px;
     }
+
+
+
+
 
 
 
@@ -437,11 +476,10 @@ section .booking-container  {
         }
         /* Reserve Button */
         .reserve-btn{
-            text-align: center;
             width: 80%;
             color: white;
             background:var(--main-color);
-            padding: 0.5rem 4rem 0.5rem 4rem;
+            padding: 8px 16px;
             font-size: 16px;
             margin: 15px 0 0 0;
             text-transform: uppercase;
@@ -450,8 +488,87 @@ section .booking-container  {
             box-shadow: 0 4px 8px rgba(255, 55, 20, 0.4);
         }
 
+
+
+
+
+
+
+
 /* -----------Media---------- */
+@media(max-width: 1465px){
+    /* ---------Home Section--------- */
+    .home-container .right{
+        display: none;
+    }
+    .home-container .left{
+        width: 100%;
+    }
+    .car-select-container img{
+        padding: 0 0px 60px 0px;
+    }
+    .car-select-btn{
+        width: 100%;
+
+    }
+}
+@media(max-width: 1220px) {
+    /* ---------Booking Container Section--------- */
+    .booking-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .booking-container .column{
+        width:100%;
+    }
+    /* ---------Steps Section--------- */
+
+      .steps-container .column{
+        float: left;
+        width: 33.33%;
+        padding: 0 10px 0 10px;
+    }
+    .title{
+        font-weight: 1000;
+        font-size: 17px;
+    }
+    .steps-container p{
+        font-size: 15px;
+        padding-top: 5px;
+    }
+
+    /* ----------Car Select Section---------- */
+
+    .heading{
+        font-size: 14px;
+    }
+    .reserve-btn{
+        padding: 8px 16px;
+        font-size: 10px;
+    }
+    .car-select-container table{
+        font-size: 9px;
+    }table, th, td{
+        height: 25px;
+    }
+     /* Buttons for car options */
+    .car-select-btn{
+        font-size: 13px;
+        padding: 5px;
+        width: 100%;
+
+    }
+    /* See All button */
+    .seeAll-btn{
+        font-size: 9px;
+        padding: 5px; 
+    }
+}
+
 @media(max-width: 1010px){
+    header{padding: 0px 50px;}
+    section{padding: 50px 50px;}
+    /* ---------Nav section--------- */
     .hideOnMobile{
         display: none;
     }
@@ -462,10 +579,322 @@ section .booking-container  {
         width: 100%;
         display: table;
     }
+    .car-select-container p{
+        margin-bottom: 20px;
+    }
+    
+
+
+}
+@media(max-width: 780px){
+    .car-select-btn{
+
+        padding: 5px; 
+    }
+    /* See All button */
+    .seeAll-btn{
+        font-size: 8px;
+        padding: 5px; 
+    }
+    .title{
+        font-weight: 1000;
+        font-size: 15px;
+    }
+    .steps-container p{
+        font-size: 12px;
+        padding-top: 5px;
+    }
 }
 
+@media(max-width: 720px){
+    .heading{
+        font-size: 14px;
+    }
+    .reserve-btn{
+        padding: 8px 16px;
+        font-size: 10px;
+        width: 100%;
+    }
+    .heading-container{
+        width: 100%;
+    }
+    .car-select-container table{
+        font-size: 8px;
+        width: 100%;
+    }table, th, td{
+        height: 25px;
+    }
+    .car-select-btn{
+        font-size:12px;
+    }
+     /* Buttons for car options */
+
+    /* See All button */
+    .seeAll-btn{
+        font-size: 8px;
+        padding: 5px; 
+    }
+}
+    @media(max-width: 670px){
+        /* See All button */
+        .seeAll-btn{
+            font-size: 7px;
+            padding: 5px; 
+        }
+        .home-container .left h1{
+            font-size: 2rem;
+            padding-bottom: 10px;
+        }
+        .home-container .left p{
+            font-size: 12px;
+        }
+        .rent-now-btn, .learn-more-btn {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            font-size: 14px;
+            border-radius: 25px;
+        }
+        .learn-more-btn {
+            margin-left: 10px;
+            
+        }
+        .car-select-container table{
+            font-size: 7px;
+            width: 100%;
+        }table, th, td{
+            font-weight: 500;
+            height: 25px;
+        }
+        .title{
+            font-size: 15px;
+        }
+        .steps-container h1{
+            font-size: 30px;
+            font-weight: 800;
+        }
+        /* Heading */
+        .heading{
+            padding-bottom: 5px;
+            font-size: 13px;
+        }
+        .steps-container .bx{
+            font-size: 40px;
+        }
+        .car-select-container h1{
+            font-size: 30px;
+            font-weight: 800;
+        }
+        .car-select-container .text{
+            font-size: 15px;
+        }
+        .car-select-container .text-p{
+            font-size: 11px;
+        }
+        .middle{
+            width: 50%;
+        }
+        .navbar a{
+            font-size: 12px;
+        }
+        .logo{
+            width: 120%;
+            height: 50px;
+        }    
+}
+@media(max-width: 630px){
+    .car-select-btn{
+        font-size: 11px;
+    }
+    .seeAll-btn{
+        font-size: 7px;
+        width: 40%;
+    }
+    
+
+}
+@media(max-width: 580px){
+    .car-select-btn{
+        font-size: 11px;
+    }
+    .seeAll-btn{
+        font-size: 7px;
+        width: 60%;
+    }
+    .navbar a{
+        font-size: 10px;
+    }
+    .navbar li{
+        position: relative;
+        padding: 0px 1px;
+    }
+    .hideOn560px{
+        display: none;
+    }
+    .home-container .left p{
+        font-size: 9px;
+    }
+}
+
+@media(max-width: 530px){
+    .car-select-btn{
+        font-size: 10px;
+    }
+}
+@media(max-width: 500px){
+    header{padding: 0px 20px;}
+    section{padding: 20px 20px;}
+    .left{
+        padding: 0 0 0 0px;
+    }
+    .heading-container{
+        border-radius: 5px 5px 0 0;
+        padding: 10px 0 0px 0;
+    }
+    .car-select-container table{
+        height: 10px;
+        font-size: 5.7px;
+    }
+    table, th, td{
+        border: 1px solid black;
+        height: 18px;
+        font-weight: 800;
+        width: 100%;
+    }
+    .reserve-btn{
+        width: 100%;
+        padding: 5px 7px;
+        font-size: 8px;
+        margin: 10px 0 0 0;
+    }
+    .car-select-container img{
+        padding: 0 0px 200px 0px;
+    }
+}
 @media(max-width: 400px){
     .sidebar{
         width: 100%;
+    }
+}
+@media(max-width: 376px){
+    header{padding: 0px 20px;}
+    section{padding: 20px 20px;}
+    /* -----------Home Section----------- */
+    .home-container .left{
+        width: 100%;
+    }
+    .home-container .left h1{
+        font-size: 1.5rem;
+    }
+    .home-container .left h4{
+        font-size: 11px;
+    }
+    .home-container .left p{
+        font-size: 8.2px;
+    }
+    .rent-now-btn, .learn-more-btn {
+        padding: 8px 13px;
+        font-size: 10px;
+    }
+
+    /* ----------Booking Section---------- */
+    .booking-container .title{
+        font-size: 15px;
+    }
+    .booking-container h4 {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+    .booking-container input[type="date"]{
+        width: 100%;
+        padding: 0.2rem 0.81rem 0.2rem 1rem;
+        font-size: 15px;
+    }
+    .booking-container select{
+        width: 100%;
+        font-size: 15px;
+        padding: 0.4rem 1rem 0.4rem 1rem;
+
+    }
+    .search-btn{
+        width: 100%;
+        font-size: 15px;
+        margin-top: 20px;
+        
+    }
+    /* ---------- Steps Section---------- */
+
+    .steps-container .column{
+        float: left;
+        width: 33.33%;
+    }
+    /* Title */
+    .steps-container h1{
+        padding-bottom: 80px;
+        font-size: 25px;
+        font-weight: 800;
+    }
+    /* Heading */
+    .steps-container .heading{
+        padding-bottom: 10px;
+        font-size: 13px;
+    }
+    /* Title */
+    .title{
+        font-weight: 1000;
+        font-size: 13px;
+    }
+    /* Icons */
+    .steps-container .bx{
+        font-size: 30px;
+
+    }
+    /* Descriptions */
+    .steps-container p{
+        padding-top: 7px;
+        font-size: 8px;
+    }
+
+    /* ---------- Car Selection section ---------- */
+    .car-select-btn{
+        font-size: 8px;
+        padding: 3px 4px 3px 4px;
+        width: 100%;
+    }
+    .seeAll-btn{
+        border-radius: 5px;
+        width: 50%;
+        margin: 10px 10px 0 0px;
+    }
+    .car-select-container img{
+        padding: 0 0px 200px 0px;
+    }
+    .left{
+        padding: 0 0 0 0px;
+    }
+    .heading{
+        
+        font-size: 8px;
+    }
+    .heading-container{
+        border-radius: 5px 5px 0 0;
+        padding: 10px 0 0px 0;
+    }
+    .car-select-container table{
+        height: 10px;
+        font-size: 5.7px;
+    }
+    table, th, td{
+        border: 1px solid black;
+        height: 18px;
+        font-weight: 800;
+        width: 100%;
+    }
+    .reserve-btn{
+        width: 100%;
+        padding: 5px 7px;
+        font-size: 8px;
+        margin: 10px 0 0 0;
     }
 }
