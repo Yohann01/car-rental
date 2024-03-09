@@ -521,6 +521,10 @@ section .booking-container  {
     .booking-container .column{
         width:100%;
     }
+    .booking-container input[type="date"], .booking-container select, .search-btn{
+        width: 100%;
+    }
+
     /* ---------Steps Section--------- */
 
       .steps-container .column{
