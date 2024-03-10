@@ -489,10 +489,107 @@ section .booking-container  {
         }
 
 
+/* Download app Section */
+.download-container{
+    margin: 100px 0 0 0;
+    width: 100%;
+    display: flex;
+    padding:0;
+}
+.download-container .title{
+    font-size: 35px;
+    margin: 0 0 15px 0;
+    font-weight: 750;
+}
+.download-container p{
+    font-size: 15px;
+    padding: 0px 100px 0 0;
+}
+.img-container{
+    margin: 25px 0 0 0;
+    /* background: #ffac38; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.img-container .img-google{
+    width: 25%;
+    height: 98%;
+}
+.img-container .img-apple{
+    width: 25%;
+    height: 100%;
+    margin: 0 0 0 20px ;
+
+}
+.download-container .column{    
+    width: 50%;
+    /* background: #ffac38; */
+    padding: 0;
+}
+.download-container img{
+    width: 100%;
+    height:100%
+}
+
+/* ----------Footer Section---------- */
+.footer-container .column{
+    width: 25%;
+}
+.footer-container .col-1{
+    background: red;
+   
+    
+}.footer-container .desc-1{
+    font-size: 14px;
+    margin: 10px 0 20px 0;
+}.footer-container i{
+    font-size: 20px;
+}.footer-container .contacts{
+    display: flex;
+    align-items: center;
+}
 
 
 
+.footer-container .col-2{
+    background: orange;
+}.footer-container h3{
+    margin: 0 0 5px 0;
+}
+.footer-container .company{
+    font-size: 14px;
+    padding:5px 0 5px 0 ;
+}
 
+
+
+.footer-container .col-3{
+    background: yellow;
+}.footer-container .working-hours{
+    font-size: 14px;
+    padding:5px 0 5px 0 ;
+}
+.footer-container .col-4{
+    background: green;
+}.footer-container .sub{
+    font-size: 14px;
+    padding:5px 0 5px 0;
+}.footer-container button, input{
+    width: 100%;
+}
+.footer-container button{
+    width: 100%;
+    background: var(--main-color);
+    color: white;
+    outline: none;
+    height: 40px;
+    padding:5px 0 5px 0;
+}.footer-container input{
+    height: 40px;
+    padding:5px 0 5px 0;
+}
 
 
 /* -----------Media---------- */
