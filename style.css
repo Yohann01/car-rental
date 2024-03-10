@@ -536,26 +536,36 @@ section .booking-container  {
 /* ----------Footer Section---------- */
 .footer-container .column{
     width: 25%;
+    margin: 50px 0 0 0;
 }
+
 .footer-container .col-1{
-    background: red;
-   
-    
-}.footer-container .desc-1{
+    width: 25%;
+    margin: 50px 0 0 0;
+}
+.footer-container .col-2{
+    width: 20%;
+    margin: 50px 0 0 0;
+}
+.footer-container .col-3{
+    width: 20%;
+    margin: 50px 0 0 0;
+}
+.footer-container .desc-1{
     font-size: 14px;
-    margin: 10px 0 20px 0;
+    margin: 10px 40px 20px 0px;
 }.footer-container i{
     font-size: 20px;
 }.footer-container .contacts{
     display: flex;
+    font-size: 13px;
+    padding: 0px 0 0px 0;
     align-items: center;
 }
 
 
 
-.footer-container .col-2{
-    background: orange;
-}.footer-container h3{
+.footer-container h3{
     margin: 0 0 5px 0;
 }
 .footer-container .company{
@@ -565,15 +575,12 @@ section .booking-container  {
 
 
 
-.footer-container .col-3{
-    background: yellow;
-}.footer-container .working-hours{
+.footer-container .working-hours{
     font-size: 14px;
     padding:5px 0 5px 0 ;
 }
-.footer-container .col-4{
-    background: green;
-}.footer-container .sub{
+
+.footer-container .sub{
     font-size: 14px;
     padding:5px 0 5px 0;
 }.footer-container button, input{
@@ -583,12 +590,16 @@ section .booking-container  {
     width: 100%;
     background: var(--main-color);
     color: white;
-    outline: none;
+    border: none;
     height: 40px;
-    padding:5px 0 5px 0;
+    margin: 5px 0 5px 0;
+    
 }.footer-container input{
     height: 40px;
-    padding:5px 0 5px 0;
+    border: none;
+    text-align: center;
+    margin:10px 0 5px 0;
+    outline: none;
 }
 
 
