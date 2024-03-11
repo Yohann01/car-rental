@@ -534,25 +534,21 @@ section .booking-container  {
 }
 
 /* ----------Footer Section---------- */
-.footer-container .column{
+
+.footer-container .col-1, .col-4{
     width: 25%;
+    margin: 50px 0 0 0;
+}
+.footer-container .col-2, .col-3{
+    width: 20%;
     margin: 50px 0 0 0;
 }
 
-.footer-container .col-1{
-    width: 25%;
-    margin: 50px 0 0 0;
-}
-.footer-container .col-2{
-    width: 20%;
-    margin: 50px 0 0 0;
-}
-.footer-container .col-3{
-    width: 20%;
-    margin: 50px 0 0 0;
+.footer-container span{
+    font-weight: 400;
 }
 .footer-container .desc-1{
-    font-size: 14px;
+    font-size: 13px;
     margin: 10px 40px 20px 0px;
 }.footer-container i{
     font-size: 20px;
@@ -565,12 +561,12 @@ section .booking-container  {
 
 
 
-.footer-container h3{
+.footer-container .title{
     margin: 0 0 5px 0;
 }
 .footer-container .company{
-    font-size: 14px;
-    padding:5px 0 5px 0 ;
+    font-size: 13px;
+    padding:2px 0 2px 0 ;
 }
 
 
@@ -587,7 +583,6 @@ section .booking-container  {
     width: 100%;
 }
 .footer-container button{
-    width: 100%;
     background: var(--main-color);
     color: white;
     border: none;
@@ -598,415 +593,12 @@ section .booking-container  {
     height: 40px;
     border: none;
     text-align: center;
-    margin:10px 0 5px 0;
+    margin:0px 0 0px 0;
     outline: none;
 }
 
 
-/* -----------Media---------- */
-@media(max-width: 1465px){
-    /* ---------Home Section--------- */
-    .home-container .right{
-        display: none;
-    }
-    .home-container .left{
-        width: 100%;
-    }
-    .car-select-container img{
-        padding: 0 0px 60px 0px;
-    }
-    .car-select-btn{
-        width: 100%;
-
-    }
-}
-@media(max-width: 1220px) {
-    /* ---------Booking Container Section--------- */
-    .booking-container{
-        display: flex;
-        flex-direction: column;
-    }
-    .booking-container .column{
-        width:100%;
-    }
-    .booking-container input[type="date"], .booking-container select, .search-btn{
-        width: 100%;
-    }
-
-    /* ---------Steps Section--------- */
-
-      .steps-container .column{
-        float: left;
-        width: 33.33%;
-        padding: 0 10px 0 10px;
-    }
-    .title{
-        font-weight: 1000;
-        font-size: 17px;
-    }
-    .steps-container p{
-        font-size: 15px;
-        padding-top: 5px;
-    }
-
-    /* ----------Car Select Section---------- */
-
-    .heading{
-        font-size: 14px;
-    }
-    .reserve-btn{
-        padding: 8px 16px;
-        font-size: 10px;
-    }
-    .car-select-container table{
-        font-size: 9px;
-    }table, th, td{
-        height: 25px;
-    }
-     /* Buttons for car options */
-    .car-select-btn{
-        font-size: 13px;
-        padding: 5px;
-        width: 100%;
-
-    }
-    /* See All button */
-    .seeAll-btn{
-        font-size: 9px;
-        padding: 5px; 
-    }
-}
-
-@media(max-width: 1010px){
-    header{padding: 0px 50px;}
-    section{padding: 50px 50px;}
-    /* ---------Nav section--------- */
-    .hideOnMobile{
-        display: none;
-    }
-    .menu-btn{
-        display: block;
-    }
-    div .column-booking{
-        width: 100%;
-        display: table;
-    }
-    .car-select-container p{
-        margin-bottom: 20px;
-    }
-    
-
-
-}
-@media(max-width: 780px){
-    .car-select-btn{
-
-        padding: 5px; 
-    }
-    /* See All button */
-    .seeAll-btn{
-        font-size: 8px;
-        padding: 5px; 
-    }
-    .title{
-        font-weight: 1000;
-        font-size: 15px;
-    }
-    .steps-container p{
-        font-size: 12px;
-        padding-top: 5px;
-    }
-}
-
-@media(max-width: 720px){
-    .heading{
-        font-size: 14px;
-    }
-    .reserve-btn{
-        padding: 8px 16px;
-        font-size: 10px;
-        width: 100%;
-    }
-    .heading-container{
-        width: 100%;
-    }
-    .car-select-container table{
-        font-size: 8px;
-        width: 100%;
-    }table, th, td{
-        height: 25px;
-    }
-    .car-select-btn{
-        font-size:12px;
-    }
-     /* Buttons for car options */
-
-    /* See All button */
-    .seeAll-btn{
-        font-size: 8px;
-        padding: 5px; 
-    }
-}
-    @media(max-width: 670px){
-        /* See All button */
-        .seeAll-btn{
-            font-size: 7px;
-            padding: 5px; 
-        }
-        .home-container .left h1{
-            font-size: 2rem;
-            padding-bottom: 10px;
-        }
-        .home-container .left p{
-            font-size: 12px;
-        }
-        .rent-now-btn, .learn-more-btn {
-            display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            font-size: 14px;
-            border-radius: 25px;
-        }
-        .learn-more-btn {
-            margin-left: 10px;
-            
-        }
-        .car-select-container table{
-            font-size: 7px;
-            width: 100%;
-        }table, th, td{
-            font-weight: 500;
-            height: 25px;
-        }
-        .title{
-            font-size: 15px;
-        }
-        .steps-container h1{
-            font-size: 30px;
-            font-weight: 800;
-        }
-        /* Heading */
-        .heading{
-            padding-bottom: 5px;
-            font-size: 13px;
-        }
-        .steps-container .bx{
-            font-size: 40px;
-        }
-        .car-select-container h1{
-            font-size: 30px;
-            font-weight: 800;
-        }
-        .car-select-container .text{
-            font-size: 15px;
-        }
-        .car-select-container .text-p{
-            font-size: 11px;
-        }
-        .middle{
-            width: 50%;
-        }
-        .navbar a{
-            font-size: 12px;
-        }
-        .logo{
-            width: 120%;
-            height: 50px;
-        }    
-}
-@media(max-width: 630px){
-    .car-select-btn{
-        font-size: 11px;
-    }
-    .seeAll-btn{
-        font-size: 7px;
-        width: 40%;
-    }
-    
-
-}
-@media(max-width: 580px){
-    .car-select-btn{
-        font-size: 11px;
-    }
-    .seeAll-btn{
-        font-size: 7px;
-        width: 60%;
-    }
-    .navbar a{
-        font-size: 10px;
-    }
-    .navbar li{
-        position: relative;
-        padding: 0px 1px;
-    }
-    .hideOn560px{
-        display: none;
-    }
-    .home-container .left p{
-        font-size: 9px;
-    }
-}
-
-@media(max-width: 530px){
-    .car-select-btn{
-        font-size: 10px;
-    }
-}
-@media(max-width: 500px){
-    header{padding: 0px 20px;}
-    section{padding: 20px 20px;}
-    .left{
-        padding: 0 0 0 0px;
-    }
-    .heading-container{
-        border-radius: 5px 5px 0 0;
-        padding: 10px 0 0px 0;
-    }
-    .car-select-container table{
-        height: 10px;
-        font-size: 5.7px;
-    }
-    table, th, td{
-        border: 1px solid black;
-        height: 18px;
-        font-weight: 800;
-        width: 100%;
-    }
-    .reserve-btn{
-        width: 100%;
-        padding: 5px 7px;
-        font-size: 8px;
-        margin: 10px 0 0 0;
-    }
-    .car-select-container img{
-        padding: 0 0px 200px 0px;
-    }
-}
-@media(max-width: 400px){
-    .sidebar{
-        width: 100%;
-    }
-}
-@media(max-width: 376px){
-    header{padding: 0px 20px;}
-    section{padding: 20px 20px;}
-    /* -----------Home Section----------- */
-    .home-container .left{
-        width: 100%;
-    }
-    .home-container .left h1{
-        font-size: 1.5rem;
-    }
-    .home-container .left h4{
-        font-size: 11px;
-    }
-    .home-container .left p{
-        font-size: 8.2px;
-    }
-    .rent-now-btn, .learn-more-btn {
-        padding: 8px 13px;
-        font-size: 10px;
-    }
-
-    /* ----------Booking Section---------- */
-    .booking-container .title{
-        font-size: 15px;
-    }
-    .booking-container h4 {
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-    }
-    .booking-container input[type="date"]{
-        width: 100%;
-        padding: 0.2rem 0.81rem 0.2rem 1rem;
-        font-size: 15px;
-    }
-    .booking-container select{
-        width: 100%;
-        font-size: 15px;
-        padding: 0.4rem 1rem 0.4rem 1rem;
-
-    }
-    .search-btn{
-        width: 100%;
-        font-size: 15px;
-        margin-top: 20px;
-        
-    }
-    /* ---------- Steps Section---------- */
-
-    .steps-container .column{
-        float: left;
-        width: 33.33%;
-    }
-    /* Title */
-    .steps-container h1{
-        padding-bottom: 80px;
-        font-size: 25px;
-        font-weight: 800;
-    }
-    /* Heading */
-    .steps-container .heading{
-        padding-bottom: 10px;
-        font-size: 13px;
-    }
-    /* Title */
-    .title{
-        font-weight: 1000;
-        font-size: 13px;
-    }
-    /* Icons */
-    .steps-container .bx{
-        font-size: 30px;
-
-    }
-    /* Descriptions */
-    .steps-container p{
-        padding-top: 7px;
-        font-size: 8px;
-    }
-
-    /* ---------- Car Selection section ---------- */
-    .car-select-btn{
-        font-size: 8px;
-        padding: 3px 4px 3px 4px;
-        width: 100%;
-    }
-    .seeAll-btn{
-        border-radius: 5px;
-        width: 50%;
-        margin: 10px 10px 0 0px;
-    }
-    .car-select-container img{
-        padding: 0 0px 200px 0px;
-    }
-    .left{
-        padding: 0 0 0 0px;
-    }
-    .heading{
-        
-        font-size: 8px;
-    }
-    .heading-container{
-        border-radius: 5px 5px 0 0;
-        padding: 10px 0 0px 0;
-    }
-    .car-select-container table{
-        height: 10px;
-        font-size: 5.7px;
-    }
-    table, th, td{
-        border: 1px solid black;
-        height: 18px;
-        font-weight: 800;
-        width: 100%;
-    }
-    .reserve-btn{
-        width: 100%;
-        padding: 5px 7px;
-        font-size: 8px;
-        margin: 10px 0 0 0;
-    }
+     em {
+	display:block;
+	font-style:normal;
 }
