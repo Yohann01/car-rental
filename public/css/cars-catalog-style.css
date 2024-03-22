@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -31,9 +33,7 @@ html::-webkit-scrollbar-thumb{
 }
 html{scroll-behavior: smooth;}
 
-section{
-    padding: 100px 0 0 0;
-}
+section{padding: 85px 150px;}
 /* -----------Nav bar section----------- */
 
 header{
@@ -130,17 +130,40 @@ body{
 }
 .catalog-container{
     display: flex;
+    width: 100%;
 }
 
 .filter-container{
-    display: flex;
-    flex-direction: column;
-    background-color: orange;
-    width: 12%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #D9E2E8;
+  height: 100vh;
+  padding: 10px;
+  width: 16%;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.search-filter-title{
+  display: flex;
+  align-items: center;
+  padding: 0 0 10px 0;
+}
+.search-filter-title i{
+  padding: 0 5px 0 0;
+}
+.filters{
+    padding: 10px 0 10px 0;
 }
 
-.filters{
-    padding: 15px 0 15px 0;
+
+.car-type::after,
+.capacity::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #ccc;
+  margin-top: 10px;
+  padding-bottom: 10px; 
 }
 
 
@@ -224,3 +247,109 @@ body{
     }
   }
   
+  .filter-container .filters label div {
+    font-size: 0.82em; /* Adjust the font size as needed */
+}
+
+.cars-catalog-container {
+  width:84%;
+  display: flex;
+  /* background-color: #FF3714; */
+  flex-direction: column;
+}
+.results-text{
+  padding: 10px 5px 20px 5px;
+}
+.items{
+  display: flex;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #D9E2E8;
+  padding: 10px; 
+}
+.card-photo{
+  width: 30%;
+  /* background-color: green; */
+  display: flex;
+}
+.card-photo img{
+  width: 90%;
+  margin: auto;
+  
+}
+.card-content{
+  width: 70%;
+  padding: 0 0 0 5px;
+  display: flex;
+}
+.card-content .text{
+  width: 70%;
+  /* background-color: yellow; */
+  /* border-right: 1px solid #ccc; */
+}
+.item-name{
+  font-size: 20px;
+  font-weight: 600;
+}
+.sub-text{
+  font-size: 10px;
+}
+  .specs-list-container{
+    display: flex;
+  }
+  .specs-list-container .specs{
+    width: 10%;
+  }
+  .specs-list-container p{
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  .specs-list-container img{
+    margin-right: 5px;
+    width: 30%;
+  }
+.line {
+  height: 100%;
+  border-right: 1px solid #ccc;
+  margin: 0 15px;
+}
+.text::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-content .total-book{
+  width: 30%;
+  /* background-color: yellowgreen; */
+  display: flex;
+  flex-direction: column;
+}
+.card-content .price{
+  display: flex;
+  width: 80%;
+  height: 70%;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0 auto 0 20px;
+  /* background-color: #ffac38; */
+}
+span{
+  font-size: 23px;
+  font-weight: 550;
+}
+.sub-text, span{
+  margin: 0 0 5px 0;
+}
+.card-content button{
+  background-color: var(--main-color);
+  width: 80%;
+  height: 20%;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  margin: 0 auto 0 auto;
+}
