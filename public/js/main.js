@@ -6,6 +6,45 @@ function hideSidebar(){
     const sidebar = document.querySelector('.sidebar');
     sidebar.style.display = 'none';
 }
+function openSignIn(){
+    const modal = document.querySelector('.modalSignIn');
+    modal.style.display = 'block';
+}
+function closeSignIn(){
+    const modal = document.querySelector('.modalSignIn');
+    modal.style.display = 'none';
+}
+function signUpLink(){
+    const signInModal = document.querySelector('.modalSignIn');
+    signInModal .style.display = 'none';
+    const signUpModal = document.querySelector('.modalSignUp');
+    signUpModal .style.display = 'block';
+}
+
+function openSignUp(){
+    const modal = document.querySelector('.modalSignUp');
+    modal.style.display = 'block';
+}
+function closeSignUp(){
+    const modal = document.querySelector('.modalSignUp');
+    modal.style.display = 'none';
+}
+function signInLink(){
+    const signInModal = document.querySelector('.modalSignIn');
+    signInModal .style.display = 'block';
+    const signUpModal = document.querySelector('.modalSignUp');
+    signUpModal .style.display = 'none';
+}
+
+const signInForm = document.querySelector('#signInForm');
+
+signInForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = signInForm.userEmailSignIn.value;
+    const password = signInForm.passSignIn.value;
+
+    console.log(email, password);
+})
 
 
 const cars = [

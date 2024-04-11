@@ -1,7 +1,6 @@
-const router = require('express').Router();
 const axios = require('axios').default;
 
-router.get('/cars', async (req, res) => {
+exports.getCatalog = async (req, res) => {
     try {
         const API = await axios.get('https://car-rental-website-api-ydv9.onrender.com/api/catalog/cars');
         const dataCount = API.data.length; // Corrected here
@@ -18,6 +17,4 @@ router.get('/cars', async (req, res) => {
             console.log('Error', err.message);
         }
     }
-});
-
-module.exports = router;
+};

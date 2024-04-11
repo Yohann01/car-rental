@@ -118,6 +118,100 @@ header{
         display: flex;
         justify-content: center;
     }
+    .modalSignIn{
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(117, 121, 124); /* Fallback color */
+      background-color: rgba(117, 121, 124,0.6); /* Black w/ opacity */
+    }
+    .modalSignUp {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(117, 121, 124); /* Fallback color */
+      background-color: rgba(117, 121, 124,0.6); /* Black w/ opacity */
+    }
+    
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 30px 20px 20px 20px;
+      border: 1px solid #888;
+      width: 30%;
+      border-radius: 10px;
+    }
+    
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      top: 14%;
+      right: 36%;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .labelEmail,
+    .labelPass {
+      margin-bottom: 10px !important;
+      font-size: 17px;
+      font-weight: 550;
+    }
+    input::placeholder {
+      font-size: 14.5px;
+    }
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .signin-btn, .signup-btn{
+      display: block;
+      width: 100%;
+      padding: 5px;
+      color: white;
+      font-size: 17px;
+      font-weight: 600;
+      background-color: var(--main-color);
+      border: none;
+      background: rgb(249,83,54);
+      background: linear-gradient(94deg, rgba(249,83,54,1) 41%, rgba(227,83,57,1) 100%);
+    }
+    .modal-text{
+      display: block;
+      margin: 20px auto 0 auto;
+      text-align: center;
+      font-size: 13px;
+    }
+    .link{
+      color: var(--main-color);
+    }
 
 /* -----Cars catalog----- */
 

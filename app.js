@@ -3,8 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
 
-const hompageRouter = require('./views/routes/homepage');
-const catalogRouter = require('./views/routes/catalog');
+const hompageRouter = require('./routes/homepage');
+const catalogRouter = require('./routes/catalog');
 
 const app = express();
 const port = 5000 || process.env.PORT;
