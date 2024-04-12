@@ -1,0 +1,66 @@
+.signin-container, .signup-container{
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+  }
+.signin-container{
+    padding: 200px 0 20px 0; 
+}
+.signup-container{
+    padding: 150px 0 20px 0;   
+}
+  /* Modal Content */
+  .form-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px 20px 20px 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    border: none;
+
+  }
+  .form-content h1{
+    margin: 0 0 10px 0;
+  }
+  
+  .labelUsername,
+  .labelEmail,
+  .labelPass {
+    margin-bottom: 10px !important;
+    font-size: 17px;
+    font-weight: 550;
+  }
+  input::placeholder {
+    font-size: 14.5px;
+  }
+  input[type="text"],
+  input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+  .signin-btn, .signup-btn{
+    display: block;
+    width: 100%;
+    padding: 5px;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    background-color: var(--main-color);
+    border: none;
+    background: rgb(249,83,54);
+    background: linear-gradient(94deg, rgba(249,83,54,1) 41%, rgba(227,83,57,1) 100%);
+  }
+  .form-text{
+    display: block;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    font-size: 13px;
+  }
+  .link{
+    color: var(--main-color);
+  }

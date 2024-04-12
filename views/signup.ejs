@@ -1,0 +1,61 @@
+<!-- Signup container -->
+<div id="signup-container" class="signup-container">
+    <!-- Modal content -->
+    <div class="form-content">
+        <form class="signup-form">
+            <h1>Sign up</h1>
+            <label for='usernameSignUp'class="labelUsername">Username</label>
+            <input type="text" class="usernameSignUp" id="usernameSignUp" name="usernameSignUp" placeholder="Username">
+            <div class="error username"></div>
+
+            <label for='userEmailSignUp' class="labelEmail">Email address</label>
+            <input type="text" class="userEmailSignUp" id="userEmailSignUp" name="user/emailSignUp" placeholder="Email address">
+            <div class="error email"></div>
+
+            <label for='passSignUp' class="labelPass">Password</label>
+            <input type="password" id="passSignUp" name="passSignUp" placeholder="Password">
+            <div class="error password"></div>
+
+            <label for='confirmPass'class="labelPass">Confirm password</label>
+            <input type="password" id="confirmPass" name="confirmPass" placeholder=" Confirm Password">
+            <div class="error confrimPassword"></div>
+
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+        <p class="form-text">Already have an account? <a class="link" href="/signin/">Signin here</a></p>
+    </div>
+</div>
+
+<script>
+
+    const signUpForm = document.querySelector('form');
+    signUpForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = signUpForm.usernameSignUp.value;
+    const email = signUpForm.userEmailSignUp.value;
+    const password = signUpForm.passSignUp.value;
+    // const confirmPass = signUpForm.confirmPass.value;
+    console.log(username,email,password, confirmPass);
+
+    const data = {
+        username: username,
+        email: email,
+        password: password,
+        isAdmin: 0
+    }
+
+    
+    try {
+
+        // Make a GET request to the API endpoint
+        const res = fetch('/api/auth/signup', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json'}
+        })
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+</script>
