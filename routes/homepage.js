@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-const router = require('express').Router()
-router.get('/' , async (req, res) => {
-    res.render('index');
-});
-module.exports = router;
-=======
 const router = require('express').Router();
 const homepageController = require('../controllers/homepageController');
 
@@ -17,4 +10,3 @@ module.exports = router;
 //     res.render('index');
 // });
 // module.exports = router;
->>>>>>> temp-updates

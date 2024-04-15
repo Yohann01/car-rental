@@ -220,49 +220,6 @@ header{
         cursor: pointer;
       }
 
-<<<<<<< HEAD
-      .labelEmail,
-      .labelPass {
-        margin-bottom: 10px !important;
-        font-size: 17px;
-        font-weight: 550;
-      }
-      input::placeholder {
-        font-size: 14.5px;
-      }
-      input[type="text"],
-      input[type="password"] {
-          width: 100%;
-          padding: 10px;
-          margin-bottom: 20px;
-          box-sizing: border-box;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-      }
-      .signin-btn, .signup-btn{
-        display: block;
-        width: 100%;
-        padding: 5px;
-        color: white;
-        font-size: 17px;
-        font-weight: 600;
-        background-color: var(--main-color);
-        border: none;
-        background: rgb(249,83,54);
-        background: linear-gradient(94deg, rgba(249,83,54,1) 41%, rgba(227,83,57,1) 100%);
-      }
-      .modal-text{
-        display: block;
-        margin: 20px auto 0 auto;
-        text-align: center;
-        font-size: 13px;
-      }
-      .link{
-        color: var(--main-color);
-      }
-
-=======
->>>>>>> temp-updates
 
 /* -----------Home Section----------- */
 

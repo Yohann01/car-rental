@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-const axios = require('axios').default;
-
-exports.getCatalog = async (req, res) => {
-    try {
-        const API = await axios.get('https://car-rental-website-api-ydv9.onrender.com/api/catalog/cars');
-        const dataCount = API.data.length; // Corrected here
-        res.render('carsCatalog', { layout: './layouts/catalog-main', cars: API.data, dataCount });
-        // console.log(dataCount);
-    } catch (err) {
-=======
 const fetch = require('node-fetch');
 
 
@@ -44,7 +33,6 @@ exports.getCatalog = async (req, res) => {
         console.error('Error fetching catalog:', err);
 
         // Log specific error details based on the error type
->>>>>>> temp-updates
         if (err.response) {
             console.log(err.response.data);
             console.log(err.response.status);
@@ -54,10 +42,6 @@ exports.getCatalog = async (req, res) => {
         } else {
             console.log('Error', err.message);
         }
-<<<<<<< HEAD
-    }
-};
-=======
 
         // Send an error response to the client
         res.status(500).send('Error fetching catalog');
@@ -70,4 +54,3 @@ exports.getCatalog = async (req, res) => {
 exports.getBookPage = async (req, res) => {
     res.render('book')
 }
->>>>>>> temp-updates
