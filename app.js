@@ -15,11 +15,6 @@ const carRoute = require('./api/routes/car');
 const authRoute = require('./api/routes/auth');
 const { checkUser } = require('./api/middleware/authMiddleware');
 
-<<<<<<< HEAD
-const hompageRouter = require('./routes/homepage');
-const catalogRouter = require('./routes/catalog');
-=======
->>>>>>> temp-updates
 
 const app = express();
 const port = process.env.PORT || 3000;
