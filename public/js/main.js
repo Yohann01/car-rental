@@ -47,6 +47,9 @@ signInForm.addEventListener('submit', (e) => {
 })
 
 
+
+
+
 const cars = [
     {
         id:1,
@@ -182,8 +185,8 @@ const cars = [
 
 
 const carSelected = document.querySelectorAll('.car-select-btn');
-carSelected[0].style.background = "#FF3714"
-carSelected[0].style.color = "white"
+// carSelected[0].style.background = "#FF3714"
+// carSelected[0].style.color = "white"
 
 let chosenCar = cars[0]
 
