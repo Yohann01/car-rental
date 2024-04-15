@@ -13,6 +13,7 @@ const catalogRouter = require('./routes/catalog');
 //API routes imports
 const carRoute = require('./api/routes/car');
 const authRoute = require('./api/routes/auth');
+const { checkUser } = require('./api/middleware/authMiddleware');
 
 
 const app = express();
@@ -39,6 +40,7 @@ app.set('view engine', 'ejs');
 
 
 //Frontend routes
+app.use('*', checkUser);
 app.use('/',  hompageRouter);
 app.use('/catalog', catalogRouter);
 

@@ -53,14 +53,43 @@ header{
     padding: 0px 150px;
     box-shadow: -10px 0 10px rgba(0,0,0,0.1);
 }
+.header-container{
+    display: flex;
+    width: 100%;
+}
+.logo-container{
+    /* background-color: #fe5b3d; */
+    width: 8%;
+}
+.nav-container{
+    /* background-color: gray; */
+    display: flex;
+    width: 72%;
+    align-items: center;
+    justify-content: center; /* Center items horizontally */
+    padding: 0 auto 0 auto;   
+}
+.header-btn-container{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: #ffac38; */
+    justify-content: flex-end;
+}
+
     /* Nav bar logo */
     .logo{
-        width: 130%;
+        width: 110%;
         height: 60px;
     }
+ 
     /* Nav bar ul style */
     .navbar{
         display: flex;
+        text-align: center;
+        justify-content: center; /* Center items horizontally */
+        padding: 0 0 0 10%;
 
     }.navbar li{
         position: relative;
@@ -75,10 +104,7 @@ header{
             box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
         }
     /* Button container */
-    .header-btn-container a{
-        padding: 0px 10px;
-        align-items: center;
-    }#sign-in{
+    #sign-in{
         color: var(--text-color);
         padding: 10px 10px;
     }#sign-up{
@@ -86,7 +112,24 @@ header{
         color: #fff;
         border-radius: 100px;
         padding: 10px 20px;
-    }.menu-btn{
+    }#logout{
+        background: black;
+        color: #fff;
+        border-radius: 100px;
+        padding: 10px 20px;
+    }.header-username {
+        white-space: nowrap; /* Prevents wrapping of long usernames */
+        overflow: hidden; /* Hides any overflow (long usernames) */
+        text-overflow: ellipsis; /* Adds ellipsis (...) to indicate text overflow */
+        margin-right: 10px;
+        font-size: 16px; /* Adjust font size as needed */
+        font-weight: 500; /* Adjust font weight if necessary */
+        max-width: 140px; /* Limit width to prevent overflow */
+    }.header-btn-container a{
+        padding: 0px 10px;
+        align-items: center;
+    }
+    .menu-btn{
         display: none;
     }
     /* Sidebar style */
