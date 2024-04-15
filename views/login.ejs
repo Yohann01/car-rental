@@ -1,0 +1,66 @@
+<!-- Signin container -->
+<div id="signin-container" class="signin-container">
+    <!-- Modal content -->
+    <div class="form-content">
+        <form>
+            <h1>Log in</h1>
+            <label for='emailSignIn' class="labelEmail">Email address</label>
+            <input type="text" class="emailSignIn" id="emailSignIn" name="emailSignIn" placeholder="Email address or Username">
+            <div class="error email"></div>
+
+            <label for='passSignIn' class="labelPass">Password</label>
+            <input type="password" id="passSignIn" name="passSignIn" placeholder="Password">
+            <div class="error password"></div>
+            
+            <button type="submit" class="signin-btn">Sign In</button>
+        </form>
+        <p class="form-text">Dont have an account? <a class="link" href="/signup">Signup here</a></p>
+        <p class="form-text"><a class="link" href="#">Forgot Password?</a></p>
+    </div>
+</div>
+
+
+
+<script>
+    const signInForm = document.querySelector('form');
+    const errorEmail = document.querySelector('.error.email');
+    const errorPassword = document.querySelector('.error.password');
+    signInForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = signInForm.emailSignIn.value;
+    const password = signInForm.passSignIn.value;
+
+    console.log(email, password);
+    // Reset errors
+    errorPassword.textContent = '';
+    errorEmail.textContent = '';
+
+    const saveData = {
+        email: email,
+        password: password
+    };
+
+    try {
+        const res = await fetch('/api/auth/login', {
+            method: 'POST', // Use POST method for signup
+            body: JSON.stringify(saveData), // Send data as JSON string
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const data = await res.json();
+
+        if (data.errors) {
+            errorEmail.textContent = data.errors.email;
+            errorPassword.textContent = data.errors.password;
+        }
+        if(data.user){
+            location.assign('/')
+        }
+    } catch (err) {
+        console.error('Error occurred during signup:', err);
+        // Handle error (display message, log, etc.)
+    }
+});
+</script>

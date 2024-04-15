@@ -27,7 +27,6 @@
   .labelUsername,
   .labelEmail,
   .labelPass {
-    margin-bottom: 10px !important;
     font-size: 17px;
     font-weight: 550;
   }
@@ -38,7 +37,7 @@
   input[type="password"] {
       width: 100%;
       padding: 10px;
-      margin-bottom: 20px;
+      
       box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -55,6 +54,9 @@
     background: rgb(249,83,54);
     background: linear-gradient(94deg, rgba(249,83,54,1) 41%, rgba(227,83,57,1) 100%);
   }
+  .signup-btn{
+  margin-top: 20px;
+  }
   .form-text{
     display: block;
     margin: 20px auto 0 auto;
@@ -63,4 +65,9 @@
   }
   .link{
     color: var(--main-color);
+  }
+  .error{
+    color: red;
+    font-size: 10px;
+    margin-bottom: 20px;
   }

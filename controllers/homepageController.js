@@ -3,8 +3,9 @@ exports.getHomepage = async (req, res) => {
 };
 
 exports.getSignIn = async (req, res) => {
-    res.render('signin');
+    res.render('login');
 }
 exports.getSignUp = async (req, res) => {
     res.render('signup');
 }
+

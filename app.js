@@ -5,6 +5,7 @@ const expressLayout = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 
+
 //Frontend routes imports
 const hompageRouter = require('./routes/homepage');
 const catalogRouter = require('./routes/catalog');
@@ -38,7 +39,7 @@ app.set('view engine', 'ejs');
 
 
 //Frontend routes
-app.use('/', hompageRouter);
+app.use('/',  hompageRouter);
 app.use('/catalog', catalogRouter);
 
 //API routes

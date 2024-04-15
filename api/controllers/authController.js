@@ -1,28 +1,50 @@
-const User = require('../models/User')
+const User = require('../models/User');
+const jwt = require('jsonwebtoken');
+
 
 const handleErrors = (err) => {
     console.log(err.message, err.code);
-    let errors = { username: '', email: '', password: ''};
-    
-    //Duplicate error code
-    if (err.keyValue.hasOwnProperty('email') || err.code === 11000){
-        errors.email = 'Email is already registered'
-        return errors
+    let errors = { username: '', email: '', password: '' };
+
+    //Login incorrect email
+    if(err.message === 'incorrect email'){
+        errors.email = "Email is not registered";
     }
-    if (err.keyValue.hasOwnProperty('username') || err.code === 11000){
-        errors.username = 'Username is already taken'
-        return errors
+
+    //Login incorrect password
+    if(err.message === 'incorrect password'){
+        errors.password = "Incorrect password";
     }
-    //validation errors
-    if(err.message.includes('User validation failed')){
-        Object.values(err.errors).forEach(({properties}) =>{
+
+    // Duplicate error code (check if err.keyValue is defined)
+    if (err.code === 11000) {
+        if (err.keyValue.hasOwnProperty('email')) {
+            errors.email = 'Email is already registered';
+        }
+        if (err.keyValue.hasOwnProperty('username')) {
+            errors.username = 'Username is already taken';
+        }
+        return errors;
+    }
+
+    // Validation errors
+    if (err.message && err.message.includes('User validation failed')) {
+        Object.values(err.errors).forEach(({ properties }) => {
             errors[properties.path] = properties.message;
         });
     }
-    return errors
+
+    return errors;
+};
+
+const maxAge = 3 * 24 * 60 * 60
+const createToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT, {
+        expiresIn:maxAge
+    });
 }
 /*
-*POST /api/user/signup
+*POST /api/auth/signup
 */
 exports.signup = async (req, res) => {
     const newUser = new User ({
@@ -31,10 +53,41 @@ exports.signup = async (req, res) => {
         password: req.body.password,
     });
     try{
-        const savedUser = await newUser.save();
-        res.status(201).json(savedUser);
+        const user = await newUser.save();
+        const token = createToken(user._id)
+        res.cookie('jwt', token, { httpOnly:true , maxAge: maxAge * 1000 });
+        res.status(201).json({user: user._id});
+        
     }catch(err){
         const errors = handleErrors(err);
-        res.status(500).json({errors})
+        res.status(401).json({ errors, err })
+        console.log(err);
     }
 };
+
+
+/*
+*POST /api/auth/login
+*/
+exports.login = async (req, res) => {
+    const { email, password } = req.body
+    try {
+       const user = await User.login(email, password);
+       const token = createToken(user._id)
+       res.cookie('jwt', token, { httpOnly:true , maxAge: maxAge * 1000 });
+        res.status(200).json({ user: user._id })
+    } catch (err) {
+        const errors = handleErrors(err)
+        res.status(400).json({ errors })
+    }
+}   
+
+/*
+*POST /api/auth/logout
+*/
+exports.logout = (req, res) => {
+    res.cookie('jwt', '', {maxAge: 1});
+    res.redirect('/');
+
+    console.log('Logout');
+}

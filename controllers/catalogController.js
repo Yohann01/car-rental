@@ -47,3 +47,10 @@ exports.getCatalog = async (req, res) => {
         res.status(500).send('Error fetching catalog');
     }
 };
+/*
+*GET /catalog/book
+*/
+
+exports.getBookPage = async (req, res) => {
+    res.render('book')
+}
