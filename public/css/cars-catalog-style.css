@@ -433,12 +433,16 @@ span{
 .sub-text, span{
   margin: 0 0 5px 0;
 }
-.card-content button{
+.card-content a{
   background-color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 80%;
   height: 20%;
   color: white;
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: 650;
   border-radius: 5px;
   border: none;
   margin: 0 auto 0 auto;

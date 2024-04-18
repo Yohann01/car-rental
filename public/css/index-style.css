@@ -266,7 +266,7 @@ section .booking-container  {
     color: white;
     padding: 20px 20px 40px 20px;
     display: flex;
-    margin-top: 10px;
+    margin-top: 65px;
 }
 
     .booking-container{
@@ -365,7 +365,7 @@ section .booking-container  {
         font-size: 16px;
         font-weight: 1000;
         align-items: center;
-        margin-top: 35px;
+        margin-top: 60px;
         border-radius: 10px;
     }
       
@@ -381,7 +381,7 @@ section .booking-container  {
 .steps-container{
     text-align: center;
     align-items: center;
-    margin: 170px 0 0 0;
+    margin: 70px 0 0 0;
   }
     /* Column styles */
     .steps-container .column{

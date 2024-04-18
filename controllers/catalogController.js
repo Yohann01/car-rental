@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const Car = require('../api/models/Car')
 
 
 /*
@@ -6,12 +7,30 @@ const fetch = require('node-fetch');
 */
 exports.getCatalog = async (req, res) => {
     try {
+
+        const { carType, pickUpLocationCity, dropOffLocationCity }  = req.query
+        
+        const searchParams = {};
+
+        if (carType) searchParams.carType = carType;
+        if (pickUpLocationCity) searchParams.pickUpLocationCity = pickUpLocationCity;
+        if (dropOffLocationCity) searchParams.dropOffLocationCity = dropOffLocationCity;
+
+        const queryString = new URLSearchParams(searchParams).toString();
         const port = process.env.PORT;
         const apiUrl = `http://localhost:${port}/api/catalog/cars`;
+        
+        let apiUrlWithQueryString = apiUrl
 
+        if(req.query)
+        {
+            console.log(req.query, "FE");
+            apiUrlWithQueryString = `${apiUrl}?${queryString}`
+        }
+        console.log(apiUrlWithQueryString)
         // Make a GET request to the API endpoint
-        const response = await fetch(apiUrl);
-
+        const response = await fetch(apiUrlWithQueryString);
+        
         // Check if the response is successful (status 200-299)
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -26,8 +45,9 @@ exports.getCatalog = async (req, res) => {
         }
 
         const dataCount = data.length;
-
+        
         // Render the 'carsCatalog' view with the retrieved data and dataCount
+        
         res.render('carsCatalog', { layout: './layouts/catalog-main', cars: data, dataCount });
     } catch (err) {
         console.error('Error fetching catalog:', err);
@@ -52,5 +72,10 @@ exports.getCatalog = async (req, res) => {
 */
 
 exports.getBookPage = async (req, res) => {
-    res.render('book')
+    try{
+        const car = await Car.findOne({ _id: req.params.id })
+        res.render('book', { layout: './layouts/catalog-main', car})
+    }catch(err){
+        res.status(404).json('Listing not found');
+    }
 }
