@@ -1,4 +1,63 @@
-<section>
+<section class="loc">
+    <div class="loc-det-cont">
+        <div class="pck-up-det-cont">
+            <div class="pck-up-title text-title">Pick-up</div>
+            <h3 class="date pck-up-date">Sample Pick-up Date</h3>
+            <div class="details">
+                <img class="icon location-icon" src="/assets/png-icons/loc.png" alt="">
+                <div class="col-1 det-txt">
+                    <p class=" title-txt"><%= car.pickUpLocationCity %></p>
+                    <p><%= car.pickUpLocation %></p>
+                </div>
+            </div>
+            <div class="details">
+                <img class="icon clock-icon" src="/assets/png-icons/clock.png" alt="">
+                <div class=" col-2 det-txt">
+                    <p class=" title-txt">Business hours</p>
+                    <p>24Hours</p>
+                </div>
+            </div>
+            <div class="details">
+                <img class=" icon info-icon" src="/assets/png-icons/info.png" alt="">
+                <div class="col-3 det-txt">
+                    <p class="title-txt">Pick-up instructions</p>
+                    <p>View pick-up & drop-off instruction</p>
+                </div>
+            </div>
+        </div>
+        <div class="drp-off-det-cont">
+            <div class="drp-off-title text-title">Drop-off</div>
+            <h3 class="date drp-off-date">Sample Drop-off Date</h3>
+            <div class="details">
+                <img class="icon location-icon" src="/assets/png-icons/loc.png" alt="">
+                <div class="col-1 det-txt">
+                    <p class=" title-txt"><%= car.pickUpLocationCity %></p>
+                    <p><%= car.pickUpLocation %></p>
+                </div>
+            </div>
+            <div class="details">
+                <img class="icon clock-icon" src="/assets/png-icons/clock.png" alt="">
+                <div class=" col-2 det-txt">
+                    <p class=" title-txt">Business hours</p>
+                    <p>24Hours</p>
+                </div>
+            </div>
+            <div class="details">
+                <img class=" icon info-icon" src="/assets/png-icons/info.png" alt="">
+                <div class="col-3 det-txt">
+                    <p class="title-txt">Drop-off instructions</p>
+                    <p>View pick-up & drop-off instruction</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="car-details">
     <div class="items">
         <div class="card-photo">
             <img src="<%= car.img %>" alt="">
@@ -20,14 +79,6 @@
                         <%  } %>
                         </p>
                 </div>
-                <div class="locations">
-                    <div class="pick-up">
-                        <p><img src="/assets/png-icons/building.png" alt=""><%= car.pickUpLocation %></p>
-                    </div>
-                    <div class="drop-off">
-                        <p><img src="/assets/png-icons/building.png" alt=""><%= car.dropOffLocation%></p>
-                    </div> 
-                </div>
                 <div class="line-horizontal"></div><!-- Line only -->
                 <div class="tooltips">
                     <div class="tooltip left">
@@ -42,4 +93,40 @@
                     </div>
                 </div>
             </div>
+            
+        </div>
+        <div class="rental-charge-cont">
+            <div class="breakdown-item">
+                <p class="breakdown-title">Car price breakdown</p>
+            </div>
+            <div class="breakdown-item">
+                <p>Car rental charge</p>
+                <p class="right-text">PHP <%= car.basePricePerMile %></p>
+            </div>
+            <div class="breakdown-item">
+                <p>Prestige Membership (12 months)</p>
+                <p class="right-text">PHP 2,581.64</p>
+            </div>
+            
+            <div class="breakdown-item">
+                <p>Prestige total savings</p>
+                <p class="right-text"><p class="savings-text">-PHP 2,581.64</p></p>
+            </div>
+            <div class="breakdown-sub-item">
+                <p>Rental Discount</p>
+                <p class="right-sub-text">&nbsp;-&nbsp;PHP 2,581.64</p>
+            </div>
+            
+
+
+            <div class="line-horizontal"></div>
+            <p>Estimated total</p>
+            <h4>PHP <%= car.basePricePerMile %></h4>
+        </div>
 </section>
+
+<script>
+    const pickUp = car.pickUpLocation
+
+    console.log(pickUp)
+</script>

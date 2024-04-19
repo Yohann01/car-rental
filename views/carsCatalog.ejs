@@ -3,7 +3,7 @@
     <div class="catalog-container">
     
         <div class="filter-container">
-    
+            <form id="filter">
             <div class="title filters">
                 <h4 class="search-filter-title"><i class='bx bxs-filter-alt' ></i>Search Filters</h4>
             </div>
@@ -11,7 +11,7 @@
             <div class="car-type filters">
                 <h4>Car Type</h4>
                 <label class="mcui-checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" id="suvCheckbox" checked>
                     <div>
                     <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
                         <title>checkmark-circle</title>
@@ -22,7 +22,7 @@
                 </label>
                 
                 <label class="mcui-checkbox">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" id="sedanCheckbox"checked>
                     <div>
                     <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
                         <title>checkmark-circle</title>
@@ -89,8 +89,9 @@
                     </div>
                     <div>Automaic</div>
                 </label> 
+                <button type="submit">Show Results</button>
             </div>
-    
+            </form>
         </div>
     
         <div class="cars-catalog-container">
@@ -151,15 +152,109 @@
                                 </span>
                             <p class="sub-text">Total</p>
                         </div>
-                        <button href="/book">Book Now</button>
+                        <a href="/catalog/book/<%= car._id %>" type="button">Book Now</a>
                     </div>
                 </div>
             </div>
             <% }) %>
 
-                    
-
+            
+            <div class="booking-container">
+                <div class="column" id="book-col-1">
+                    <h1 class="title">Book a car</h1>
+                    <form id="bookingForm" action="/catalog/cars">
+                        <!-- Select Car Type -->
+                        <h4>
+                            <span class="svg-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                                    <path d="M240-200v40q0 17-11.5 28.5T200-120h-40q-17 0-28.5-11.5T120-160v-320l84-240q6-18 21.5-29t34.5-11h440q19 0 34.5 11t21.5 29l84 240v320q0 17-11.5 28.5T800-120h-40q-17 0-28.5-11.5T720-160v-40H240Zm-8-360h496l-42-120H274l-42 120Zm68 240q25 0 42.5-17.5T360-380q0-25-17.5-42.5T300-440q-25 0-42.5 17.5T240-380q0 25 17.5 42.5T300-320Zm360 0q25 0 42.5-17.5T720-380q0-25-17.5-42.5T660-440q-25 0-42.5 17.5T600-380q0 25 17.5 42.5T660-320Z"/></svg>
+                            </span>
+                            Select your car type
+                            <span>*</span>
+                        </h4>
+                        <select id="carType" name="carType">
+                            <option value="default">Select Car type</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV">SUV</option>
+                        </select>
+                        
+                        <!-- Pick Up date -->
+                        <br>
+                        <br>
+                        <h4>
+                            <span class="svg-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                                <path d="M480-400q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Z"/></svg>
+                            </span>
+                            Pick up date
+                            <span>*</span>
+                        </h4>
+                        <input type="date" id="pickupDate" name="pickUpDate">
+                    </div>
+        
+                    <!-- Column 2 -->
+                    <div class="column" id="book-col-2">
+                        <!-- Select Pick Up Location -->
+                        <h4>
+                            <span class="svg-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                                <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 400Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>
+                            </span>
+                            Pick up location
+                            <span>*</span>
+                        </h4>
+                        <select id="pickupLocation" name="pickUpLocationCity">
+                            <option value="default">Select pick up location</option>
+                            <option value="Manila">Manila</option>
+                            <option value="Quezon City">Quezon City</option>
+                            <option value="Cebu City">Cebu City</option>
+                            <option value="Davao City">Davao City</option>
+                            <option value="Baguio City">Baguio City</option>
+                        </select>
+        
+                        <!-- Drop off date -->
+                        <br>
+                        <br>
+                        <h4>
+                            <span class="svg-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                                <path d="M480-400q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Z"/></svg>
+                            </span>
+                            Drop off date
+                            <span>*</span>
+                        </h4>
+                        <input type="date" id="dropoffDate" name="dropOffDate">
+                    </div>
+        
+                    <!-- Column 3 -->
+                    <div class="column" id="book-col-3">
+                        <!-- Select Drop Off Location -->
+                        <h4>
+                            <span class="svg-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                                <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 400Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>
+                            </span>
+                            Drop off location
+                            <span>*</span>
+                        </h4>
+                        <select id="dropoffLocation" name="dropOffLocationCity">
+                            <option value="default">Select drop off location</option>
+                            <option value="Manila">Manila</option>
+                            <option value="Quezon City">Quezon City</option>
+                            <option value="Cebu City">Cebu City</option>
+                            <option value="Davao City">Davao City</option>
+                            <option value="Baguio City">Baguio City</option>
+                        </select>  
+                        
+                        <!-- Search Button -->
+                        <button type="submit" class="search-btn">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
         </div>
         
-        <script src="/js/main.js">S</script>
+        <script src="/js/catalogScript.js"></script>
 </section>
