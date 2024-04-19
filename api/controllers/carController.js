@@ -1,7 +1,7 @@
 
 const Car = require('../models/Car');
-
-
+const calculateDistance = require('../utils/distanceCalculator');
+const { setLocation } = require('../utils/locationHelper');
 
 /*
 *GET /api/catalog/cars
@@ -12,15 +12,15 @@ exports.getCars =  async (req, res) => {
     let query = {}
 
     if ( carType || pickUpLocationCity || dropOffLocationCity){
-    const carTypes = Array.isArray(carType) ? carType : [carType];
+        const carTypes = Array.isArray(carType) ? carType : [carType];
 
-    query = {
-        carType: { $in: carTypes }, 
-        pickUpLocationCity,
-        dropOffLocationCity
+        query = {
+            carType: { $in: carTypes }, 
+            pickUpLocationCity,
+            dropOffLocationCity
+        }
+        // console.log("API query", query);
     }
-    console.log("API query", query);
-}
     try {
         const cars = await Car.find(query)
 
@@ -38,30 +38,32 @@ exports.getCars =  async (req, res) => {
 *POST /api/catalog/postcar
 */
 
-exports.postCars = async (req,res) => {
-        const newCar = new Car ({
-            name: req.body.name,
-            carType: req.body.carType,
-            capacity: req.body.capacity,
-            bag: req.body.bag,
-            doors: req.body.doors,
-            transmission: req.body.transmission,
-            ac: req.body.ac,
-            img: req.body.img,
-            pickUpLocationCity: req.body.pickUpLocationCity,
-            pickUpLocation: req.body.pickUpLocation,
-            dropOffLocationCity: req.body.dropOffLocationCity,
-            dropOffLocation: req.body.dropOffLocation,
-            basePricePerMile: req.body.basePricePerMile,
-        });
-    
-        try {
-            const savedCar = await newCar.save();
-            res.status(201).json(savedCar);
-            
-        }catch(err){
-            res.status(500).json(err);
-        }
-    
-    };
-    
+exports.postCars = async (req, res) => {
+    const {
+        name, carType, capacity, bag,
+        doors, transmission, ac, img,
+        pickUpLocationCity, dropOffLocationCity, basePricePerMile
+    } = req.body;
+
+    // Calculate distance based on pickUpLocationCity and dropOffLocationCity
+    const distance = calculateDistance(pickUpLocationCity, dropOffLocationCity);
+
+    const dropOffLocation = setLocation(dropOffLocationCity);
+    const pickUpLocation = setLocation(pickUpLocationCity);
+
+    const newCar = new Car({
+        name, carType, capacity, bag,
+        doors, transmission, ac, img,
+        pickUpLocationCity, pickUpLocation,
+        dropOffLocationCity, dropOffLocation,
+        distance, basePricePerMile
+    });
+
+    try {
+        const savedCar = await newCar.save();
+        res.status(201).json(savedCar);
+    } catch (err) {
+        console.error('Error saving car:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};

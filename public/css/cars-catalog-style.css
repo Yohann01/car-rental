@@ -173,7 +173,6 @@ body{
     height: 100vh;
     justify-content: center;
     line-height: 1.5;
-
 }
 .catalog-container{
     display: flex;
@@ -343,6 +342,8 @@ body{
 .item-name{
   font-size: 20px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
 
 }
 .item-name img{

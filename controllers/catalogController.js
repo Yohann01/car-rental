@@ -27,7 +27,7 @@ exports.getCatalog = async (req, res) => {
             console.log(req.query, "FE");
             apiUrlWithQueryString = `${apiUrl}?${queryString}`
         }
-        console.log(apiUrlWithQueryString)
+        // console.log(apiUrlWithQueryString)
         // Make a GET request to the API endpoint
         const response = await fetch(apiUrlWithQueryString);
         
@@ -74,7 +74,7 @@ exports.getCatalog = async (req, res) => {
 exports.getBookPage = async (req, res) => {
     try{
         const car = await Car.findOne({ _id: req.params.id })
-        res.render('book', { layout: './layouts/catalog-main', car})
+        res.render('book', { layout: './layouts/book-main', car})
     }catch(err){
         res.status(404).json('Listing not found');
     }
