@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('filter'); // Assuming 'filter' is the ID of your form
     const checkbxSUV = document.getElementById('suvCheckbox');
     const checkbxSedan = document.getElementById('sedanCheckbox');
-// Get the current URL from the browser's address bar
+    // Get the current URL from the browser's address bar
     const currentUrl = window.location.href;
     // Parse the URL to extract query parameters
     const url = new URL(currentUrl);
@@ -14,11 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const pickUpDate = queryParams.get('pickUpDate');
     const dropOffDate = queryParams.get('dropOffDate');
 
-    // console.log('Pickup Location City:', pickUpLocationCity);
-    // console.log('Drop-off Location City:', dropOffLocationCity);
-    // console.log('Pickup Date:', pickUpDate);
-    // console.log('Drop-off Date:', dropOffDate);
+    //Price formatting adding commas and '₱'
+    const formattedPriceSpans = document.querySelectorAll('#formattedPrice');
 
+    formattedPriceSpans.forEach(function(span) {
+        const priceValue = parseInt(span.textContent);
+        if (!isNaN(priceValue)) {
+            span.textContent = '₱' + priceValue.toLocaleString();
+        }
+    });
     // Handle form submission
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent default form submission
@@ -45,5 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = `${baseUrl}?${newUrl.toString()}`;
     });
 
-   
+
+
 });
