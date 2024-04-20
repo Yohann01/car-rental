@@ -8,15 +8,34 @@ const Car = require('../api/models/Car')
 exports.getCatalog = async (req, res) => {
     try {
 
-        const { carType, pickUpLocationCity, dropOffLocationCity }  = req.query
+        const { carType, pickUpLocationCity, dropOffLocationCity, dropOffDate, pickUpDate }  = req.query
         
-        const searchParams = {};
+        console.log(dropOffDate)
+        const searchParams = new URLSearchParams();
 
-        if (carType) searchParams.carType = carType;
-        if (pickUpLocationCity) searchParams.pickUpLocationCity = pickUpLocationCity;
-        if (dropOffLocationCity) searchParams.dropOffLocationCity = dropOffLocationCity;
+        if (carType) {
+            if (Array.isArray(carType)) {
+                // Handle case when carType is an array with multiple values
+                carType.forEach(type => {
+                    searchParams.append('carType', type); // Append each carType value separately
+                });
+            } else {
+                // Handle case when carType is a single value
+                searchParams.append('carType', carType);
+            }
+        }
 
-        const queryString = new URLSearchParams(searchParams).toString();
+        if (pickUpLocationCity) {
+            searchParams.append('pickUpLocationCity', pickUpLocationCity);
+        }
+
+        if (dropOffLocationCity) {
+            searchParams.append('dropOffLocationCity', dropOffLocationCity);
+        }
+
+        const queryString = searchParams.toString();
+        // console.log(queryString);
+
         const port = process.env.PORT;
         const apiUrl = `http://localhost:${port}/api/catalog/cars`;
         
@@ -24,8 +43,9 @@ exports.getCatalog = async (req, res) => {
 
         if(req.query)
         {
-            console.log(req.query, "FE");
+            console.log(searchParams);
             apiUrlWithQueryString = `${apiUrl}?${queryString}`
+            console.log(apiUrlWithQueryString);
         }
         // console.log(apiUrlWithQueryString)
         // Make a GET request to the API endpoint
@@ -48,7 +68,7 @@ exports.getCatalog = async (req, res) => {
         
         // Render the 'carsCatalog' view with the retrieved data and dataCount
         
-        res.render('carsCatalog', { layout: './layouts/catalog-main', cars: data, dataCount });
+        res.render('carsCatalog', { layout: './layouts/catalog-main', cars: data, dataCount, query: req.query });
     } catch (err) {
         console.error('Error fetching catalog:', err);
 

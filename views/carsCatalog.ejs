@@ -3,7 +3,7 @@
     <div class="catalog-container">
     
         <div class="filter-container">
-            <form id="filter">
+            <form id="filter" method="GET">
             <div class="title filters">
                 <h4 class="search-filter-title"><i class='bx bxs-filter-alt' ></i>Search Filters</h4>
             </div>
@@ -11,7 +11,7 @@
             <div class="car-type filters">
                 <h4>Car Type</h4>
                 <label class="mcui-checkbox">
-                    <input type="checkbox" id="suvCheckbox" checked>
+                    <input type="checkbox" id="suvCheckbox" value="SUV" <%= query.carType.includes('SUV') ? 'checked' : '' %> name="carTypeFilter">
                     <div>
                     <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
                         <title>checkmark-circle</title>
@@ -22,7 +22,7 @@
                 </label>
                 
                 <label class="mcui-checkbox">
-                    <input type="checkbox" id="sedanCheckbox"checked>
+                    <input type="checkbox" id="sedanCheckbox" value="Sedan" <%= query.carType.includes('Sedan') ? 'checked' : '' %> name="carTypeFilter" >
                     <div>
                     <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
                         <title>checkmark-circle</title>
@@ -147,9 +147,7 @@
                     <div class="line-vertical"></div><!-- Line only -->
                     <div class="total-book">
                         <div class="price">
-                            <span>&#8369;
-                                <%= car.basePricePerMile%></span>
-                                </span>
+                            <span id="formattedPrice"> <%= car.totalCarRentalPrice %> </span>
                             <p class="sub-text">Total</p>
                         </div>
                         <a href="/catalog/book/<%= car._id %>" type="button">Book Now</a>
@@ -173,9 +171,9 @@
                             <span>*</span>
                         </h4>
                         <select id="carType" name="carType">
-                            <option value="default">Select Car type</option>
-                            <option value="Sedan">Sedan</option>
-                            <option value="SUV">SUV</option>
+                            <option value="default" <%= query.carType === "" ? 'selected' : '' %>>Select Car type</option>
+                            <option value="Sedan"<%= query.carType === "Sedan" ? 'selected' : '' %>>Sedan</option>
+                            <option value="SUV"<%= query.carType === "SUV" ? 'selected' : '' %>>SUV</option>
                         </select>
                         
                         <!-- Pick Up date -->
@@ -189,7 +187,7 @@
                             Pick up date
                             <span>*</span>
                         </h4>
-                        <input type="date" id="pickupDate" name="pickUpDate">
+                        <input type="date" id="pickupDate" name="pickUpDate" value="<%= query.pickUpDate || '' %>">
                     </div>
         
                     <!-- Column 2 -->
@@ -204,12 +202,12 @@
                             <span>*</span>
                         </h4>
                         <select id="pickupLocation" name="pickUpLocationCity">
-                            <option value="default">Select pick up location</option>
-                            <option value="Manila">Manila</option>
-                            <option value="Quezon City">Quezon City</option>
-                            <option value="Cebu City">Cebu City</option>
-                            <option value="Davao City">Davao City</option>
-                            <option value="Baguio City">Baguio City</option>
+                            <option value="default"<%= query.dropOffLocationCity === "" ? 'selected' : '' %>>Select pick up location</option>
+                            <option value="Manila"<%= query.pickUpLocationCity === "Manila" ? 'selected' : '' %>>Manila</option>
+                            <option value="Quezon City"<%= query.pickUpLocationCity === "Quezon City" ? 'selected' : '' %>>Quezon City</option>
+                            <option value="Pampanga City"<%= query.pickUpLocationCity === "Pampanga City" ? 'selected' : '' %>>Pampanga City</option>
+                            <option value="Batangas City"<%= query.pickUpLocationCity === "Batangas City" ? 'selected' : '' %>>Batangas City</option>
+                            <option value="Baguio City"<%= query.pickUpLocationCity === "Baguio City" ? 'selected' : '' %>>Baguio City</option>
                         </select>
         
                         <!-- Drop off date -->
@@ -223,7 +221,7 @@
                             Drop off date
                             <span>*</span>
                         </h4>
-                        <input type="date" id="dropoffDate" name="dropOffDate">
+                        <input type="date" id="dropoffDate" name="dropOffDate" value="<%= query.dropOffDate || '' %>">
                     </div>
         
                     <!-- Column 3 -->
@@ -234,16 +232,16 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                                 <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 400Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>
                             </span>
-                            Drop off location
+                            Drop off locatio
                             <span>*</span>
                         </h4>
                         <select id="dropoffLocation" name="dropOffLocationCity">
-                            <option value="default">Select drop off location</option>
-                            <option value="Manila">Manila</option>
-                            <option value="Quezon City">Quezon City</option>
-                            <option value="Cebu City">Cebu City</option>
-                            <option value="Davao City">Davao City</option>
-                            <option value="Baguio City">Baguio City</option>
+                            <option value="default"<%= query.dropOffLocationCity === "" ? 'selected' : '' %>>Select pick up location</option>
+                            <option value="Manila"<%= query.dropOffLocationCity === "Manila" ? 'selected' : '' %>>Manila</option>
+                            <option value="Quezon City"<%= query.dropOffLocationCity === "Quezon City" ? 'selected' : '' %>>Quezon City</option>
+                            <option value="Pampanga City"<%= query.dropOffLocationCity === "Pampanga City" ? 'selected' : '' %>>Pampanga City</option>
+                            <option value="Batangas City"<%= query.dropOffLocationCity === "Batangas City" ? 'selected' : '' %>>Batangas City</option>
+                            <option value="Baguio City"<%= query.dropOffLocationCity === "Baguio City" ? 'selected' : '' %>>Baguio City</option>
                         </select>  
                         
                         <!-- Search Button -->
@@ -256,5 +254,8 @@
         </div>
         </div>
         
-        <script src="/js/catalogScript.js"></script>
+
+        
 </section>
+<script src="/js/catalogScript.js">
+</script>

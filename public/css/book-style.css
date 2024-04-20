@@ -14,7 +14,7 @@
     --main-color: #FF3714;
     --second-color: #ffac38;
     --text-color: #444;
-
+    --light-blue: #EBF5FF;
     --black-color: black;
     --grey-color: #8d9aa9;
     --bezier: cubic-bezier(0.65, 0.25, 0.56, 0.96);
@@ -261,17 +261,28 @@ header{
   .car-details{ padding: 0 150px}
   .items{
     display: flex;
+
     width: 100%;
     background-color: white;
     border-radius: 10px;
     border: 1px solid #D9E2E8;
-    padding: 10px; 
+    padding: 20px; 
     /* margin: 10px 0; */
+
     box-shadow: 0px 0px 7px rgba(0,0,0,0.1);
+  }
+  .item-details-container{
+    width: 65%;
+  }
+  .item-details{
+    display: flex;
+    /* background-color: blue; */
+    width: 100%;
   }
   .card-photo{
     width: 30%;
     /* background-color: green; */
+    height: 50%;
     display: flex;
   }
   .card-photo img{
@@ -280,13 +291,13 @@ header{
     
   }
   .card-content{
-    width: 50%;
-    background-color: red;
+    width: 70%;
+    height: 50%;
     padding: 0 0 0 5px;
     display: flex;
   }
   .card-content .text{
-    width: 70%;
+    width: 95%;
     /* background-color: yellow; */
     /* border-right: 1px solid #ccc; */
   }
@@ -303,6 +314,7 @@ header{
   }
   .sub-text{
     font-size: 10px;
+    display: flex;
   }
     .specs-list-container{
       display: flex;
@@ -319,35 +331,25 @@ header{
       margin-right: 5px;
       width: 30%;
     }
-    .locations{
-      display: flex;
-      width: 100%;
-    }
-  
-    .locations p{
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-      font-weight: 300;
-    }
-    .locations img{
-      width: 10%;
-      margin-right: 5px;
-    }
     .line-horizontal{
       width: 100%;
       border-bottom: 1px solid #ccc;
-      margin: 10px 0;
+      margin: 20px 0 20px 0;
+      padding: 0 20px 0 0 ;
     }
     .tooltips{
       display: flex;
       width: 100%;
     }
+    .tooltips .left, .tooltips .right{
+      width: 50%;
+    }
     .left{
       width: 50%;
     }
-    .tooltips i{
-      font-size: 15px;
+    .tooltips img{
+      width: 5%;
+      height: 5%;
     }
   .line-vertical{
     height: 100%;
@@ -361,12 +363,66 @@ header{
     margin-top: 10px;
     padding-bottom: 10px; 
   }
-  
+
+.free-cancel-text{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+  background-color: var(--light-blue);
+  margin: 10px 25px 10px 0;
+  font-size: 12px;
+
+}
+.booking-container{
+  padding: 0 25px 0 0;
+}
+.free-cancel-text img{
+  width: 3%;
+  height: 3%;
+  margin-right: 5px;
+}
+.booking-btn-container{
+  padding: 0 25px 0 0;
+  height: 100%;
+}.terms-condition{
+  display: flex;
+}.terms-condition input [type = 'checkbox']{
+  margin:10px;
+}.terms-conditions-container p{
+  font-size: 13px;
+}.terms-condition{
+  padding: 10px;
+}
+.terms-condition p{
+  margin-left: 10px;
+}.drp-off-det-cont p{
+  font-size: 13px;
+  padding-left: 20px;
+}.terms-condition{
+  margin-bottom: 20px;
+}.book-btn{
+  background-color: var(--main-color);
+  padding: 15px 25px 15px 25px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
    .rental-charge-cont{
     width: 35%;
     padding: 15px 15px;
     background-color: #EBF5FF;
     display: flex;
+    border-radius: 10px;
     flex-direction: column;
   }
   .breakdown-title{
@@ -388,6 +444,18 @@ header{
     margin-left: auto;
   }.savings-text{
     color: red;
+  }.estimated-total{
+    display: flex;
+  }.estimated-total p{
+    font-size: 17px;
+    display: flex;
+    font-weight: 600;
+    align-items: center;
+  }
+  .estimated-total h4{
+    display: flex;
+    margin-left: auto;
+    font-size: 23px;
   }
   
   span{

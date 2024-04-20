@@ -14,8 +14,7 @@ const carSchema = new mongoose.Schema(
         pickUpLocation: { type:String, required:true},
         dropOffLocationCity: { type:String, required:true},
         dropOffLocation: { type:String, required:true},
-        distance: { type: Number, required:true },
-        basePricePerMile: { type: Number, required:true },
+        totalCarRentalPrice: { type: Number, required:true },
     },
     { timestamps:true }
 );

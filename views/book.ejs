@@ -31,8 +31,8 @@
             <div class="details">
                 <img class="icon location-icon" src="/assets/png-icons/loc.png" alt="">
                 <div class="col-1 det-txt">
-                    <p class=" title-txt"><%= car.pickUpLocationCity %></p>
-                    <p><%= car.pickUpLocation %></p>
+                    <p class=" title-txt"><%= car.dropOffLocationCity %></p>
+                    <p><%= car.dropOffLocation %></p>
                 </div>
             </div>
             <div class="details">
@@ -59,41 +59,67 @@
 
 <section class="car-details">
     <div class="items">
-        <div class="card-photo">
-            <img src="<%= car.img %>" alt="">
-        </div>
-        <div class="card-content">
-            <div class="text">
-                <span class="item-name"> <%= car.name %><img src="/assets/png-icons/info.png" alt=""></span>
-                <p class="sub-text">or similar <%= car.carType %></p>
-                <div class="specs-list-container">
-                    <p class="specs"><img src="/assets/png-icons/user.png" alt=""><%= car.capacity %></p>
-                    <p class="specs"><img src="/assets/png-icons/briefcase.png" alt=""><%= car.bag %></p>
-                    <p class="specs"><img src="/assets/png-icons/car-door.png" alt=""><%= car.doors %></p>
-                    <p class="specs"><img src="/assets/png-icons/gearbox.png" alt=""><%= car.transmission %></p>
-                    <p class="specs"><img src="/assets/png-icons/snowflake.png" alt="">
-                        <% if(car.ac == true){ %>
-                            A/C
-                        <% } else { %>
-                            None
-                        <%  } %>
-                        </p>
+        <div class="item-details-container">
+            <div class="item-details">
+                <div class="card-photo">
+                    <img src="<%= car.img %>" alt="">
                 </div>
-                <div class="line-horizontal"></div><!-- Line only -->
-                <div class="tooltips">
-                    <div class="tooltip left">
-                        <p class="tooltip sub-text"><i class='bx bx-check'></i>Free cancellation (48h)</p>
-                        <p class="tooltip sub-text"><i class='bx bx-check'></i>Fuel policy: same-to-same</p>
-                        <p class="tooltip sub-text"><i class='bx bx-check'></i>Unlimited mileage included</p>
+                <div class="card-content">
+                    <div class="text">
+                        <span class="item-name"> <%= car.name %><img src="/assets/png-icons/info.png" alt=""></span>
+                        <p class="sub-text">or similar <%= car.carType %></p>
+                        <div class="specs-list-container">
+                            <p class="specs"><img src="/assets/png-icons/user.png" alt=""><%= car.capacity %></p>
+                            <p class="specs"><img src="/assets/png-icons/briefcase.png" alt=""><%= car.bag %></p>
+                            <p class="specs"><img src="/assets/png-icons/car-door.png" alt=""><%= car.doors %></p>
+                            <p class="specs"><img src="/assets/png-icons/gearbox.png" alt=""><%= car.transmission %></p>
+                            <p class="specs"><img src="/assets/png-icons/snowflake.png" alt="">
+                                <% if(car.ac == true){ %>
+                                    A/C
+                                <% } else { %>
+                                    None
+                                <%  } %>
+                                </p>
+                        </div>
+                        <div class="line-horizontal"></div><!-- Line only -->
+                        <div class="tooltips">
+                            <div class="tooltip left">
+                                <p class="tooltip sub-text"><img src="/assets/png-icons/check-mark.png" alt="">Free cancellation (48h)</p>
+                                <p class="tooltip sub-text"><img src="/assets/png-icons/check-mark.png" alt="">Fuel policy: same-to-same</p>
+                                <p class="tooltip sub-text"><img src="/assets/png-icons/check-mark.png" alt="">Unlimited mileage included</p>
+                            </div>
+                            <div class="tooltip right">
+                                <p class="tooltip sub-text"><img src="/assets/png-icons/check-mark.png" alt="">Collision damage waiver</p>
+                                <p class="tooltip sub-text"><img src="/assets/png-icons/check-mark.png" alt="">Third party coverage</p>
+                                <p class="tooltip sub-text"><img src="/assets/png-icons/check-mark.png" alt="">Theft protection waiver</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tooltip right">
-                        <p class="tooltip sub-text"><i class='bx bx-check'></i>Collision damage waiver</p>
-                        <p class="tooltip sub-text"><i class='bx bx-check'></i>Third party coverage</p>
-                        <p class="tooltip sub-text"><i class='bx bx-check'></i>Theft protection waiver</p>
-                    </div>
+                    
                 </div>
             </div>
-            
+        
+            <div class="free-cancel-text">
+                <img src="/assets/png-icons/check-mark.png" alt=""><p>Free cancellation up to 48 hours before Pick-up—because flexibility matters.</p>
+            </div>
+            <div class="booking-container">
+                <div class="line-horizontal"></div><!-- Line only -->
+                <div class="terms-conditions-container">
+                    <p>To ensure you pick-up the vehicle 
+                        smoothly, we suggest you read and 
+                        confirm Terms and Conditions before 
+                        you submit booking.</p>
+
+                    <div class="terms-condition">
+                        <input type="checkbox">
+                        <p>I confirm that I have read the 
+                            <a href="#">Car Rental Terms and Conditions </a>
+                            , and 
+                            <a href="#">Paid Prestige Membership </a></p>
+                    </div>
+                    <a class="book-btn" role="button" href="#">Book now</a>
+                </div>
+            </div>
         </div>
         <div class="rental-charge-cont">
             <div class="breakdown-item">
@@ -101,7 +127,7 @@
             </div>
             <div class="breakdown-item">
                 <p>Car rental charge</p>
-                <p class="right-text">PHP <%= car.basePricePerMile %></p>
+                <p id="total-initial" class="right-text"> <%= car.totalCarRentalPrice %></p>
             </div>
             <div class="breakdown-item">
                 <p>Prestige Membership (12 months)</p>
@@ -120,13 +146,48 @@
 
 
             <div class="line-horizontal"></div>
+            <div class="estimated-total">
             <p>Estimated total</p>
-            <h4>PHP <%= car.basePricePerMile %></h4>
+            <h4 id="total"> <%= car.totalCarRentalPrice %></h4>
+            </div>
+            <div class="line-horizontal"></div><!-- Line only -->
+            <div class="breakdown-item">
+                <p>Pay online</p>
+                <p class="right-text" id="pay-online">PHP 0.00</p>
+            </div>
+            <div class="breakdown-item">
+                <p>Pay at pick-up</p>
+                <p class="right-text">PHP 0.00</p>
+            </div>
+
         </div>
+    </div>
 </section>
 
 <script>
-    const pickUp = car.pickUpLocation
+    // Client-side JavaScript to format the price with commas
+    document.addEventListener('DOMContentLoaded', function() {
+        const formattedPriceElement = document.getElementById('total');
+        const formattedinitialPriceElement = document.getElementById('total-initial');
+        const formatpayOnlineElement = document.getElementById('pay-online');
+        const discount = 2581.64;
 
-    console.log(pickUp)
+
+        let priceValue = formattedPriceElement.textContent.trim();
+        newpriceValue = priceValue - discount;
+        const formattedPrice = numberWithCommas(parseFloat(newpriceValue));
+        formattedPriceElement.textContent = 'PHP ' + formattedPrice;
+        
+        
+        const initialPrice = formattedinitialPriceElement.textContent.trim();
+        console.log(initialPrice);
+        const formattedInitialPrice = numberWithCommas(parseFloat(initialPrice));
+        formattedinitialPriceElement.textContent = 'PHP ' + formattedInitialPrice;
+        formatpayOnlineElement.textContent = 'PHP ' + formattedPrice;
+    });
+
+    // Function to add commas to a number
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 </script>

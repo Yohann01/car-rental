@@ -46,7 +46,7 @@ const cars = [
         color:[
             {
                 code:"silver",
-                 img:"./assets/rental-cars/hyundai-tucson-silver.png",
+                 img:"./assets/rental-cars/hyundai-tucson.png",
             },
             {
                 code:"white",

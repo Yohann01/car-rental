@@ -1,14 +1,15 @@
 
 const Car = require('../models/Car');
 const calculateDistance = require('../utils/distanceCalculator');
+const setBasePrice = require('../utils/carTypePriceHelper')
 const { setLocation } = require('../utils/locationHelper');
 
 /*
 *GET /api/catalog/cars
 */
 exports.getCars =  async (req, res) => {
-    const { carType, pickUpLocationCity, dropOffLocationCity }  = req.query
-
+    const { carType, pickUpLocationCity, dropOffLocationCity}  = req.query
+    
     let query = {}
 
     if ( carType || pickUpLocationCity || dropOffLocationCity){
@@ -42,11 +43,16 @@ exports.postCars = async (req, res) => {
     const {
         name, carType, capacity, bag,
         doors, transmission, ac, img,
-        pickUpLocationCity, dropOffLocationCity, basePricePerMile
+        pickUpLocationCity, dropOffLocationCity,
+        
     } = req.body;
 
     // Calculate distance based on pickUpLocationCity and dropOffLocationCity
     const distance = calculateDistance(pickUpLocationCity, dropOffLocationCity);
+    const basePricePerKm = setBasePrice(carType);
+
+    const totalCarRentalPrice = distance * basePricePerKm
+    console.log(totalCarRentalPrice);
 
     const dropOffLocation = setLocation(dropOffLocationCity);
     const pickUpLocation = setLocation(pickUpLocationCity);
@@ -56,7 +62,7 @@ exports.postCars = async (req, res) => {
         doors, transmission, ac, img,
         pickUpLocationCity, pickUpLocation,
         dropOffLocationCity, dropOffLocation,
-        distance, basePricePerMile
+        totalCarRentalPrice
     });
 
     try {
