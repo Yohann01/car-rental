@@ -298,8 +298,97 @@ body{
   .filter-container .filters label div {
     font-size: 0.82em; /* Adjust the font size as needed */
 }
+.filter-btn{
+  display: flex;
+  justify-content: center;
+}
+.show-results{
+  padding: 5px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: var(--main-color);
+  border: none;
+  width: 80%;
+  height: 5vh;
+  border-radius: 5px;
+}
+
+/* Seacrch container */
+.search-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Adjust as needed for desired spacing */
+}
+
+.search-container form {
+  width: 100%; /* Ensure the form fills the width of the container */
+  display: flex;
+  align-items: center;
+}
+
+.search-container input,
+.search-container select {
+  flex: 1; /* Allow input and select elements to grow and fill available space */
+  height: 6vh;
+  padding-left: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 7px rgba(0,0,0,0.1);
+  margin-right: 10px; /* Add spacing between elements */
+  border: none;
+}
+
+.carType {
+  width: 15%; /* Fixed width for carType select */
+}
+
+.select-loc {
+  width: 20%; /* Fixed width for select-loc selects */
+}
+
+input[type="date"] {
+  flex: 1; /* Allow date inputs to grow and fill available space */
+  height: 6vh;
+  padding-left: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-right: 10px; /* Add spacing between elements */
+  box-shadow: 0px 0px 7px rgba(0,0,0,0.1);
+}
+
+.search-btn-icon {
+  width: 4.5%;
+  height: 6vh;
+  background-color: var(--main-color);
+  
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.search-btn-icon i {
+  font-size: 22px;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ----------Catalog container---------- */
+
 .cars-catalog-container {
   width:84%;
   display: flex;
@@ -322,16 +411,21 @@ body{
 .card-photo{
   width: 30%;
   /* background-color: green; */
+  height: 23.5vh;
   display: flex;
+  align-items: center;
+  
+
 }
 .card-photo img{
   width: 90%;
   margin: auto;
+  height: 100%
   
 }
 .card-content{
   width: 70%;
-  padding: 0 0 0 5px;
+  padding: 15px 0 15px 5px;
   display: flex;
 }
 .card-content .text{
@@ -367,7 +461,7 @@ body{
   }
   .specs-list-container img{
     margin-right: 5px;
-    width: 30%;
+    width: 32%;
   }
   .locations{
     display: flex;
@@ -381,23 +475,13 @@ body{
     font-weight: 300;
   }
   .locations img{
-    width: 10%;
+    width: 12%;
     margin-right: 5px;
   }
   .line-horizontal{
     width: 100%;
     border-bottom: 1px solid #ccc;
     margin: 10px 0;
-  }
-  .tooltips{
-    display: flex;
-    width: 100%;
-  }
-  .left{
-    width: 50%;
-  }
-  .tooltips i{
-    font-size: 15px;
   }
 .line-vertical{
   height: 100%;
@@ -440,7 +524,7 @@ span{
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: 20%;
+  height: 28.5%;
   color: white;
   font-size: 17px;
   font-weight: 650;
@@ -448,3 +532,13 @@ span{
   border: none;
   margin: 0 auto 0 auto;
 }
+  /* .tooltips{
+    display: flex;
+    width: 100%;
+  }
+  .left{
+    width: 50%;
+  }
+  .tooltips i{
+    font-size: 15px;
+  } */
