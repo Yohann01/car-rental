@@ -4,7 +4,7 @@ const express = require('express');
 const expressLayout = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
-
+const session = require('express-session')
 
 //Frontend routes imports
 const hompageRouter = require('./routes/homepage');
@@ -21,7 +21,11 @@ const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(session({
+    secret: process.env.SESSION, // Add a secret string for session encryption
+    resave: false,
+    saveUninitialized: false
+}));
 //MongoDB connection
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("DBConnection successfull"))
