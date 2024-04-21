@@ -8,9 +8,11 @@ const Car = require('../api/models/Car')
 exports.getCatalog = async (req, res) => {
     try {
 
-        const { carType, pickUpLocationCity, dropOffLocationCity, dropOffDate, pickUpDate }  = req.query
-        
-        console.log(dropOffDate)
+        const { carType, pickUpLocationCity, dropOffLocationCity }  = req.query
+
+        req.session.dropOffDate = req.query.dropOffDate;
+        req.session.pickUpDate = req.query.pickUpDate;
+        console.log(req.session.dropOffDate)
         const searchParams = new URLSearchParams();
 
         if (carType) {
@@ -43,9 +45,9 @@ exports.getCatalog = async (req, res) => {
 
         if(req.query)
         {
-            console.log(searchParams);
+
             apiUrlWithQueryString = `${apiUrl}?${queryString}`
-            console.log(apiUrlWithQueryString);
+
         }
         // console.log(apiUrlWithQueryString)
         // Make a GET request to the API endpoint
@@ -92,9 +94,13 @@ exports.getCatalog = async (req, res) => {
 */
 
 exports.getBookPage = async (req, res) => {
+
+    const dropOffDate = req.session.dropOffDate
+    const pickUpDate = req.session.pickUpDate
+    console.log(dropOffDate)
     try{
         const car = await Car.findOne({ _id: req.params.id })
-        res.render('book', { layout: './layouts/book-main', car})
+        res.render('book', { layout: './layouts/book-main', car, dropOffDate, pickUpDate})
     }catch(err){
         res.status(404).json('Listing not found');
     }
