@@ -35,7 +35,7 @@
                 </label>              
             </div>
     
-            <div class="capacity filters">
+            <!-- <div class="capacity filters">
                 <h4>Capacity</h4>
                 <label class="mcui-checkbox">
                     <input type="checkbox" checked>
@@ -57,11 +57,11 @@
                     </div>
                     <div>6 or more</div>
                 </label> 
-            </div>
+            </div> -->
     
             <div class="car-options filters">
                 <h4>Car Options</h4>
-                <label class="mcui-checkbox">
+                <!-- <label class="mcui-checkbox">
                     <input type="checkbox" checked>
                     <div>
                     <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
@@ -70,9 +70,9 @@
                     </svg>
                     </div>
                     <div>4+ doors</div>
-                </label> 
+                </label>  -->
                 <label class="mcui-checkbox">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" id="acCheckbox" value="ac" <%= query.ac === 'true' ? 'checked' : '' %>>
                     <div>
                     <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
                         <title>checkmark-circle</title>
@@ -82,7 +82,7 @@
                     <div>A/C</div>
                 </label> 
                 <label class="mcui-checkbox">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" id="transmissionCheckbox" value="transmission" <%= query.transmission === 'A' ? 'checked' : '' %>>
                     <div>
                     <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
                         <title>checkmark-circle</title>
@@ -137,6 +137,12 @@
                         </select>  
                         <input type="date" id="pickupDate" name="pickUpDate" value="<%= query.pickUpDate || '' %>">
                         <input type="date" id="dropoffDate" name="dropOffDate" value="<%= query.dropOffDate || '' %>">
+                        
+                        
+                        <!-- Additional Query Parameters (Hidden Inputs) -->
+                        <input type="hidden" name="ac" value="true">
+                        <input type="hidden" name="transmission" value="A">
+                        
                         <!-- Search Button -->
                         <button type="submit" class="search-btn-icon">
                             <i class='bx bx-search' ></i>

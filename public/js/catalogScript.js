@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('filter'); // Assuming 'filter' is the ID of your form
     const checkbxSUV = document.getElementById('suvCheckbox');
     const checkbxSedan = document.getElementById('sedanCheckbox');
+    const checkbxAc = document.getElementById('acCheckbox')
+    const CheckbxTransmission = document.getElementById('transmissionCheckbox')
+
+
     // Get the current URL from the browser's address bar
     const currentUrl = window.location.href;
     // Parse the URL to extract query parameters
@@ -30,6 +34,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Construct the new URLSearchParams object
         const newUrl = new URLSearchParams();
 
+
+
+        // Add other parameters to the URLSearchParams
+        newUrl.set('pickUpDate', pickUpDate);
+        newUrl.set('pickUpLocationCity',  pickUpLocationCity);
+        newUrl.set('dropOffDate', dropOffDate);
+        newUrl.set('dropOffLocationCity', dropOffLocationCity);
+
         if (checkbxSUV.checked && checkbxSedan.checked) {
             newUrl.append('carType', 'SUV');
             newUrl.append('carType', 'Sedan');
@@ -37,15 +49,25 @@ document.addEventListener('DOMContentLoaded', function() {
             newUrl.append('carType', 'SUV');
         } else if (checkbxSedan.checked) {
             newUrl.append('carType', 'Sedan');
+        } 
+
+        if (checkbxAc.checked && CheckbxTransmission.checked) {
+            newUrl.append('ac', 'true');
+            newUrl.append('transmission', 'A');
+        } else if (CheckbxTransmission.checked) {
+            newUrl.append('ac', 'false');
+            newUrl.append('transmission', 'A');
+        } else if (checkbxAc.checked) {
+            newUrl.append('ac', 'true');
+            newUrl.append('transmission', 'M');
+        }else{
+            newUrl.append('ac', 'false');   
+            newUrl.append('transmission', 'M');
         }
-        // Add other parameters to the URLSearchParams
-        newUrl.set('pickUpDate', pickUpDate);
-        newUrl.set('pickUpLocationCity',  pickUpLocationCity);
-        newUrl.set('dropOffDate', dropOffDate);
-        newUrl.set('dropOffLocationCity', dropOffLocationCity);
 
         // Redirect to the new URL with the parameters
         const baseUrl = '/catalog/cars';
+        console.log(baseUrl);
         window.location.href = `${baseUrl}?${newUrl.toString()}`;
     });
 

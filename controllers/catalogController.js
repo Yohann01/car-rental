@@ -8,11 +8,12 @@ const Car = require('../api/models/Car')
 exports.getCatalog = async (req, res) => {
     try {
 
-        const { carType, pickUpLocationCity, dropOffLocationCity }  = req.query
+        const { carType, pickUpLocationCity, dropOffLocationCity, ac, transmission }  = req.query
 
         req.session.dropOffDate = req.query.dropOffDate;
         req.session.pickUpDate = req.query.pickUpDate;
-        console.log(req.session.dropOffDate)
+
+
         const searchParams = new URLSearchParams();
 
         if (carType) {
@@ -34,7 +35,16 @@ exports.getCatalog = async (req, res) => {
         if (dropOffLocationCity) {
             searchParams.append('dropOffLocationCity', dropOffLocationCity);
         }
-
+        
+        if (ac) {
+            searchParams.append('ac', ac === 'true'); // Convert string 'true' to boolean true
+        }
+        if (transmission) {
+            searchParams.append('transmission', transmission);
+        }else{
+            searchParams.append('ac', 'true'); 
+            searchParams.append('transmission', 'A');
+        }
         const queryString = searchParams.toString();
         // console.log(queryString);
 
@@ -95,8 +105,22 @@ exports.getCatalog = async (req, res) => {
 
 exports.getBookPage = async (req, res) => {
 
-    const dropOffDate = req.session.dropOffDate
-    const pickUpDate = req.session.pickUpDate
+    function formatDate(inputDate) {
+        // Split the input date string into year, month, and day components
+        const [year, month, day] = inputDate.split('-');
+    
+        // Create a Date object using the parsed components
+        const formattedDate = new Date(year, month - 1, day); // Note: month is zero-based in JavaScript
+    
+        // Get the month name and format the output string
+        const monthName = formattedDate.toLocaleString('en-US', { month: 'long' }); // Get full month name
+        const formattedOutput = `${monthName} ${parseInt(day, 10)}, ${year}`;
+    
+        return formattedOutput;
+    }
+
+    const dropOffDate = formatDate(req.session.dropOffDate)
+    const pickUpDate = formatDate(req.session.pickUpDate)
     console.log(dropOffDate)
     try{
         const car = await Car.findOne({ _id: req.params.id })

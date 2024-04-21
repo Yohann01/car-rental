@@ -320,6 +320,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-around; /* Adjust as needed for desired spacing */
+  margin: 5 px 0;
 }
 
 .search-container form {
