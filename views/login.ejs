@@ -41,26 +41,33 @@
     };
 
     try {
-        const res = await fetch('/api/auth/login', {
-            method: 'POST', // Use POST method for signup
-            body: JSON.stringify(saveData), // Send data as JSON string
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        const data = await res.json();
-
-        if (data.errors) {
-            errorEmail.textContent = data.errors.email;
-            errorPassword.textContent = data.errors.password;
+    const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        body: JSON.stringify(saveData),
+        headers: {
+            'Content-Type': 'application/json'
         }
-        if(data.user){
-            location.assign('/')
-        }
-    } catch (err) {
-        console.error('Error occurred during signup:', err);
-        // Handle error (display message, log, etc.)
+    });
+
+    if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
     }
+
+    const data = await res.json();
+
+    if (data.errors) {
+        errorEmail.textContent = data.errors.email;
+        errorPassword.textContent = data.errors.password;
+    }
+
+    if (data.user) {
+        const returnTo = data.returnTo || '/';
+        window.location.href = returnTo;
+    }
+} catch (err) {
+    console.error('Error occurred during sign-in:', err);
+    // Handle error (display message, log, etc.)
+}
+
 });
 </script>

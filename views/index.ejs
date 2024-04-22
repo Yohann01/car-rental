@@ -7,7 +7,7 @@
                 <p>Experience the freedom of the open road with our hassle-free car rental services.<br> Book now and let us pave the way for your unforgettable travel experience.</p>
                 
                 <div class="home-btn-container">
-                    <a href="#car-select" class="rent-now-btn">Rent Now <svg  xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="24"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg></a></li>
+                    <a href="#bookingdown" class="rent-now-btn">Rent Now <svg  xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="24"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg></a></li>
                     <a href="#" class="learn-more-btn">Learn More <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="24"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg></a></li>
                 </div>
             </div>
@@ -23,7 +23,7 @@
         <div class="booking-container">
             <div class="column" id="book-col-1">
                 <h1 class="title">Book a car</h1>
-                <form id="bookingForm">
+                <form id="bookingForm" action="/catalog/cars">
                     <!-- Select Car Type -->
                     <h4>
                         <span class="svg-container">
@@ -35,8 +35,8 @@
                     </h4>
                     <select id="carType" name="carType">
                         <option value="default">Select Car type</option>
-                        <option value="sedan">Sedan</option>
-                        <option value="suv">SUV</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="SUV">SUV</option>
                     </select>
                     
                     <!-- Pick Up date -->
@@ -50,7 +50,7 @@
                         Pick up date
                         <span>*</span>
                     </h4>
-                    <input type="date" id="pickupDate" name="pickupDate">
+                    <input type="date" id="pickupDate" name="pickUpDate">
                 </div>
     
                 <!-- Column 2 -->
@@ -64,14 +64,14 @@
                         Pick up location
                         <span>*</span>
                     </h4>
-                    <select id="pickupLocation" name="pickupLocation">
+                    <select id="pickupLocation" name="pickUpLocationCity">
                         <option value="default">Select pick up location</option>
                         <option value="Manila">Manila</option>
                         <option value="Quezon City">Quezon City</option>
-                        <option value="Cebu City">Cebu City</option>
-                        <option value="Davao City">Davao City</option>
+                        <option value="Angeles City">Angeles City</option>
+                        <option value="Batangas City">Batangas City</option>
                         <option value="Baguio City">Baguio City</option>
-                    </select>  
+                    </select>
     
                     <!-- Drop off date -->
                     <br>
@@ -84,7 +84,7 @@
                         Drop off date
                         <span>*</span>
                     </h4>
-                    <input type="date" id="dropoffDate" name="dropoffDate">
+                    <input type="date" id="dropoffDate" name="dropOffDate">
                 </div>
     
                 <!-- Column 3 -->
@@ -98,14 +98,19 @@
                         Drop off location
                         <span>*</span>
                     </h4>
-                    <select id="dropoffLocation" name="dropoffLocation">
+                    <select id="dropoffLocation" name="dropOffLocationCity">
                         <option value="default">Select drop off location</option>
                         <option value="Manila">Manila</option>
                         <option value="Quezon City">Quezon City</option>
-                        <option value="Cebu City">Cebu City</option>
-                        <option value="Davao City">Davao City</option>
+                        <option value="Angeles City">Angeles City</option>
+                        <option value="Batangas City">Batangas City</option>
                         <option value="Baguio City">Baguio City</option>
                     </select>  
+                    
+                    <!-- Additional Query Parameters (Hidden Inputs) -->
+                    <input type="hidden" name="ac" value="true">
+                    <input type="hidden" name="transmission" value="A">
+
                     
                     <!-- Search Button -->
                     <button type="submit" class="search-btn">

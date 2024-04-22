@@ -72,10 +72,13 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
     const { email, password } = req.body
     try {
-       const user = await User.login(email, password);
-       const token = createToken(user._id)
-       res.cookie('jwt', token, { httpOnly:true , maxAge: maxAge * 1000 });
-        res.status(200).json({ user: user._id })
+        const user = await User.login(email, password);
+        const token = createToken(user._id)
+        res.cookie('jwt', token, { httpOnly:true , maxAge: maxAge * 1000 });
+        
+        const returnTo = req.session.returnTo || '/';
+        delete req.session.returnTo; // Clear the stored URL
+        res.status(200).json({ user: user._id, returnTo })
     } catch (err) {
         const errors = handleErrors(err)
         res.status(400).json({ errors })

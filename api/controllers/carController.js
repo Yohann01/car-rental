@@ -1,14 +1,43 @@
 
 const Car = require('../models/Car');
-
-
+const calculateDistance = require('../utils/distanceCalculator');
+const setBasePrice = require('../utils/carTypePriceHelper')
+const { setLocation } = require('../utils/locationHelper');
 
 /*
-*GET /api/catalog/cars
-*/
-exports.getCars =  async (req, res) => {
+ * GET /api/catalog/cars
+ */
+exports.getCars = async (req, res) => {
+    const { carType, pickUpLocationCity, dropOffLocationCity, ac, transmission } = req.query;
+    console.log(ac);
+    console.log(transmission);
+
+    // Initialize an empty query object
+    let query = {};
+
+    // Build the query based on provided parameters
+    if (carType || pickUpLocationCity || dropOffLocationCity) {
+        const carTypes = Array.isArray(carType) ? carType : [carType];
+
+        // Include carType, pickUpLocationCity, and dropOffLocationCity in the query
+        query = {
+            carType: { $in: carTypes },
+            pickUpLocationCity,
+            dropOffLocationCity,
+        };
+    }
+
+    // Add additional filters if specified (ac and transmission)
+    if (ac) {
+        query.ac = ac === 'true'; // Convert string 'true' to boolean true
+    }
+    if (transmission) {
+        query.transmission = transmission;
+    }
+
     try {
-        const cars = await Car.find({});
+        const cars = await Car.find(query);
+
         res.send(cars);
     } catch (error) {
         console.error('Error:', error);
@@ -16,32 +45,86 @@ exports.getCars =  async (req, res) => {
     }
 };
 
+
+
+
 /*
 *POST /api/catalog/postcar
 */
 
-exports.postCars = async (req,res) => {
-        const newCar = new Car ({
-            name: req.body.name,
-            carType: req.body.carType,
-            capacity: req.body.capacity,
-            bag: req.body.bag,
-            doors: req.body.doors,
-            transmission: req.body.transmission,
-            ac: req.body.ac,
-            img: req.body.img,
-            pickUpLocation: req.body.pickUpLocation,
-            dropOffLocation: req.body.dropOffLocation,
-            basePricePerMile: req.body.basePricePerMile,
+exports.postCars = async (req, res) => {
+    const {
+        name, carType, capacity, bag,
+        doors, transmission, ac, img,
+        pickUpLocationCity, dropOffLocationCity,
+        
+    } = req.body;
+
+    // Calculate distance based on pickUpLocationCity and dropOffLocationCity
+    const distance = calculateDistance(pickUpLocationCity, dropOffLocationCity);
+    const basePricePerKm = setBasePrice(carType);
+
+    const totalCarRentalPrice = distance * basePricePerKm
+    console.log(totalCarRentalPrice);
+
+    const dropOffLocation = setLocation(dropOffLocationCity);
+    const pickUpLocation = setLocation(pickUpLocationCity);
+
+    const newCar = new Car({
+        name, carType, capacity, bag,
+        doors, transmission, ac, img,
+        pickUpLocationCity, pickUpLocation,
+        dropOffLocationCity, dropOffLocation,
+        totalCarRentalPrice
+    });
+
+    try {
+        const savedCar = await newCar.save();
+        res.status(201).json(savedCar);
+    } catch (err) {
+        console.error('Error saving car:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+exports.postMany = async (req, res) => {
+    try {
+        const carData = req.body; // Array of car objects
+
+        // Map through each car object and calculate necessary details
+        const carsToInsert = carData.map(car => {
+            const {
+                name, carType, capacity, bag,
+                doors, transmission, ac, img,
+                pickUpLocationCity, dropOffLocationCity
+            } = car;
+
+            // Calculate distance based on pickUpLocationCity and dropOffLocationCity
+            const distance = calculateDistance(pickUpLocationCity, dropOffLocationCity);
+            const basePricePerKm = setBasePrice(carType);
+            const totalCarRentalPrice = distance * basePricePerKm;
+
+            // Set dropOffLocation and pickUpLocation based on city
+            const dropOffLocation = setLocation(dropOffLocationCity);
+            const pickUpLocation = setLocation(pickUpLocationCity);
+
+            // Return a new Car object with calculated values
+            return new Car({
+                name, carType, capacity, bag,
+                doors, transmission, ac, img,
+                pickUpLocationCity, pickUpLocation,
+                dropOffLocationCity, dropOffLocation,
+                totalCarRentalPrice
+            });
         });
-    
-        try {
-            const savedCar = await newCar.save();
-            res.status(201).json(savedCar);
-            
-        }catch(err){
-            res.status(500).json(err);
-        }
-    
-    };
-    
+
+        // Insert all cars into the database
+        const savedCars = await Car.insertMany(carsToInsert);
+
+        res.status(201).json(savedCars); // Respond with the saved cars
+    } catch (err) {
+        console.error('Error saving cars:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+

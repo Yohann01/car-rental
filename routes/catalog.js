@@ -4,6 +4,6 @@ const { requireAuth } = require('../api/middleware/authMiddleware')
 
 router.get('/cars', catalogController.getCatalog);
 
-router.get('/book', requireAuth, catalogController.getBookPage);
+router.get('/book/:id', requireAuth, catalogController.getBookPage);
 
 module.exports = router;

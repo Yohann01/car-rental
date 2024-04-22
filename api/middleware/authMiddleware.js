@@ -5,7 +5,12 @@ const requireAuth = (req, res, next) => {
     const token = req.cookies.jwt;
 
     //Check if the token exist & is verified
-    if (token){
+    
+    if(!token){
+        req.session.returnTo = req.originalUrl;
+        res.redirect('/login')
+    }
+    else{
         jwt.verify(token, process.env.JWT, (err, decodedToken) =>{
             if(err){
                 console.log(err.message);
@@ -14,11 +19,25 @@ const requireAuth = (req, res, next) => {
                 console.log(decodedToken);
                 next();
             }
-        })
-    }else{
-        res.redirect('/login')
+        });
     }
-}
+    
+    
+    
+    // if (token){
+    //     jwt.verify(token, process.env.JWT, (err, decodedToken) =>{
+    //         if(err){
+    //             console.log(err.message);
+    //             res.redirect('/login');
+    //         }else{
+    //             console.log(decodedToken);
+    //             next();
+    //         }
+    //     })
+    // }else{
+    //     res.redirect('/login')
+    // }
+};
 //Check the current user
 const checkUser = (req, res, next) =>{
     const token = req.cookies.jwt;

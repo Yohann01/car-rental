@@ -10,9 +10,11 @@ const carSchema = new mongoose.Schema(
         transmission: { type: String, required:true },
         ac: { type: Boolean, required:true },
         img: { type: String, required:true},
-        pickUpLocation: { type:String, required:true},
-        dropOffLocation: { type:String, required:true},
-        basePricePerMile: { type: Number, required:true },
+        pickUpLocationCity: { type:String, required:true},
+        pickUpLocation: { type:String},
+        dropOffLocationCity: { type:String, required:true},
+        dropOffLocation: { type:String},
+        totalCarRentalPrice: { type: Number},
     },
     { timestamps:true }
 );
