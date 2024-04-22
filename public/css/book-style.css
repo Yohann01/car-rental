@@ -91,7 +91,7 @@ header{
       display: flex;
       text-align: center;
       justify-content: center; /* Center items horizontally */
-      padding: 0 0 0 10%;
+      padding: 0 0 0 11%;
 
   }.navbar li{
       position: relative;

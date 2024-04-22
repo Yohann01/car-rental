@@ -86,3 +86,45 @@ exports.postCars = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
+exports.postMany = async (req, res) => {
+    try {
+        const carData = req.body; // Array of car objects
+
+        // Map through each car object and calculate necessary details
+        const carsToInsert = carData.map(car => {
+            const {
+                name, carType, capacity, bag,
+                doors, transmission, ac, img,
+                pickUpLocationCity, dropOffLocationCity
+            } = car;
+
+            // Calculate distance based on pickUpLocationCity and dropOffLocationCity
+            const distance = calculateDistance(pickUpLocationCity, dropOffLocationCity);
+            const basePricePerKm = setBasePrice(carType);
+            const totalCarRentalPrice = distance * basePricePerKm;
+
+            // Set dropOffLocation and pickUpLocation based on city
+            const dropOffLocation = setLocation(dropOffLocationCity);
+            const pickUpLocation = setLocation(pickUpLocationCity);
+
+            // Return a new Car object with calculated values
+            return new Car({
+                name, carType, capacity, bag,
+                doors, transmission, ac, img,
+                pickUpLocationCity, pickUpLocation,
+                dropOffLocationCity, dropOffLocation,
+                totalCarRentalPrice
+            });
+        });
+
+        // Insert all cars into the database
+        const savedCars = await Car.insertMany(carsToInsert);
+
+        res.status(201).json(savedCars); // Respond with the saved cars
+    } catch (err) {
+        console.error('Error saving cars:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
