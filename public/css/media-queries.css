@@ -85,7 +85,6 @@
     }
 }
 @media(max-width: 1125px){
-
     .download-container .title{
         font-size: 33px;
         margin: 0 0 0px 0;
@@ -114,15 +113,9 @@
 }
 
 @media(max-width: 1010px){
-    header{padding: 0px 50px;}
     section{padding: 50px 50px;}
     /* ---------Nav section--------- */
-    .hideOnMobile{
-        display: none;
-    }
-    .menu-btn{
-        display: block;
-    }
+
     div .column-booking{
         width: 100%;
         display: table;
@@ -427,9 +420,7 @@
         position: relative;
         padding: 0px 1px;
     }
-    .hideOn560px{
-        display: none;
-    }
+
     .home-container .left p{
         font-size: 9px;
     }
@@ -517,7 +508,7 @@
     }
 }
 @media(max-width: 376px){
-    header{padding: 0px 20px;}
+    
     section{padding: 20px 20px;}
     /* -----------Home Section----------- */
     .home-container .left{

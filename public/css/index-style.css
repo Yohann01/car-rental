@@ -80,8 +80,8 @@ header{
 
     /* Nav bar logo */
     .logo{
-        width: 110%;
-        height: 60px;
+        width: 100%;
+        height: 100%;
     }
  
     /* Nav bar ul style */
@@ -117,6 +117,7 @@ header{
         color: #fff;
         border-radius: 100px;
         padding: 10px 20px;
+        text-align: center;
     }.header-username {
         white-space: nowrap; /* Prevents wrapping of long usernames */
         overflow: hidden; /* Hides any overflow (long usernames) */
@@ -131,6 +132,7 @@ header{
     }
     .menu-btn{
         display: none;
+        align-items: center;
     }
     /* Sidebar style */
     .sidebar{
