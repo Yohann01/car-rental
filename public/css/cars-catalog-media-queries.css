@@ -1,0 +1,233 @@
+@media(max-width: 768px){
+    section{padding: 85px 10px;}
+    .catalog-container{
+        width: 100%;
+    }
+    /* Search  */
+    .search-container {
+        margin: 0px;
+    }
+    .search-container img{
+        width: 35%;
+    }
+    .search-container .modal-btn{
+        width: 7%;
+    }
+    
+    .search-container .modal-btn,
+    .search-container input,
+    .search-container select {
+        margin-right: 5px;
+        font-size: 11px;
+    }
+    
+    .search-btn-icon {
+     width: 6%;
+    }
+
+    /* Result */
+    .results-text{
+        padding: 10px 5px 0px 5px;
+        font-size: 12px;
+      
+    }
+    /* Item */
+    .items{
+        padding:0px;
+    }
+
+    .items .card-photo{
+        height: 55%;
+      
+        margin-top: 20px;
+    }
+    .text{
+        margin-right: 0px;
+    }
+
+    .items .item-name{
+        font-size: 15px;
+    }
+
+    .items .item-name img{
+        width: 13px;
+    }
+    
+    .specs img{
+        width:10px;
+    }
+    
+    .specs-list-container p{
+        display: flex;
+        align-items: center;
+        margin-top: 3px;
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+    .specs-list-container img{
+        width: 7%;
+        height: 7%;
+        margin-top: 5px;
+        margin-right: 5px;
+
+    }
+    
+    .locations p{
+        display: block;
+        align-items: center;
+        font-size: 10px;
+        font-weight: 300;
+        overflow: hidden; /* Hide any overflowing content */
+        white-space: nowrap; /* Prevent text from wrapping */
+        text-overflow: ellipsis; /* Display ellipsis (...) for overflow */
+        margin: 0 0 auto 0;
+        max-width: 95%;
+    }
+
+    .locations img{
+        width: 12%;
+        margin-right: 5px;
+    }
+    
+    .line-vertical{
+        margin: 4px;
+    }
+    
+    .card-content .price{
+        margin: 0 auto 0 4px;
+    }
+    
+    span{
+        font-size: 15px;
+    }
+    
+    .sub-text, span{
+        margin: 0 0 2px 0;
+    }
+    
+    .card-content a{
+        background-color: var(--main-color);
+        width: 90%;
+        font-size: 10px;
+        margin: 2px;
+    }
+}
+
+@media(max-width: 640px){
+    section{padding: 85px 10px;}
+    .catalog-container{
+        width: 100%;
+    }
+    /* Search  */
+    .search-container {
+        margin: 0px;
+    }
+    .search-container img{
+        width: 35%;
+    }
+    .search-container .modal-btn{
+        width: 7%;
+    }
+    
+    .search-container .modal-btn,
+    .search-container input,
+    .search-container select {
+        margin-right: 5px;
+        font-size: 11px;
+    }
+    
+    .search-btn-icon {
+     width: 6%;
+    }
+
+    /* Result */
+    .results-text{
+        padding: 10px 5px 0px 5px;
+        font-size: 12px;
+      
+    }
+    /* Item */
+    .items{
+        padding:0px;
+    }
+
+    .items .card-photo{
+        height: 55%;
+      
+        margin-top: 20px;
+    }
+    .text{
+        margin-right: 0px;
+    }
+
+    .items .item-name{
+        font-size: 15px;
+    }
+
+    .items .item-name img{
+        width: 13px;
+    }
+    
+    .specs img{
+        width:10px;
+    }
+    
+    .specs-list-container p{
+        display: flex;
+        align-items: center;
+        margin-top: 3px;
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+    .specs-list-container img{
+        width: 7%;
+        height: 7%;
+        margin-top: 5px;
+        margin-right: 5px;
+
+    }
+    
+    .locations p{
+        display: block;
+        align-items: center;
+        font-size: 10px;
+        font-weight: 300;
+        overflow: hidden; /* Hide any overflowing content */
+        white-space: nowrap; /* Prevent text from wrapping */
+        text-overflow: ellipsis; /* Display ellipsis (...) for overflow */
+        margin: 0 0 auto 0;
+        max-width: 95%;
+        margin: top;
+    }
+
+    .locations img{
+        width: 12%;
+        margin-right: 5px;
+        padding-top: 10px;
+    }
+    
+    .line-vertical{
+        margin: 4px;
+    }
+    
+    .card-content .price{
+        margin: 0 auto 0 4px;
+    }
+    
+    span{
+        font-size: 15px;
+    }
+    
+    .sub-text, span{
+        margin: 0 0 2px 0;
+    }
+    
+    .card-content a{
+        background-color: var(--main-color);
+        width: 90%;
+        font-size: 10px;
+        margin: 2px;
+    }
+}

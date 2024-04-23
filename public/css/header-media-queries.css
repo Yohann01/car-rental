@@ -1,6 +1,8 @@
 @media(max-width: 1544px){
     .hideUser{
         display: none;
+    }#logout{
+        text-align: center;
     }
 }
 @media(max-width: 1280px){
@@ -11,8 +13,7 @@
         height: 90%;
     }       
 }
-
-@media(max-width: 1125px){
+@media(max-width: 1170px){
     .hideOnMobile{
         display: none;
     }
@@ -22,6 +23,10 @@
     .hideOn1125px{
         display: none;
     }
+}
+
+@media(max-width: 1125px){
+
     .hideUser{
         display: block;
     }
@@ -70,6 +75,7 @@
     }#logout{
         font-size: 13px;
         padding: 9px;
+        width: 16%;
     }.header-username{
         font-size: 14px;
     }header svg{
@@ -104,7 +110,7 @@
     }#logout{
         font-size: 10px;
         padding: 8px;
-        width: 25%;
+        width: 19%;
     }.header-username{
         font-size: 10px;
         max-width: 30%;
