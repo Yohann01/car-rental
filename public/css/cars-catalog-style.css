@@ -522,6 +522,7 @@ input[type="date"] {
   .locations .pick-up,
   .locations .drop-off{
     width: 50%;
+    display: flex;
   }
 
   .locations p{
