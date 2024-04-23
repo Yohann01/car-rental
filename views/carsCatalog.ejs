@@ -74,7 +74,7 @@
                         <!-- Select Car Type -->
                         <button id="openModalBtn" onclick=openModal() class="modal-btn"><img src="/assets/png-icons/filter.png" alt=""></button>
 
-                        <select id="carType" class="carType" name="carType">
+                        <select id="carType" class="carType" name="carType" required>
                             <option value="default" <%= query.carType === "" ? 'selected' : '' %>>Select Car type</option>
                             <option value="Sedan"<%= query.carType === "Sedan" ? 'selected' : '' %>>Sedan</option>
                             <option value="SUV"<%= query.carType === "SUV" ? 'selected' : '' %>>SUV</option>
@@ -84,7 +84,7 @@
         
 
                         <!-- Select Pick Up Location -->
-                        <select id="pickupLocation" class="select-loc" name="pickUpLocationCity">
+                        <select id="pickupLocation" class="select-loc" name="pickUpLocationCity" required>
                             <option value="default"<%= query.dropOffLocationCity === "" ? 'selected' : '' %>>Select pick up location</option>
                             <option value="Manila"<%= query.pickUpLocationCity === "Manila" ? 'selected' : '' %>>Manila</option>
                             <option value="Quezon City"<%= query.pickUpLocationCity === "Quezon City" ? 'selected' : '' %>>Quezon City</option>
@@ -99,7 +99,7 @@
         
                         <!-- Select Drop Off Location -->
                        
-                        <select id="dropoffLocation" class="select-loc" name="dropOffLocationCity">
+                        <select id="dropoffLocation" class="select-loc" name="dropOffLocationCity" required>
                             <option value="default"<%= query.dropOffLocationCity === "" ? 'selected' : '' %>>Select pick up location</option>
                             <option value="Manila"<%= query.dropOffLocationCity === "Manila" ? 'selected' : '' %>>Manila</option>
                             <option value="Quezon City"<%= query.dropOffLocationCity === "Quezon City" ? 'selected' : '' %>>Quezon City</option>
@@ -107,8 +107,8 @@
                             <option value="Batangas City"<%= query.dropOffLocationCity === "Batangas City" ? 'selected' : '' %>>Batangas City</option>
                             <option value="Baguio City"<%= query.dropOffLocationCity === "Baguio City" ? 'selected' : '' %>>Baguio City</option>
                         </select>  
-                        <input type="date" id="pickupDate" name="pickUpDate" value="<%= query.pickUpDate || '' %>">
-                        <input type="date" id="dropoffDate" name="dropOffDate" value="<%= query.dropOffDate || '' %>">
+                        <input type="date" id="pickupDate" name="pickUpDate" value="<%= query.pickUpDate || '' %>" required>
+                        <input type="date" id="dropoffDate" name="dropOffDate" value="<%= query.dropOffDate || '' %>" required>
                         
                         
                         <!-- Additional Query Parameters (Hidden Inputs) -->
