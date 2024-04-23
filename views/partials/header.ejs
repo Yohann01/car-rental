@@ -5,15 +5,15 @@
     </div>
     <div class="nav-container">
             <ul class="navbar">
-                <li ><a class="navitem hideOn560px" href="/">Home</a></li>
-                <li ><a class="navitem hideOn560px" href="#">About</a></li>
-                <li ><a class="navitem hideOn560px" href="#">Contact</a></li>
+                <li ><a class="navitem hideOn1125px" href="/">Home</a></li>
+                <li ><a class="navitem hideOn1125px" href="#">About</a></li>
+                <li ><a class="navitem hideOn1125px" href="#">Contact</a></li>
             </ul>
     </div>
     <div class="header-btn-container">
         <% if (user) { %>
-        <span class="header-username">Hello, <%= user.username %></span>
-        <a id="logout" href="/api/auth/logout">Log out</a></li>
+        <span class="header-username hideUser">Hello, <%= user.username %></span>
+        <a id="logout"  href="/api/auth/logout">Log out</a></li>
         <% } else { %>
         <a class="hideOnMobile" id="sign-in" href="/login">Login</a></li>
         <a class="hideOnMobile" id="sign-up" href="/signup">Sign Up</a></li>

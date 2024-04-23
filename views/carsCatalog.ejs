@@ -2,99 +2,69 @@
 <section class="catalog-section">
     <div class="catalog-container">
         <!-- Filter container -->
-        <div class="filter-container">
-            <form id="filter" method="GET">
-            <div class="title filters">
-                <h4 class="results-text"><%= dataCount %> result(s)</h4>
-                <h4 class="search-filter-title"><i class='bx bxs-filter-alt' ></i>Search Filters</h4>
+        <div id="myModal" class="modal">
+            <div class="modal-content filter-container">
+                <form id="filter" method="GET">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                <div class="title filters">
+                    
+                    <h4 class="search-filter-title"><i class='bx bxs-filter-alt' ></i>Search Filters</h4>
+                    </div>
+                    
+                <div class="car-type filters">
+                    <h4>Car Type</h4>
+                    
+                    <label class="mcui-checkbox">
+                        <input type="checkbox" id="suvCheckbox" value="SUV" <%= query.carType.includes('SUV') ? 'checked' : '' %> name="carTypeFilter">
+                        <div>
+                        <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+                            <title>checkmark-circle</title>
+                            <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
+                        </svg>
+                        </div>
+                        <div>SUV</div>
+                    </label>
+                    
+                    <label class="mcui-checkbox">
+                        <input type="checkbox" id="sedanCheckbox" value="Sedan" <%= query.carType.includes('Sedan') ? 'checked' : '' %> name="carTypeFilter" >
+                        <div>
+                        <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+                            <title>checkmark-circle</title>
+                            <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
+                        </svg>
+                        </div>
+                        <div>Sedan</div>
+                    </label>              
                 </div>
-                
-            <div class="car-type filters">
-                <h4>Car Type</h4>
-                
-                <label class="mcui-checkbox">
-                    <input type="checkbox" id="suvCheckbox" value="SUV" <%= query.carType.includes('SUV') ? 'checked' : '' %> name="carTypeFilter">
-                    <div>
-                    <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
-                        <title>checkmark-circle</title>
-                        <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
-                    </svg>
-                    </div>
-                    <div>SUV</div>
-                </label>
-                
-                <label class="mcui-checkbox">
-                    <input type="checkbox" id="sedanCheckbox" value="Sedan" <%= query.carType.includes('Sedan') ? 'checked' : '' %> name="carTypeFilter" >
-                    <div>
-                    <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
-                        <title>checkmark-circle</title>
-                        <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
-                    </svg>
-                    </div>
-                    <div>Sedan</div>
-                </label>              
+
+        
+                <div class="car-options filters">
+                    <h4>Car Options</h4>
+                    <label class="mcui-checkbox">
+                        <input type="checkbox" id="acCheckbox" value="ac" <%= query.ac === 'true' ? 'checked' : '' %>>
+                        <div>
+                        <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+                            <title>checkmark-circle</title>
+                            <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
+                        </svg>
+                        </div>
+                        <div>A/C</div>
+                    </label> 
+                    <label class="mcui-checkbox">
+                        <input type="checkbox" id="transmissionCheckbox" value="transmission" <%= query.transmission === 'A' ? 'checked' : '' %>>
+                        <div>
+                        <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+                            <title>checkmark-circle</title>
+                            <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
+                        </svg>
+                        </div>
+                        <div>Automaic</div>
+                    </label> 
+                    <div class="filters filter-btn"><button type="submit" class="show-results">Show Results</button></div>
+                    
+                </div>
+                </form>
             </div>
-    
-            <!-- <div class="capacity filters">
-                <h4>Capacity</h4>
-                <label class="mcui-checkbox">
-                    <input type="checkbox" checked>
-                    <div>
-                    <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
-                        <title>checkmark-circle</title>
-                        <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
-                    </svg>
-                    </div>
-                    <div>3 to 5 passengers</div>
-                </label> 
-                <label class="mcui-checkbox">
-                    <input type="checkbox" checked>
-                    <div>
-                    <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
-                        <title>checkmark-circle</title>
-                        <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
-                    </svg>
-                    </div>
-                    <div>6 or more</div>
-                </label> 
-            </div> -->
-    
-            <div class="car-options filters">
-                <h4>Car Options</h4>
-                <!-- <label class="mcui-checkbox">
-                    <input type="checkbox" checked>
-                    <div>
-                    <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
-                        <title>checkmark-circle</title>
-                        <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
-                    </svg>
-                    </div>
-                    <div>4+ doors</div>
-                </label>  -->
-                <label class="mcui-checkbox">
-                    <input type="checkbox" id="acCheckbox" value="ac" <%= query.ac === 'true' ? 'checked' : '' %>>
-                    <div>
-                    <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
-                        <title>checkmark-circle</title>
-                        <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
-                    </svg>
-                    </div>
-                    <div>A/C</div>
-                </label> 
-                <label class="mcui-checkbox">
-                    <input type="checkbox" id="transmissionCheckbox" value="transmission" <%= query.transmission === 'A' ? 'checked' : '' %>>
-                    <div>
-                    <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
-                        <title>checkmark-circle</title>
-                        <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
-                    </svg>
-                    </div>
-                    <div>Automaic</div>
-                </label> 
-                <div class="filters filter-btn"><button type="submit" class="show-results">Show Results</button></div>
-                
-            </div>
-            </form>
         </div>
         
         <!-- Search container -->
@@ -102,7 +72,9 @@
             <div class="search-container">
                     <form id="bookingForm" action="/catalog/cars">
                         <!-- Select Car Type -->
-                        <select id="carType" class="carType" name="carType">
+                        <button id="openModalBtn" onclick=openModal() class="modal-btn"><img src="/assets/png-icons/filter.png" alt=""></button>
+
+                        <select id="carType" class="carType" name="carType" required>
                             <option value="default" <%= query.carType === "" ? 'selected' : '' %>>Select Car type</option>
                             <option value="Sedan"<%= query.carType === "Sedan" ? 'selected' : '' %>>Sedan</option>
                             <option value="SUV"<%= query.carType === "SUV" ? 'selected' : '' %>>SUV</option>
@@ -112,7 +84,7 @@
         
 
                         <!-- Select Pick Up Location -->
-                        <select id="pickupLocation" class="select-loc" name="pickUpLocationCity">
+                        <select id="pickupLocation" class="select-loc" name="pickUpLocationCity" required>
                             <option value="default"<%= query.dropOffLocationCity === "" ? 'selected' : '' %>>Select pick up location</option>
                             <option value="Manila"<%= query.pickUpLocationCity === "Manila" ? 'selected' : '' %>>Manila</option>
                             <option value="Quezon City"<%= query.pickUpLocationCity === "Quezon City" ? 'selected' : '' %>>Quezon City</option>
@@ -127,7 +99,7 @@
         
                         <!-- Select Drop Off Location -->
                        
-                        <select id="dropoffLocation" class="select-loc" name="dropOffLocationCity">
+                        <select id="dropoffLocation" class="select-loc" name="dropOffLocationCity" required>
                             <option value="default"<%= query.dropOffLocationCity === "" ? 'selected' : '' %>>Select pick up location</option>
                             <option value="Manila"<%= query.dropOffLocationCity === "Manila" ? 'selected' : '' %>>Manila</option>
                             <option value="Quezon City"<%= query.dropOffLocationCity === "Quezon City" ? 'selected' : '' %>>Quezon City</option>
@@ -135,8 +107,8 @@
                             <option value="Batangas City"<%= query.dropOffLocationCity === "Batangas City" ? 'selected' : '' %>>Batangas City</option>
                             <option value="Baguio City"<%= query.dropOffLocationCity === "Baguio City" ? 'selected' : '' %>>Baguio City</option>
                         </select>  
-                        <input type="date" id="pickupDate" name="pickUpDate" value="<%= query.pickUpDate || '' %>">
-                        <input type="date" id="dropoffDate" name="dropOffDate" value="<%= query.dropOffDate || '' %>">
+                        <input type="date" id="pickupDate" name="pickUpDate" value="<%= query.pickUpDate || '' %>" required>
+                        <input type="date" id="dropoffDate" name="dropOffDate" value="<%= query.dropOffDate || '' %>" required>
                         
                         
                         <!-- Additional Query Parameters (Hidden Inputs) -->
@@ -150,7 +122,18 @@
    
                 </form>
             </div>
-
+            <div class="results">
+                <h5 class="results-text"><%= dataCount %> result(s)</h5>
+            </div>
+        <% if (dataCount == 0) { %>
+            <div class="noResult">
+                <h3>No matching results were found</h3>
+                <p>Either no provider sites serve the locations you specified or no results are available for your chosen dates.
+                </p>
+                <a href="/">Modify your Search</a>
+            </div>
+        <% } else { %>
+                
             <!-- For each item -->
             <% cars.forEach(function(car, index) { %>
             <div class="items">
@@ -162,11 +145,11 @@
                         <span class="item-name"> <%= car.name %><img src="/assets/png-icons/info.png" alt=""></span>
                         <p class="sub-text">or similar <%= car.carType %></p>
                         <div class="specs-list-container">
-                            <p class="specs"><img src="/assets/png-icons/user.png" alt=""><%= car.capacity %></p>
-                            <p class="specs"><img src="/assets/png-icons/briefcase.png" alt=""><%= car.bag %></p>
-                            <p class="specs"><img src="/assets/png-icons/car-door.png" alt=""><%= car.doors %></p>
-                            <p class="specs"><img src="/assets/png-icons/gearbox.png" alt=""><%= car.transmission %></p>
-                            <p class="specs"><img src="/assets/png-icons/snowflake.png" alt="">
+                            <img src="/assets/png-icons/user.png" alt=""><p class="specs"><%= car.capacity %></p>
+                            <img src="/assets/png-icons/briefcase.png" alt=""><p class="specs"><%= car.bag %></p>
+                            <img src="/assets/png-icons/car-door.png" alt=""><p class="specs"><%= car.doors %></p>
+                            <img src="/assets/png-icons/gearbox.png" alt=""><p class="specs"><%= car.transmission %></p>
+                            <img src="/assets/png-icons/snowflake.png" alt=""><p class="specs">
                                 <% if(car.ac == true){ %>
                                     A/C
                                 <% } else { %>
@@ -177,10 +160,10 @@
                         <div class="line-horizontal"></div>
                         <div class="locations">
                             <div class="pick-up">
-                                <p><img src="/assets/png-icons/building.png" alt=""><%= car.pickUpLocation %></p>
+                                <img src="/assets/png-icons/building.png" alt=""><p><%= car.pickUpLocation %></p>
                             </div>
                             <div class="drop-off">
-                                <p><img src="/assets/png-icons/building.png" alt=""><%= car.dropOffLocation%></p>
+                                <img src="/assets/png-icons/building.png" alt=""><p><%= car.dropOffLocation%></p>
                             </div> 
                         </div>
                     </div>
@@ -198,7 +181,8 @@
                 </div>
             </div>
             <% }) %>
-
+  
+        <% } %>
             
         </div>
     </div>
@@ -208,3 +192,4 @@
 </section>
 <script src="/js/catalogScript.js">
 </script>
+<script src="/js/main.js"></script>

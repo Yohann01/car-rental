@@ -174,8 +174,7 @@
 
 
         let priceValue = formattedPriceElement.textContent.trim();
-        newpriceValue = priceValue - discount;
-        const formattedPrice = numberWithCommas(parseFloat(newpriceValue));
+        const formattedPrice = numberWithCommas(parseFloat(priceValue));
         formattedPriceElement.textContent = 'PHP ' + formattedPrice;
         
         
@@ -183,7 +182,7 @@
         console.log(initialPrice);
         const formattedInitialPrice = numberWithCommas(parseFloat(initialPrice));
         formattedinitialPriceElement.textContent = 'PHP ' + formattedInitialPrice;
-        formatpayOnlineElement.textContent = 'PHP ' + formattedPrice;
+        formatpayOnlineElement.textContent = 'PHP ' + formattedInitialPrice;
     });
 
     // Function to add commas to a number
@@ -191,3 +190,4 @@
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 </script>
+<script src="/js/main.js">S</script>

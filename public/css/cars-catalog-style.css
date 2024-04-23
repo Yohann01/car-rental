@@ -123,7 +123,7 @@ header{
     font-weight: 500; /* Adjust font weight if necessary */
     max-width: 140px; /* Limit width to prevent overflow */
     margin-top: 5px;
-    
+
   }.header-btn-container a{
       padding: 0px 10px;
       align-items: center;
@@ -178,14 +178,40 @@ body{
     display: flex;
     width: 100%;
 }
+.modal {
+  display: none; /* Hide the modal initially */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 9999; /* Ensure modal is on top of other content */
+}
+
+.modal-content {
+  background-color: #fff;
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal.visible {
+  display: block; /* Show the modal when it has 'visible' class */
+}
+
 
 .filter-container{
   background-color: white;
   border-radius: 10px;
   border: 1px solid #D9E2E8;
-  height: 100vh;
   padding: 10px;
-  width: 16%;
+  width: 100%;
   margin-top: 64px;
   margin-right: 20px;
   display: flex;
@@ -320,7 +346,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-around; /* Adjust as needed for desired spacing */
-  margin: 5 px 0;
+  margin: 5px 0;
 }
 
 .search-container form {
@@ -328,20 +354,40 @@ body{
   display: flex;
   align-items: center;
 }
-
+.search-container img{
+  width: 40%;
+  margin: auto;
+}
+.search-container .modal-btn{
+  width: 4%;
+  height: 6vh;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 0px 7px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .search-container input,
 .search-container select {
   flex: 1; /* Allow input and select elements to grow and fill available space */
   height: 6vh;
-  padding-left: 10px;
+  padding: 0 10px 0 10px;
   border-radius: 5px;
   box-shadow: 0px 0px 7px rgba(0,0,0,0.1);
-  margin-right: 10px; /* Add spacing between elements */
+   /* Add spacing between elements */
   border: none;
 }
 
+.search-container .modal-btn,
+.search-container input,
+.search-container select {
+  margin-right: 10px;
+}
+
 .carType {
-  width: 15%; /* Fixed width for carType select */
+  width: 12%; /* Fixed width for carType select */
 }
 
 .select-loc {
@@ -354,7 +400,6 @@ input[type="date"] {
   padding-left: 10px;
   border-radius: 5px;
   border: none;
-  margin-right: 10px; /* Add spacing between elements */
   box-shadow: 0px 0px 7px rgba(0,0,0,0.1);
 }
 
@@ -362,7 +407,6 @@ input[type="date"] {
   width: 4.5%;
   height: 6vh;
   background-color: var(--main-color);
-  
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -393,11 +437,13 @@ input[type="date"] {
 .cars-catalog-container {
   width:84%;
   display: flex;
+  margin:0 auto 0 auto;
   /* background-color: #FF3714; */
   flex-direction: column;
 }
 .results-text{
-  padding: 10px 5px 20px 5px;
+  padding: 10px 5px 0px 5px;
+
 }
 .items{
   display: flex;
@@ -454,19 +500,29 @@ input[type="date"] {
     margin-bottom: 10px;
   }
   .specs-list-container .specs{
-    width: 10%;
+
+    align-items: center;
   }
   .specs-list-container p{
     display: flex;
     align-items: center;
+    margin-top: 3px;
+    margin-right: 10px;
   }
   .specs-list-container img{
+    width: 3%;
+    height: 3%;
+    margin-top: 7px;
     margin-right: 5px;
-    width: 32%;
   }
   .locations{
     display: flex;
     width: 100%;
+  }
+  .locations .pick-up,
+  .locations .drop-off{
+    width: 50%;
+    display: flex;
   }
 
   .locations p{
@@ -532,6 +588,27 @@ span{
   border-radius: 5px;
   border: none;
   margin: 0 auto 0 auto;
+}
+
+
+
+
+.noResult{
+  margin: 10px 20px 0 0 ;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 100%;
+  padding: 20px 0 15px 0;
+}.noResult p{
+  font-size: 14px;
+  margin: 10px 0 15px 0;
+}.noResult a{
+  font-size: 14px;
+  font-weight: 600;
+  color: blue;
+  margin-bottom:15px;
 }
   /* .tooltips{
     display: flex;
