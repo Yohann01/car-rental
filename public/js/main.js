@@ -24,4 +24,3 @@ modalBtn.addEventListener("click", function(event) {
 function closeModal() {
     modal.style.display = 'none';
 }
-

@@ -33,7 +33,7 @@
                         Select your car type
                         <span>*</span>
                     </h4>
-                    <select id="carType" name="carType" required>
+                    <select id="carType" name="carType" >
                         <option value="default">Select Car type</option>
                         <option value="Sedan">Sedan</option>
                         <option value="SUV">SUV</option>
@@ -50,7 +50,7 @@
                         Pick up date
                         <span>*</span>
                     </h4>
-                    <input type="date" id="pickupDate" name="pickUpDate"required>
+                    <input type="date" id="pickupDate" name="pickUpDate">
                 </div>
     
                 <!-- Column 2 -->
@@ -64,7 +64,7 @@
                         Pick up location
                         <span>*</span>
                     </h4>
-                    <select id="pickupLocation" name="pickUpLocationCity"required>
+                    <select id="pickupLocation" name="pickUpLocationCity">
                         <option value="default">Select pick up location</option>
                         <option value="Manila">Manila</option>
                         <option value="Quezon City">Quezon City</option>
@@ -84,7 +84,7 @@
                         Drop off date
                         <span>*</span>
                     </h4>
-                    <input type="date" id="dropoffDate" name="dropOffDate"required>
+                    <input type="date" id="dropoffDate" name="dropOffDate">
                 </div>
     
                 <!-- Column 3 -->
@@ -98,7 +98,7 @@
                         Drop off location
                         <span>*</span>
                     </h4>
-                    <select id="dropoffLocation" name="dropOffLocationCity"required>
+                    <select id="dropoffLocation" name="dropOffLocationCity">
                         <option value="default">Select drop off location</option>
                         <option value="Manila">Manila</option>
                         <option value="Quezon City">Quezon City</option>
@@ -113,7 +113,7 @@
 
                     
                     <!-- Search Button -->
-                    <button type="submit" class="search-btn">
+                    <button type="submit" id="search-btn" class="search-btn">
                         Search
                     </button>
                 </div>
@@ -421,6 +421,39 @@
             updateCarDetails(index); // Update car details and button styles
         });
         });
+
+    </script>
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+        const bookingForm = document.getElementById("bookingForm");
+
+        bookingForm.addEventListener('submit', function(e) {
+            // Prevent the default form submission behavior
+            e.preventDefault();
+
+            // Perform form validation checks here
+            const carType = document.getElementById("carType").value;
+            const pickUpLoc = document.getElementById("pickupLocation").value;
+            const pickUpDate = document.getElementById("pickupDate").value;
+            const dropOffLoc = document.getElementById("dropoffLocation").value;
+            const dropOffDate = document.getElementById("dropoffDate").value;
+
+            if (carType === 'default' || pickUpLoc === 'default' || pickUpDate === '' || dropOffLoc === 'default' || dropOffDate === '') {
+            // Display error message or perform error handling
+            Swal.fire({
+            icon: "warning",
+            title: "Oops...",
+            text: "Fill out all required fields",
+            confirmButtonColor: '#FF3714',
+            });
+            return; // Stop further execution
+            }
+
+            // If all validation checks pass, you can proceed with form submission
+            bookingForm.submit(); // Uncomment this line to submit the form programmatically
+        });
+        });
+
 
     </script>
 </body>

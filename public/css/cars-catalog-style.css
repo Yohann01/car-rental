@@ -68,17 +68,16 @@ header{
 .header-btn-container{
   width: 20%;
   display: flex;
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center */
-  
+  flex-direction: row;
+  align-items: center;
   /* background-color: #ffac38; */
   justify-content: flex-end;
 }
 
   /* Nav bar logo */
   .logo{
-      width: 110%;
-      height: 60px;
+      width: 100%;
+      height: 100%;
   }
 
   /* Nav bar ul style */
@@ -113,23 +112,23 @@ header{
       background: black;
       color: #fff;
       border-radius: 100px;
-      padding: 10.5px 20px;
-  }.header-username{
-    white-space: nowrap; /* Prevents wrapping of long usernames */
-    overflow: hidden; /* Hides any overflow (long usernames) */
-    text-overflow: ellipsis; /* Adds ellipsis (...) to indicate text overflow */
-    margin-right: 10px;
-    font-size: 16px; /* Adjust font size as needed */
-    font-weight: 500; /* Adjust font weight if necessary */
-    max-width: 140px; /* Limit width to prevent overflow */
-    margin-top: 5px;
-
+      padding: 10px 20px;
+      text-align: center;
+  }.header-username {
+      white-space: nowrap; /* Prevents wrapping of long usernames */
+      overflow: hidden; /* Hides any overflow (long usernames) */
+      text-overflow: ellipsis; /* Adds ellipsis (...) to indicate text overflow */
+      margin-right: 10px;
+      font-size: 16px; /* Adjust font size as needed */
+      font-weight: 500; /* Adjust font weight if necessary */
+      max-width: 140px; /* Limit width to prevent overflow */
   }.header-btn-container a{
       padding: 0px 10px;
       align-items: center;
   }
   .menu-btn{
       display: none;
+      align-items: center;
   }
   /* Sidebar style */
   .sidebar{
@@ -164,6 +163,61 @@ header{
       display: flex;
       justify-content: center;
   }
+  .modalSignIn{
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(117, 121, 124); /* Fallback color */
+      background-color: rgba(117, 121, 124,0.6); /* Black w/ opacity */
+    }
+    .modalSignUp {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(117, 121, 124); /* Fallback color */
+      background-color: rgba(117, 121, 124,0.6); /* Black w/ opacity */
+    }
+    
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 30px 20px 20px 20px;
+      border: 1px solid #888;
+      width: 30%;
+      border-radius: 10px;
+    }
+    
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      top: 14%;
+      right: 36%;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
 
 
 /* -----Cars catalog----- */
@@ -203,6 +257,11 @@ body{
 
 .modal.visible {
   display: block; /* Show the modal when it has 'visible' class */
+}
+.close{
+  cursor: pointer;
+  font-size:35px;
+
 }
 
 

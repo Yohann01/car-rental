@@ -119,3 +119,8 @@
         margin: 7px 0 auto 0;
     }
 }
+
+.confirmButtonText{
+    background-color: #4CAF50; /* Green */
+    color: white; /* Text color */
+  }
