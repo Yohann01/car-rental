@@ -1,6 +1,9 @@
+const { default: Stripe } = require('stripe')
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-
+const Car = require('../models/Car');
+const Booking = require('../models/Booking')
 
 const handleErrors = (err) => {
     console.log(err.message, err.code);
@@ -94,3 +97,64 @@ exports.logout = (req, res) => {
 
     console.log('Logout');
 }
+
+/*
+*POST /api/auth/payment
+*/
+
+exports.payment = async (req, res) => {
+    console.log(req.body);
+    try {
+        const paymentMethodId = req.body.paymentMethodId;
+        const carId = req.body.carId;
+        const cars = await Car.findOne({ _id: carId });
+        console.log(cars.totalCarRentalPrice);
+        const price = cars.totalCarRentalPrice * 100;
+        
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: price,
+            currency: 'php',
+            payment_method: paymentMethodId,
+            confirm: true,
+            return_url: 'http://localhost:5000/', // Replace with your actual success URL
+        });
+        const paymentIntentId = paymentIntent.id;
+        createBooking(req.body).then(booking => {
+            // Booking successfully created
+            res.status(200).json({ success: true, paymentIntentId: paymentIntentId, booking: booking });
+        }).catch(err => {
+            // Error occurred while creating booking
+            console.error('Error creating booking:', err.message);
+            res.status(500).json({ success: false, error: err.message });
+        });
+    } catch (error) {
+        // Handle any errors and return an error response to the client
+        console.error('Error processing payment:', error.message);
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+
+function createBooking(data) {
+    return new Promise((resolve, reject) => {
+        const newBooking = new Booking({
+            costumerName: data.name,
+            email: data.email,
+            carId: data.carId,
+            paymentMethod: data.paymentMethod,
+            pickUpLocationCity: data.pickUpLoc,
+            pickUpDate: data.pickUpDate,
+            dropOffLocationCity: data.dropOffLoc,
+            dropOffDate: data.dropOffDate,
+        });
+        newBooking.save().then(booking => {
+            // Booking successfully saved
+            console.log('Booking created:', booking);
+            resolve(booking);
+        }).catch(err => {
+            // Error occurred while saving booking
+            console.error('Error saving booking:', err.message);
+            reject(err);
+        });
+    });
+}
+

@@ -2,11 +2,11 @@
     <div class="loc-det-cont">
         <div class="pck-up-det-cont">
             <div class="pck-up-title text-title">Pick-up</div>
-            <h3 class="date pck-up-date"><%= pickUpDate %></h3>
+            <h3 class="date pck-up-date" id="pick-up-date"><%= pickUpDate %></h3>
             <div class="details">
                 <img class="icon location-icon" src="/assets/png-icons/loc.png" alt="">
                 <div class="col-1 det-txt">
-                    <p class=" title-txt"><%= car.pickUpLocationCity %></p>
+                    <p class=" title-txt" id="pick-up-loc"><%= car.pickUpLocationCity %></p>
                     <p><%= car.pickUpLocation %></p>
                 </div>
             </div>
@@ -27,11 +27,11 @@
         </div>
         <div class="drp-off-det-cont">
             <div class="drp-off-title text-title">Drop-off</div>
-            <h3 class="date drp-off-date"><%= dropOffDate %></h3>
+            <h3 class="date drp-off-date" id="drop-off-date"><%= dropOffDate %></h3>
             <div class="details">
                 <img class="icon location-icon" src="/assets/png-icons/loc.png" alt="">
                 <div class="col-1 det-txt">
-                    <p class=" title-txt"><%= car.dropOffLocationCity %></p>
+                    <p class=" title-txt" id="drop-off-loc"><%= car.dropOffLocationCity %></p>
                     <p><%= car.dropOffLocation %></p>
                 </div>
             </div>
@@ -104,20 +104,41 @@
             </div>
             <div class="booking-container">
                 <div class="line-horizontal"></div><!-- Line only -->
-                <div class="terms-conditions-container">
-                    <p>To ensure you pick-up the vehicle 
-                        smoothly, we suggest you read and 
-                        confirm Terms and Conditions before 
-                        you submit booking.</p>
+                <h3>Payment Details</h3>
 
-                    <div class="terms-condition">
-                        <input type="checkbox">
-                        <p>I confirm that I have read the 
-                            <a href="#">Car Rental Terms and Conditions </a>
-                            , and 
-                            <a href="#">Paid Prestige Membership </a></p>
-                    </div>
-                    <a class="book-btn" role="button" href="#">Book now</a>
+                    <form id="payment-form">
+                        <div class="payment-details">
+                            <div class="col left">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name">
+                            </div>
+                            <div class="col right">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" >
+                            </div>
+                        </div>
+                        <!-- Add other necessary fields -->
+                        <input type="hidden" id="car-id" name="carId" value="<%= car._id %>">
+                        <div id="card-element"></div>
+                        <div id="card-errors" role="alert"></div>
+                        <div class="terms-conditions-container">
+                            <p>To ensure you pick-up the vehicle 
+                                smoothly, we suggest you read and 
+                                confirm Terms and Conditions before 
+                                you submit booking.</p>
+        
+                            <div class="terms-condition">
+                                <input type="checkbox" id="terms-condition">
+                                <p>I confirm that I have read the 
+                                    <a href="#">Car Rental Terms and Conditions </a>
+                                    , and 
+                                    <a href="#">Paid Prestige Membership </a></p>
+                            </div>
+                        <button class="book-btn" id="submit-button" type="submit" disabled>Book Now</button>
+                      </form>
+                      
+                        
+                      
                 </div>
             </div>
         </div>
@@ -132,6 +153,7 @@
             <div class="breakdown-item">
                 <p>Prestige Membership (12 months)</p>
                 <p class="right-text">PHP 2,581.64</p>
+                
             </div>
             
             <div class="breakdown-item">
@@ -183,11 +205,139 @@
         const formattedInitialPrice = numberWithCommas(parseFloat(initialPrice));
         formattedinitialPriceElement.textContent = 'PHP ' + formattedInitialPrice;
         formatpayOnlineElement.textContent = 'PHP ' + formattedInitialPrice;
+
+        const checkboxElement = document.getElementById('terms-condition');
+        const submitButton = document.getElementById('submit-button');
+    // Initially disable the button
+        submitButton.disabled = true;
+
+        // Add event listener to the checkbox
+        checkboxElement.addEventListener('change', function() {
+            // Enable/disable the button based on the checkbox status
+            submitButton.disabled = !this.checked;
+        });
     });
 
     // Function to add commas to a number
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+
 </script>
-<script src="/js/main.js">S</script>
+
+
+
+ <script>
+    const dropOffDateElement = document.getElementById('drop-off-date');
+    const pickUpDateElement = document.getElementById('pick-up-date');
+    const dropOffLocElement = document.getElementById('drop-off-loc');
+    const pickUpLocElement = document.getElementById('pick-up-loc');
+    const checkboxElement = document.getElementById('terms-condition')
+    const dropOffDate = dropOffDateElement.textContent;
+    const pickUpDate = pickUpDateElement.textContent;
+    const dropOffLoc = dropOffLocElement.textContent;
+    const pickUpLoc = pickUpLocElement.textContent;
+    const elements = stripe.elements();
+    const cardElement = elements.create('card');
+    cardElement.mount('#card-element');
+    const carId = document.getElementById('car-id').value;
+    // Now you can use the carId variable in your script
+    console.log('Car ID:', carId);
+    
+    const form = document.getElementById('payment-form');
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    if (!nameInput.value || !emailInput.value) {
+        requiredFields();
+        }
+
+    // Create a payment method using the card details entered by the user
+    const { paymentMethod, error } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+      billing_details: {
+        name: name,
+        email: email,
+      }
+    });
+
+    if (error) {
+      // Display error message to the user
+      const displayError = document.getElementById('card-errors');
+      displayError.textContent = error.message;
+      requiredFields();
+    } else {
+      // Payment method created successfully
+      console.log('Payment Method:', paymentMethod);
+        loading()
+      // Now you can submit the form to your server to complete the payment
+      // For demonstration, you can use fetch() to send the payment method ID to your server
+      // Replace 'YOUR_SERVER_ENDPOINT' with your actual server endpoint URL
+      const response = await fetch('/api/auth/payment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+            paymentMethodId: paymentMethod.id, 
+            paymentMethod:paymentMethod.card.funding,
+            carId: carId, 
+            name: name, 
+            email: email,
+            pickUpDate: pickUpDate,
+            dropOffDate: dropOffDate,
+            pickUpLoc: pickUpLoc,
+            dropOffLoc: dropOffLoc,
+        }),
+      });
+
+      // Handle server response (e.g., show success message to the user)
+      const result = await response.json();
+      console.log('Server Response:', result);
+      success();
+
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+
+        // Clear card input field
+        cardElement.clear();
+    }
+  });
+
+  function requiredFields(){
+    Swal.fire({
+         icon: "warning",
+         title: "Oops...",
+         text: "Fill out all required fields",
+         timer: 1200,
+         showConfirmButton: false,
+         });
+  }
+  function loading(){
+    Swal.fire({
+        timer: 1500,
+        text:"Processing payment, please wait...",
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+        });
+  }
+  function success(){
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Payment Success",
+        showConfirmButton: false,
+        timer: 1500
+    });
+
+  }
+  </script> 
+  
+
+<script src="/js/main.js"></script>

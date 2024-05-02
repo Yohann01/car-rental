@@ -425,6 +425,42 @@ header{
 .booking-container{
   padding: 0 25px 0 0;
 }
+.payment-details{
+  display: flex;
+  margin: 20px 0 15px 0;
+}
+.payment-details .col{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.payment-details .right{
+  padding-left: 30px;
+}
+.payment-details input{
+  width: 100%;
+  font-size: 14px;
+  height: 40px;
+  padding: 10px;
+}
+/* Styling for the card element */
+#card-element {
+  border: 1px solid #767676;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Styling for the error messages */
+#card-errors {
+  color: red;
+  font-size: 14px;
+}
+
+.terms-conditions-container{
+  margin-top:20px;
+}
+
 .free-cancel-text img{
   width: 3%;
   height: 3%;
@@ -448,7 +484,7 @@ header{
   font-size: 13px;
 
 }.terms-condition{
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }.book-btn{
   background-color: var(--main-color);
   padding: 15px 25px 15px 25px;

@@ -18,6 +18,8 @@ const { checkUser } = require('./api/middleware/authMiddleware');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
@@ -48,9 +50,12 @@ app.use('*', checkUser);
 app.use('/',  hompageRouter);
 app.use('/catalog', catalogRouter);
 
+
+
 //API routes
 app.use('/api/catalog', carRoute);
 app.use('/api/auth', authRoute);
+// app.use('/api/', stripeRouter)
 
 
 

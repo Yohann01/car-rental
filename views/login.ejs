@@ -67,7 +67,9 @@
 
     if (data.user) {
         const returnTo = data.returnTo || '/';
+
         window.location.href = returnTo;
+
     }
 } catch (err) {
     console.error('Error occurred during sign-in:', err);

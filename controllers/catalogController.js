@@ -105,28 +105,36 @@ exports.getCatalog = async (req, res) => {
 */
 
 exports.getBookPage = async (req, res) => {
-
     function formatDate(inputDate) {
+        if (!inputDate) {
+            return ''; // Return empty string or handle default case
+        }
+
         // Split the input date string into year, month, and day components
         const [year, month, day] = inputDate.split('-');
-    
+
         // Create a Date object using the parsed components
         const formattedDate = new Date(year, month - 1, day); // Note: month is zero-based in JavaScript
-    
+
         // Get the month name and format the output string
         const monthName = formattedDate.toLocaleString('en-US', { month: 'long' }); // Get full month name
         const formattedOutput = `${monthName} ${parseInt(day, 10)}, ${year}`;
-    
+
         return formattedOutput;
     }
 
-    const dropOffDate = formatDate(req.session.dropOffDate)
-    const pickUpDate = formatDate(req.session.pickUpDate)
-    console.log(dropOffDate)
-    try{
-        const car = await Car.findOne({ _id: req.params.id })
-        res.render('book', { layout: './layouts/book-main', car, dropOffDate, pickUpDate})
-    }catch(err){
+    const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
+
+    try {
+        // Check if dropOffDate and pickUpDate are defined in the session
+        const dropOffDate = formatDate(req.session.dropOffDate);
+        const pickUpDate = formatDate(req.session.pickUpDate);
+
+        const car = await Car.findOne({ _id: req.params.id });
+        res.render('book', { layout: './layouts/book-main', car, dropOffDate, pickUpDate, stripePublicKey });
+    } catch (err) {
+        console.error('Error rendering book page:', err);
         res.status(404).json('Listing not found');
     }
-}
+};
+    

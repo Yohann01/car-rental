@@ -9,4 +9,5 @@ router.get('/logout', authController.logout);
 //** */ /api/auth/login
 router.post('/login', authController.login);
 
+router.post('/payment', authController.payment);
 module.exports = router;

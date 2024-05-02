@@ -8,7 +8,13 @@
 
     <link rel="stylesheet" href="/css/book-style.css">
     <link rel="stylesheet" href="/css/header-media-queries.css">
-    <!-- Box Icons -->
+    <!-- Stripe Script -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        const stripePublicKey = 'pk_test_51P8yo22MdxB4F65yrB2RteFytLYdtnK41w0gsN9ZOLyZSKE2br0VGoDg6C0lyLtI0gXWRaZTINm1dfXVwXuLHq6X008a6r6ZA4';
+        const stripe = Stripe(stripePublicKey);
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Car Deal</title>
 </head>
 <body>
