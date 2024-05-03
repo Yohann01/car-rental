@@ -41,6 +41,8 @@ npm install dotenv ejs express express-ejs-layouts express-session method-overri
     ![2024-05-03 17-48-01 (online-video-cutter com) (3)](https://github.com/Yohann01/car-rental/assets/82199055/bc6fd1e4-e478-40d9-94e5-afd245fffda4)
 ---
 2. Ensure to fill the `.env` file with the following environment variables:
+
+`note: Make sure that you have MongoDB cluster and a Stripe account`
 ```.env
 MONGO_URL = (Your MongoDB cluster URL)
 PORT = 5000
