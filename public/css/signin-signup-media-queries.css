@@ -1,0 +1,21 @@
+@media(max-width: 1410px){
+    .form-content {
+        width: 40%;  
+      }
+}
+
+@media(max-width: 768px){
+    .form-content {
+        width: 50%;  
+      }
+}
+@media(max-width: 600px){
+    .form-content {
+        width: 60%;  
+      }
+}
+@media(max-width: 480px){
+    .form-content {
+        width: 80%;  
+      }
+}
