@@ -406,6 +406,13 @@ body{
   align-items: center;
   justify-content: space-around; /* Adjust as needed for desired spacing */
   margin: 5px 0;
+
+}
+.cars-catalog-container button,
+.cars-catalog-container input,
+.cars-catalog-container select
+{
+  max-height: 43px;
 }
 
 .search-container form {
