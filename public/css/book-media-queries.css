@@ -1,0 +1,298 @@
+@media(max-width: 1700px){
+  .loc{
+    max-width: 1570px;
+    margin: auto;
+  }
+  .car-details{ 
+    max-width: 1570px;
+    margin: auto;
+  }
+}
+
+@media(max-width: 1280px){
+  .text-title{
+    width: 20%;
+  }
+  .right-text{
+    margin-left: 0;
+  }
+
+  .breakdown-item{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .breakdown-sub-item{
+    display: flex;
+    margin: 0;
+  }
+
+
+.estimated-total h4{
+
+    margin-left: 0;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.estimated-total{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+}
+
+@media(max-width: 1024px){
+
+  .date{
+    font-size: 20px;
+  }
+  .location-icon{  
+    height: 7%;
+    width: 7%;
+  }
+
+  .clock-icon, .info-icon{
+      height: 6%;
+      width: 6%;
+      margin-left: 0px;
+  }
+  .card-photo{
+    width: 50%;
+    height: 70%;
+  }
+
+  .tooltip{
+      font-size: 8px;
+  }
+
+  .item-name img{
+      width: 6%;
+  }
+  
+  .card-content{
+      padding: 0;
+  }
+  .specs-list-container img{
+    width: 50%;
+  }
+  .specs-list-container p{
+    margin-right: 15px;
+    font-size: 13px;
+  }
+  .line-horizontal{
+    margin: 10px 0 10px 0;
+
+  }
+  .free-cancel-text{
+    margin: 10px 10px 10px 0;
+    font-size: 9px;
+  }
+
+  /* Booking Container */
+
+  .booking-container{
+    padding: 0 10px 0 0;
+  }
+  
+  .payment-details label{
+    font-size: 13px;
+  }
+  
+  .payment-details input{
+    font-size: 12px;
+    height: 29  px;
+    padding: 10px;
+  }
+
+
+  .terms-conditions-container p{
+    font-size: 10px;
+  }
+  
+  .book-btn{
+    background-color: var(--main-color);
+    padding: 10px 20px 10px 20px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+  }
+
+  /* Rental Charge Container */
+
+  .breakdown-title{
+    font-size: 13px;
+  }
+
+  .right-text{
+    margin-left: 0;
+  }
+
+  .breakdown-item{
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .breakdown-sub-item{
+    display: flex;
+    font-size: 10px;
+    margin: 0;
+  }
+
+  .estimated-total p{
+      font-size: 12px;
+  }
+
+  .estimated-total h4{
+      font-size: 20px;
+      margin-left: 0;
+      justify-content: center;
+      margin-top: 5px;
+  }
+
+  .estimated-total{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media(max-width: 1010px){
+    .loc{padding: 85px 50px 20px 50px}
+    .car-details{ padding: 0 50px}
+}
+
+@media(max-width: 768px){
+
+.card-photo{
+    width: 80%;
+    height: 70%;
+}
+
+.tooltips{
+    display: none;
+}
+
+.item-name img{
+    width: 9%;
+}
+
+.card-content{
+    padding: 0;
+}
+
+.specs-list-container img{
+    width: 70%;
+}
+
+.specs-list-container p{
+  margin-right: 20px;
+  font-size: 13px;
+}
+
+.line-horizontal{
+  margin: 15px 0 15px 0;
+
+}
+
+.free-cancel-text{
+  margin: 10px 10px 10px 0;
+  font-size: 10px;
+}
+
+.free-cancel-text img{
+  width: 5%;
+}
+
+
+
+
+/* Rental Charge Container */
+
+.breakdown-title{
+  font-size: 13px;
+}
+
+.right-text{
+  margin-left: 0;
+}
+
+.breakdown-item{
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.breakdown-sub-item{
+  display: flex;
+  font-size: 9px;
+  margin: 0;
+}
+
+.estimated-total p{
+    font-size: 12px;
+}
+
+.estimated-total h4{
+    font-size: 20px;
+    margin-left: 0;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.estimated-total{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+}
+@media(max-width: 640px){
+
+    .location-icon{  
+        height: 8%;
+        width: 8%;
+    }
+
+    .clock-icon, .info-icon{
+        height: 7%;
+        width: 7%;
+        margin-left: 0px;
+    }
+
+
+    /* Rental Charge Container */
+
+    .breakdown-title{
+      font-size: 11px;
+    }
+
+    .right-text{
+      margin-left: 0;
+    }
+
+    .breakdown-item{
+      font-size: 8px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .breakdown-sub-item{
+      display: flex;
+      font-size: 7px;
+      margin: 0;
+    }
+
+    .estimated-total p{
+        font-size: 9px;
+    }
+
+    .estimated-total h4{
+        font-size: 15px;
+        margin-left: 0;
+        justify-content: center;
+        margin-top: 5px;
+    }
+    
+}
