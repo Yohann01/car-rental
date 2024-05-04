@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .title-contact{
+    padding-top: 20px;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+  .contact-content h2{
+    margin-bottom: 10px;
+  }
+  .title-contact h1{
+    font-size: 40px;
+  }
+  .container {
+    margin: 20px auto;
+  }
+  
+  h1, h2, h3 {
+    color: #333;
+  }
+  
+  .contact-info, .visit-us, .social-media, .feedback, .careers, .partnerships {
+    margin-bottom: 30px;
+  }
+  
+  .contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .contact-details div {
+    flex: 0 0 30%;
+    margin-bottom: 20px;
+  }
+  
+  .address {
+    font-style: normal;
+  }
+
+  @media(max-width: 768px){
+    .title-contact h1{
+      font-size: 35px;
+    }
+    .title-contact p{
+      font-size: 14px;
+    }
+    .contact-content h2{
+      margin-bottom: 10px;
+      font-size: 23px;
+    }
+    .contact-content h3{
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    .contact-content p{
+      font-size: 13px;
+    }
+    .contact-details {
+      flex-direction: column;
+        }
+        
+    address,
+    .social-media li{
+      font-size: 14px;
+    }
+}
+
+@media(max-width: 480px){
+  .title-contact h1{
+    font-size: 35px;
+  }
+  .contact-content h2{
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  .contact-content h3{
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  .contact-content p{
+    font-size: 11px;
+  }
+
+  address,
+  .social-media li{
+    font-size: 12px;
+  }
+
+
+
+}
