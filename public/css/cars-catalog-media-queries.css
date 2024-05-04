@@ -170,6 +170,30 @@
         font-size: 10px;
         margin: 2px;
     }
+
+    .cars-catalog-container button,
+    .cars-catalog-container input,
+    .cars-catalog-container select
+    {
+      max-height: 30px;
+    }
+    .search-container .modal-btn img{
+        width: 37%;
+    }
+    .search-btn-icon i{
+        font-size: 15px;
+    }
+    .specs-list-container p{
+        display: flex;
+        align-items: center;
+        margin-top: 3px;
+        margin-right: 7px;
+        font-size: 13px;
+    }
+    .locations img{
+        width: 16%;
+        height: 90%;
+    }
 }
 
 @media(max-width: 640px){
@@ -177,4 +201,45 @@
         width: 75%;
         margin-top: 20px;
     }
+}
+@media(max-width: 500px){
+    section{padding: 85px 20px;}
+    .cars-catalog-container{
+        width:100%;
+    }
+
+}
+@media(max-width: 468px){
+
+
+    .items .card-photo{
+        height: 50%;
+        margin-top: 25px;
+    }
+    .text{
+        margin-right: 0px;
+    }
+
+    .items .item-name{
+        font-size: 13px;
+    }
+
+    .items .item-name img{
+        width: 11px;
+    }
+    
+    
+    .specs-list-container p{
+        margin-right: 9px;
+        font-size: 10px;
+    }
+    
+
+
+    .locations img{
+        width: 17%;
+        height: 90%;
+        margin-right: 5px;
+    }
+
 }
