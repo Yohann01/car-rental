@@ -1,4 +1,7 @@
 @media(max-width: 1700px){
+  .text-title{
+    width: 15%;
+  }
   .loc{
     max-width: 1570px;
     margin: auto;
@@ -160,23 +163,28 @@
 }
 
 @media(max-width: 1010px){
+  .text-title{
+    width: 25%;
+  }
     .loc{padding: 85px 50px 20px 50px}
     .car-details{ padding: 0 50px}
 }
 
 @media(max-width: 768px){
+  .text-title{
+    width: 30%;
+  }
 
-.card-photo{
-    width: 80%;
-    height: 70%;
-}
 
 .tooltips{
     display: none;
 }
 
 .item-name img{
-    width: 9%;
+    width: 5%;
+}
+.item-name{
+  font-size: 17px;
 }
 
 .card-content{
@@ -250,16 +258,36 @@
 }
 @media(max-width: 640px){
 
-    .location-icon{  
-        height: 8%;
-        width: 8%;
-    }
+  .card-photo{
+    width: 80%;
+    height: 70%;
+    margin-top: 20px;
+}
 
-    .clock-icon, .info-icon{
-        height: 7%;
-        width: 7%;
-        margin-left: 0px;
-    }
+.text-title{
+  width: 25%;
+  font-size: 9px;
+}
+.date{
+  font-size: 14px;
+  font-weight: 600;
+}
+.location-icon{  
+  height: 6%;
+  width: 6%;
+}
+.clock-icon, .info-icon{
+height: 5%;
+width: 5%;
+}
+.details .col-1 p,
+.details .col-2 p,
+.details .col-3 p{
+font-size: 9px;
+}
+.details{
+margin-top: 5px;
+}
 
 
     /* Rental Charge Container */
@@ -295,4 +323,227 @@
         margin-top: 5px;
     }
     
+}
+@media(max-width: 540px){
+  .text-title{
+    width: 40%;
+    font-size: 12px;
+  }
+  .date{
+    font-size: 15px;
+    font-weight: 600;
+}
+.location-icon{  
+    height: 7%;
+    width: 7%;
+}
+.clock-icon, .info-icon{
+  height: 6%;
+  width: 6%;
+}
+
+}
+
+@media(max-width: 500px){
+  .loc{padding: 85px 20px 10px 20px}
+  .car-details{ padding: 0 20px}
+  
+  .text-title{
+    width: 40%;
+    font-size: 8px;
+  }
+  .date{
+    font-size: 13px;
+    font-weight: 600;
+}
+.location-icon{  
+    height: 9%;
+    width: 9%;
+}
+.clock-icon, .info-icon{
+  height: 8%;
+  width: 8%;
+}
+.details .col-1 p,
+.details .col-2 p,
+.details .col-3 p{
+  font-size: 8px;
+}
+.details{
+  margin-top: 5px;
+}
+
+
+
+
+.card-photo{
+  width: 100%;
+  height: 70%;
+}
+
+.item-name img{
+  width: 5%;
+}
+.item-name{
+font-size: 13px;
+}
+
+.card-content{
+  padding: 0;
+}
+
+.specs-list-container img{
+  width: 70%;
+}
+.specs-list-container{
+overflow: scroll;
+}
+.specs-list-container p{
+margin-right: 20px;
+font-size: 11px;
+margin-right: 15px;
+}
+
+.line-horizontal{
+margin: 5px 0;
+
+}
+
+.free-cancel-text{
+margin: 10px 10px 10px 0;
+font-size: 7px;
+}
+
+.free-cancel-text img{
+width: 5%;
+}
+
+
+
+/* Booking container */
+
+
+
+
+
+.booking-container h3{
+  font-size: 12px;
+}
+.payment-details{
+  margin: 10px 0 10px 0;
+}
+.payment-details label {
+  font-size: 8px;
+}
+.payment-details .col{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.payment-details .right{
+  padding-left: 30px;
+}
+.payment-details input{
+  width: 100%;
+  font-size: 10px;
+  height: 0px;
+  padding: 8px;
+}
+#card-element{
+  border: 1px solid #767676;
+  padding: 5px;
+  font-size: 10px;
+  border-radius: 3px;
+}
+/* Styling for the card elemen
+
+/* Styling for the error messages */
+#card-errors {
+  color: red;
+  font-size: 7px;
+}
+
+.terms-conditions-container{
+  margin-top:10px;
+}
+
+.free-cancel-text img{
+  width: 3%;
+  height: 3%;
+  margin-right: 5px;
+}
+.booking-btn-container{
+  padding: 0 25px 0 0;
+  height: 100%;
+}.terms-conditions-container p{
+  font-size: 7px;
+}.terms-condition{
+  padding: 10px;
+}
+.terms-condition p{
+  margin-left: 10px;
+}
+.drp-off-det-cont p{
+  font-size: 13px;
+
+}
+.terms-condition{
+  margin-bottom: 0px;
+}
+#terms-condition {
+  /* Set the desired width and height */
+  width: 10px;
+  height: 15px;
+  /* You can also use other properties like padding or margin to adjust the size */
+}
+.book-btn{
+  background-color: var(--main-color);
+  font-size: 7px;
+  padding: 5px 5px 5px 5px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+}
+
+
+
+/* Rental Charge Container */
+
+.breakdown-title{
+font-size: 7px;
+}
+
+.right-text{
+margin-left: 0;
+}
+
+.breakdown-item{
+font-size: 7px;
+display: flex;
+flex-direction: column;
+}
+
+.breakdown-sub-item{
+display: flex;
+font-size: 6px;
+margin: 0;
+}
+
+.estimated-total p{
+  font-size: 9px;
+}
+
+.estimated-total h4{
+  font-size: 10px;
+  margin-left: 0;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.estimated-total{
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
 }
