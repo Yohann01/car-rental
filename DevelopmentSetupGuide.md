@@ -1,6 +1,6 @@
 # CarDeal Development Setup Guide⚙️
 
-This guide is intended for developers who want to set up a local development environment for the PlayLink application. It includes instructions for running and testing the Angular frontend and ASP.NET Core Web API separately.
+This guide is intended for developers who want to set up a local development environment for the CarDeal website.
 
 ## Prerequisites📃
 
