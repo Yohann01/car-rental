@@ -398,15 +398,14 @@ body{
   height: 5vh;
   border-radius: 5px;
 }
-
 /* Seacrch container */
 .search-container {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around; /* Adjust as needed for desired spacing */
-  margin: 5px 0;
 
+  justify-content: space-around; /* Adjust as needed for desired spacing */
+  margin: 5px auto;
 }
 .cars-catalog-container button,
 .cars-catalog-container input,
@@ -444,6 +443,7 @@ body{
   box-shadow: 0px 0px 7px rgba(0,0,0,0.1);
    /* Add spacing between elements */
   border: none;
+  min-width: 175px;
 }
 
 .search-container .modal-btn,
@@ -479,11 +479,73 @@ input[type="date"] {
   align-items: center;
   border: none;
 }
+.scrollable-search-container svg{
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: white;
+  border: 1px solid gray
+
+}
+.scrollable-search-container {
+  position: relative; /* Ensure the container is the reference for absolute positioning */
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden; /* Hide overflow for vertical direction */
+  overflow-x: scroll; /* Allow horizontal scroll */
+  -ms-overflow-style: none; /* Hide scrollbar in IE */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+.scrollable-search{
+  white-space: nowrap;
+  overflow: hidden; /* Hide overflow for vertical direction */
+  overflow-x: scroll; /* Allow horizontal scroll */
+  -ms-overflow-style: none; /* Hide scrollbar in IE */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+.scrollable-search-container{
+    margin-right: 5px;
+}
+
+.scrollable-search-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Webkit browsers */
+}
+
+.scrollable-search-container .right-arrow,
+.scrollable-search-container .left-arrow {
+  position: absolute; /* Position arrows absolutely within the container */
+  height: 100%;
+  width: 50px; /* Adjust width as necessary */
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  display: none;
+
+}
+
+.scrollable-search-container .right-arrow {
+  right: 0; /* Fix to the right edge */
+  justify-content: flex-end;
+}
+
+.scrollable-search-container .left-arrow {
+  left: 0; /* Fix to the left edge */
+}
+
+.scrollable-search-container .right-arrow.active,
+.scrollable-search-container .left-arrow.active {
+  display: flex; /* Show arrows when active */
+}
 
 .search-btn-icon i {
   font-size: 22px;
   color: white;
 }
+
 
 
 
@@ -506,6 +568,8 @@ input[type="date"] {
   margin:0 auto 0 auto;
   /* background-color: #FF3714; */
   flex-direction: column;
+  
+  
 }
 .results-text{
   padding: 10px 5px 0px 5px;

@@ -73,55 +73,82 @@
                     <form id="bookingForm" action="/catalog/cars">
                         <!-- Select Car Type -->
                         <button id="openModalBtn" onclick=openModal() class="modal-btn"><img src="/assets/png-icons/filter.png" alt=""></button>
+                        <div class="scrollable-search-container"  >
+                            <div class="scrollable-search" id="myDiv" >
+                                <div class="left-arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" 
+                                    fill="none" viewBox="0 0 24 24" 
+                                    stroke-width="1.5" 
+                                    stroke="currentColor" 
+                                    class="w-6 h-6">
+                                        <path stroke-linecap="round" 
+                                        stroke-linejoin="round" 
+                                        d="M15.75 19.5 8.25 12l7.5-7.5" />
+                                    </svg>
+                                </div>
+                                <select id="carType" class="carType" name="carType">
+                                    <option value="default" <%= query.carType === "" ? 'selected' : '' %>>Select Car type</option>
+                                    <option value="Sedan"<%= query.carType === "Sedan" ? 'selected' : '' %>>Sedan</option>
+                                    <option value="SUV"<%= query.carType === "SUV" ? 'selected' : '' %>>SUV</option>
+                                </select>
+                            
+                            
+            
 
-                        <select id="carType" class="carType" name="carType">
-                            <option value="default" <%= query.carType === "" ? 'selected' : '' %>>Select Car type</option>
-                            <option value="Sedan"<%= query.carType === "Sedan" ? 'selected' : '' %>>Sedan</option>
-                            <option value="SUV"<%= query.carType === "SUV" ? 'selected' : '' %>>SUV</option>
-                        </select>
-                        
-                        
-        
+                                <!-- Select Pick Up Location -->
+                                <select id="pickupLocation" class="select-loc" name="pickUpLocationCity" >
+                                    <option value="default"<%= query.dropOffLocationCity === "" ? 'selected' : '' %>>Select pick up location</option>
+                                    <option value="Manila"<%= query.pickUpLocationCity === "Manila" ? 'selected' : '' %>>Manila</option>
+                                    <option value="Quezon City"<%= query.pickUpLocationCity === "Quezon City" ? 'selected' : '' %>>Quezon City</option>
+                                    <option value="Pampanga City"<%= query.pickUpLocationCity === "Pampanga City" ? 'selected' : '' %>>Pampanga City</option>
+                                    <option value="Batangas City"<%= query.pickUpLocationCity === "Batangas City" ? 'selected' : '' %>>Batangas City</option>
+                                    <option value="Baguio City"<%= query.pickUpLocationCity === "Baguio City" ? 'selected' : '' %>>Baguio City</option>
+                                </select>
+                
+                                <!-- Drop off date -->
 
-                        <!-- Select Pick Up Location -->
-                        <select id="pickupLocation" class="select-loc" name="pickUpLocationCity" >
-                            <option value="default"<%= query.dropOffLocationCity === "" ? 'selected' : '' %>>Select pick up location</option>
-                            <option value="Manila"<%= query.pickUpLocationCity === "Manila" ? 'selected' : '' %>>Manila</option>
-                            <option value="Quezon City"<%= query.pickUpLocationCity === "Quezon City" ? 'selected' : '' %>>Quezon City</option>
-                            <option value="Pampanga City"<%= query.pickUpLocationCity === "Pampanga City" ? 'selected' : '' %>>Pampanga City</option>
-                            <option value="Batangas City"<%= query.pickUpLocationCity === "Batangas City" ? 'selected' : '' %>>Batangas City</option>
-                            <option value="Baguio City"<%= query.pickUpLocationCity === "Baguio City" ? 'selected' : '' %>>Baguio City</option>
-                        </select>
-        
-                        <!-- Drop off date -->
-
-        
-        
-                        <!-- Select Drop Off Location -->
-                       
-                        <select id="dropoffLocation" class="select-loc" name="dropOffLocationCity" >
-                            <option value="default"<%= query.dropOffLocationCity === "" ? 'selected' : '' %>>Select pick up location</option>
-                            <option value="Manila"<%= query.dropOffLocationCity === "Manila" ? 'selected' : '' %>>Manila</option>
-                            <option value="Quezon City"<%= query.dropOffLocationCity === "Quezon City" ? 'selected' : '' %>>Quezon City</option>
-                            <option value="Pampanga City"<%= query.dropOffLocationCity === "Pampanga City" ? 'selected' : '' %>>Pampanga City</option>
-                            <option value="Batangas City"<%= query.dropOffLocationCity === "Batangas City" ? 'selected' : '' %>>Batangas City</option>
-                            <option value="Baguio City"<%= query.dropOffLocationCity === "Baguio City" ? 'selected' : '' %>>Baguio City</option>
-                        </select>  
-                        <input type="date" id="pickupDate" name="pickUpDate" value="<%= query.pickUpDate || '' %>" >
-                        <input type="date" id="dropoffDate" name="dropOffDate" value="<%= query.dropOffDate || '' %>" >
-                        
-                        
-                        <!-- Additional Query Parameters (Hidden Inputs) -->
-                        <input type="hidden" name="ac" value="true">
-                        <input type="hidden" name="transmission" value="A">
-                        
+                
+                
+                                <!-- Select Drop Off Location -->
+                            
+                                <select id="dropoffLocation" class="select-loc" name="dropOffLocationCity" >
+                                    <option value="default"<%= query.dropOffLocationCity === "" ? 'selected' : '' %>>Select pick up location</option>
+                                    <option value="Manila"<%= query.dropOffLocationCity === "Manila" ? 'selected' : '' %>>Manila</option>
+                                    <option value="Quezon City"<%= query.dropOffLocationCity === "Quezon City" ? 'selected' : '' %>>Quezon City</option>
+                                    <option value="Pampanga City"<%= query.dropOffLocationCity === "Pampanga City" ? 'selected' : '' %>>Pampanga City</option>
+                                    <option value="Batangas City"<%= query.dropOffLocationCity === "Batangas City" ? 'selected' : '' %>>Batangas City</option>
+                                    <option value="Baguio City"<%= query.dropOffLocationCity === "Baguio City" ? 'selected' : '' %>>Baguio City</option>
+                                </select>  
+                                <input type="date" id="pickupDate" name="pickUpDate" value="<%= query.pickUpDate || '' %>" >
+                                <input type="date" id="dropoffDate" name="dropOffDate" value="<%= query.dropOffDate || '' %>" >
+                            
+                                
+                                <!-- Additional Query Parameters (Hidden Inputs) -->
+                                <input type="hidden" name="ac" value="true">
+                                <input type="hidden" name="transmission" value="A">
+                                <div class="right-arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" 
+                                    fill="none" viewBox="0 0 24 24" 
+                                    stroke-width="1.5" 
+                                    stroke="currentColor" 
+                                    class="w-6 h-6">
+                                        <path stroke-linecap="round" 
+                                        stroke-linejoin="round" 
+                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>  
                         <!-- Search Button -->
                         <button type="submit" class="search-btn-icon">
                             <i class='bx bx-search' ></i>
                         </button>
    
-                </form>
+                    </form>
             </div>
+
+
+
             <div class="results">
                 <h5 class="results-text"><%= dataCount %> result(s)</h5>
             </div>
@@ -190,40 +217,6 @@
 
         
 </section>
-<script src="/js/catalogScript.js">
-</script>
+<script src="/js/catalogScript.js"></script>
 <script src="/js/main.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-     const bookingForm = document.getElementById("bookingForm");
-
-     bookingForm.addEventListener('submit', function(e) {
-         // Prevent the default form submission behavior
-         e.preventDefault();
-
-         // Perform form validation checks here
-         const carType = document.getElementById("carType").value;
-         const pickUpLoc = document.getElementById("pickupLocation").value;
-         const pickUpDate = document.getElementById("pickupDate").value;
-         const dropOffLoc = document.getElementById("dropoffLocation").value;
-         const dropOffDate = document.getElementById("dropoffDate").value;
-
-         if (carType === 'default' || pickUpLoc === 'default' || pickUpDate === '' || dropOffLoc === 'default' || dropOffDate === '') {
-         // Display error message or perform error handling
-         Swal.fire({
-         icon: "warning",
-         title: "Oops...",
-         text: "Fill out all required fields",
-         timer: 1200,
-         showConfirmButton: false,
-         });
-         return; // Stop further execution
-         }
-
-         // If all validation checks pass, you can proceed with form submission
-         bookingForm.submit(); // Uncomment this line to submit the form programmatically
-     });
-     });
-
-
- </script>
+<script src="/js/searchCatalogScript.js"></script>

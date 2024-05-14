@@ -72,5 +72,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-
 });
+const rightArrow = document.querySelector(".scrollable-search-container .right-arrow svg")
+const leftArrow = document.querySelector(".scrollable-search-container .left-arrow svg")
+const searchList = document.querySelector(".scrollable-search")
+const leftArrowContainer = document.querySelector(".scrollable-search-container .left-arrow")
+const rightArrowContainer = document.querySelector(".scrollable-search-container .right-arrow")
+
+
+
+const manageIcons = () => {
+    if(searchList.scrollLeft >= 20){
+        leftArrowContainer.classList.add("active");
+    }else{
+        leftArrowContainer.classList.remove("active");
+    }
+
+    let maxScrollValue = searchList.scrollWidth - searchList.clientWidth - 20;
+    console.log("Scrollwidth: ",searchList.scrollWidth);
+    console.log("Clientwidth: ",searchList.clientWidth);
+    if(searchList.scrollLeft >= maxScrollValue){
+        rightArrowContainer.classList.remove('active')
+    }else{
+        rightArrowContainer.classList.add('active');
+    }
+}
+rightArrow.addEventListener('click',() =>{
+    searchList.scrollLeft += 500;
+    manageIcons();
+})
+leftArrow.addEventListener('click',() =>{
+    searchList.scrollLeft -= 500;
+    manageIcons();
+})
+
+searchList.addEventListener('scroll', manageIcons);
