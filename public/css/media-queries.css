@@ -159,6 +159,17 @@
         font-size: 15px;
         padding: 0px 0px 0 0;
     }
+    /* Apply styles to the placeholder of the email input */
+    input[type="email"]::placeholder {
+        font-size: 10px; /* Change to your desired font size */
+    }
+
+    /* Add vendor prefixes for broader browser support */
+    input[type="email"]::-webkit-input-placeholder {
+        font-size: 10px;
+    }
+
+
 
 }
 @media(max-width: 785px){
@@ -396,6 +407,15 @@
         padding: 0 5px 0 0;
         
     }
+        /* Apply styles to the placeholder of the email input */
+        input[type="email"]::placeholder {
+            font-size: 8px; /* Change to your desired font size */
+        }
+    
+        /* Add vendor prefixes for broader browser support */
+        input[type="email"]::-webkit-input-placeholder {
+            font-size: 8px;
+        }
     
 
 }
