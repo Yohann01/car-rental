@@ -3,10 +3,12 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li><a href="/api/auth/logout">Log out</a></li>
                 <% if (!user) { %>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/signup">Sign Up</a></li>
+                <% }else{ %>
+                <li><a href="/api/auth/logout">Log out</a></li>
                 <% } %>
+
             </ul>
 
