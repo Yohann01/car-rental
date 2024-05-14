@@ -70,7 +70,15 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(baseUrl);
         window.location.href = `${baseUrl}?${newUrl.toString()}`;
     });
-
+    
+    function overflow() {
+        if (searchList.clientWidth < 902) {
+            rightArrowContainer.classList.add('active');
+        } else {
+            rightArrowContainer.classList.remove('active')
+        }
+    }
+    overflow();
 
 });
 const rightArrow = document.querySelector(".scrollable-search-container .right-arrow svg")
@@ -97,6 +105,7 @@ const manageIcons = () => {
         rightArrowContainer.classList.add('active');
     }
 }
+
 rightArrow.addEventListener('click',() =>{
     searchList.scrollLeft += 500;
     manageIcons();
@@ -107,3 +116,4 @@ leftArrow.addEventListener('click',() =>{
 })
 
 searchList.addEventListener('scroll', manageIcons);
+

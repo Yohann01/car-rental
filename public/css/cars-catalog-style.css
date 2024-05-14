@@ -482,11 +482,11 @@ input[type="date"] {
 .scrollable-search-container svg{
   width: 24px;
   height: 24px;
-  padding: 2px;
+  padding: 3px;
   cursor: pointer;
   border-radius: 20px;
   background-color: white;
-  border: 1px solid gray
+  border: 1px solid #ccc
 
 }
 .scrollable-search-container {
@@ -498,6 +498,7 @@ input[type="date"] {
   overflow-x: scroll; /* Allow horizontal scroll */
   -ms-overflow-style: none; /* Hide scrollbar in IE */
   scrollbar-width: none; /* Hide scrollbar in Firefox */
+
 }
 .scrollable-search{
   white-space: nowrap;
@@ -506,6 +507,10 @@ input[type="date"] {
   -ms-overflow-style: none; /* Hide scrollbar in IE */
   scrollbar-width: none; /* Hide scrollbar in Firefox */
 }
+.scrollable-search {
+  scroll-behavior: smooth;
+}
+
 .scrollable-search-container{
     margin-right: 5px;
 }

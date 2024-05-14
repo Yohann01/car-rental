@@ -73,7 +73,7 @@
                     <form id="bookingForm" action="/catalog/cars">
                         <!-- Select Car Type -->
                         <button id="openModalBtn" onclick=openModal() class="modal-btn"><img src="/assets/png-icons/filter.png" alt=""></button>
-                        <div class="scrollable-search-container"  >
+                        <div class="scrollable-search-container" >
                             <div class="scrollable-search" id="myDiv" >
                                 <div class="left-arrow">
                                     <svg xmlns="http://www.w3.org/2000/svg" 
@@ -220,3 +220,18 @@
 <script src="/js/catalogScript.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/searchScript.js"></script>
+
+<script>
+    const container = document.getElementById('myDiv');
+    const rightArrowC = document.querySelector(".scrollable-search-container .right-arrow")
+    function detectOverflow() {
+        if (container.clientWidth < 902) {
+            console.log('Overflow detected!');
+                rightArrowC.classList.add('active');
+        } else {
+            console.log('No overflow detected.');
+        }
+    }
+
+    detectOverflow();
+</script>
